@@ -1,6 +1,8 @@
 # weapp-components
 ## 微信小程序组件封装（持续更新中...）
 ### 目录结构
+$ tree
+.
 ├── assets      静态资源文件
 │   ├── images  公共图片
 │   └── js      公共的JS
