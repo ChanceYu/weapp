@@ -4,7 +4,10 @@
 此项目封装一些小程序组件，未使用到第三方框架，您可以很好的使用全部的组件或者单独集成某个组件到自己项目中。另外也对小程序的一些小功能进行了封装，方便开发使用。
 
 
-### 目录结构
+![Toast浮动提示](./assets/images/desc/components.png)
+
+
+## 目录结构
 * `assets` ---------- 静态资源文件
   * `images` ------------ 公共图片
   * `js` ---------------- 公共的JS
@@ -18,15 +21,15 @@
 * `README.md` ------- 项目说明
 
 
-### WeAPP组件
+## WeAPP组件
 * Toast浮动提示
 
 
-### 公共方法的封装
-##### common.share 页面转发分享
-除去多页面的繁杂配置，使用起来更加简单高效，支持页面传递参数 options
+## 公共方法的封装
+#### common.share 页面转发分享
+除去每个页面的繁杂配置，使用起来更加简单高效，支持页面传递参数 options
 ```javascript
-  import common from '../../assets/js/common';//注意引入目录
+  import common from '../../assets/js/common';// 注意引入目录
 
   Page({
     onShareAppMessage: common.share()
@@ -34,10 +37,10 @@
 ```
 
 
-### 第三方库目前使用到
+## 第三方库目前使用到
 * font-awesome (4.7) <https://github.com/FortAwesome/Font-Awesome>
 * weui-wxss <https://github.com/Tencent/weui-wxss>
 
 
-### License
+## License
 [![](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php) 
