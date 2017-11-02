@@ -45,13 +45,13 @@
         "pagePath": "pages/index/index",
         "iconPath": "assets/images/wechat.png",
         "selectedIconPath": "assets/images/wechatHL.png",
-        "text": "weapp"
+        "text": "WeAPP"
       },
       {
         "pagePath": "pages/libs/weui/index/index",
         "iconPath": "assets/images/wechat.png",
         "selectedIconPath": "assets/images/wechatHL.png",
-        "text": "weui"
+        "text": "WeUI"
       },
       {
         "pagePath": "pages/libs/font-awesome/font-awesome",
