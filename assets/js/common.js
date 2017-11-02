@@ -2,7 +2,7 @@
 
 const common = {
   /**
-   * 将对象解析成url字符串参数
+   * 将对象解析成url字符串
    * @param {String} obj 参数对象
    * @param {Boolean} unEncodeURI 不使用编码
    */
@@ -22,7 +22,7 @@ const common = {
     }
   },
   /**
-   * 将url字符串参数解析成对象
+   * 将url字符串解析成对象
    * @param {String} str 带url参数的地址
    * @param {Boolean} unDecodeURI 不使用解码
    */

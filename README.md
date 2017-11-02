@@ -27,8 +27,8 @@
 
 ## 公共方法的封装`common.js`
 * [share 页面转发分享](#share-页面转发分享) 
-* [param 将对象解析成url字符串参数](#param-将对象解析成url字符串参数) 
-* [unparam 将url字符串参数解析成对象](#unparam-将url字符串参数解析成对象) 
+* [param 将对象解析成url字符串](#param-将对象解析成url字符串) 
+* [unparam 将url字符串解析成对象](#unparam-将url字符串解析成对象) 
 
 
 ##### share 页面转发分享
@@ -42,7 +42,7 @@
 ```
 
 
-##### param 将对象解析成url字符串参数
+##### param 将对象解析成url字符串
 ```javascript
   import common from '../../assets/js/common';
 
@@ -62,7 +62,7 @@
 ```
 
 
-##### unparam 将url字符串参数解析成对象
+##### unparam 将url字符串解析成对象
 与`common.param`使用相反
 ```javascript
   import common from '../../assets/js/common';
