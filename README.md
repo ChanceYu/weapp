@@ -25,14 +25,54 @@
 * Toast浮动提示
 
 
-## 公共方法的封装
-#### common.share 页面转发分享
+## 公共方法的封装`common.js`
+* [common.share 页面转发分享](#common.share-页面转发分享) 
+* [common.param 将对象解析成url字符串参数](#common.param-将对象解析成url字符串参数) 
+* [common.unparam 将url字符串参数解析成对象](#common.unparam-将url字符串参数解析成对象) 
+
+
+##### common.share 页面转发分享
 除去每个页面的繁杂配置，使用起来更加简单高效，支持页面传递参数 options
 ```javascript
-  import common from '../../assets/js/common';// 注意引入目录
+  import common from '../../assets/js/common';
 
   Page({
     onShareAppMessage: common.share()
+  });
+```
+
+
+##### common.param 将对象解析成url字符串参数
+```javascript
+  import common from '../../assets/js/common';
+
+  Page({
+    onLoad(){
+      let obj = {
+        name: 'weapp',
+        uid: 8,
+        age: 24
+      };
+
+      let params = common.param(obj);
+
+      console.log(params); // ?name=weapp&uid=8&age=24
+    }
+  });
+```
+
+
+##### common.unparam 将url字符串参数解析成对象
+与`common.param`使用相反
+```javascript
+  import common from '../../assets/js/common';
+
+  Page({
+    onLoad(){
+      let str = '?name=weapp&uid=8&age=24';
+
+      let obj = common.unparam(str);
+    }
   });
 ```
 
