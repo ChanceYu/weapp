@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/weapp/toast/toast",
+    
+    "pages/libs/font-awesome/font-awesome",
+
+    "pages/libs/weui/index/index",
+    "pages/libs/weui/button/button",
+    "pages/libs/weui/list/list",
+    "pages/libs/weui/input/input",
+    "pages/libs/weui/slider/slider",
+    "pages/libs/weui/uploader/uploader",
+    "pages/libs/weui/article/article",
+    "pages/libs/weui/badge/badge",
+    "pages/libs/weui/flex/flex",
+    "pages/libs/weui/footer/footer",
+    "pages/libs/weui/gallery/gallery",
+    "pages/libs/weui/grid/grid",
+    "pages/libs/weui/icons/icons",
+    "pages/libs/weui/loadmore/loadmore",
+    "pages/libs/weui/panel/panel",
+    "pages/libs/weui/preview/preview",
+    "pages/libs/weui/progress/progress",
+    "pages/libs/weui/actionsheet/actionsheet",
+    "pages/libs/weui/dialog/dialog",
+    "pages/libs/weui/msg/msg",
+    "pages/libs/weui/msg/msg_success",
+    "pages/libs/weui/msg/msg_fail",
+    "pages/libs/weui/picker/picker",
+    "pages/libs/weui/toast/toast",
+    "pages/libs/weui/navbar/navbar",
+    "pages/libs/weui/tabbar/tabbar",
+    "pages/libs/weui/searchbar/searchbar"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#32b16c",
+    "navigationBarTitleText": "小程序组件封装",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "assets/images/wechat.png",
+        "selectedIconPath": "assets/images/wechatHL.png",
+        "text": "weapp"
+      },
+      {
+        "pagePath": "pages/libs/weui/index/index",
+        "iconPath": "assets/images/wechat.png",
+        "selectedIconPath": "assets/images/wechatHL.png",
+        "text": "weui"
+      },
+      {
+        "pagePath": "pages/libs/font-awesome/font-awesome",
+        "iconPath": "assets/images/wechat.png",
+        "selectedIconPath": "assets/images/wechatHL.png",
+        "text": "FontAwesome"
+      }
+    ]
+  }
+}

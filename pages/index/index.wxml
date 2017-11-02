@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="weui-cells weui-cells_after-title">
+      <navigator url="{{item.url}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{components}}" wx:for-index="idx">
+          <view class="weui-cell__bd">{{item.title}}</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+  </view>
+</view>

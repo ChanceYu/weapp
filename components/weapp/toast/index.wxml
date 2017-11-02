@@ -1,0 +1,5 @@
+<template name="ui-toast">
+  <view class="ui-toast" wx:if="{{ _ToastData_.show }}">
+    {{ _ToastData_.title }}
+  </view>
+</template>

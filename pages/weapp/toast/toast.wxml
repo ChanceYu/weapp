@@ -1,0 +1,14 @@
+<import src="/components/weapp/toast/index.wxml" />
+
+<template is="ui-toast" data="{{ _ToastData_ }}"></template>
+
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">Toast</view>
+        <view class="page__desc">浮动提示</view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+        <button class="weui-btn" type="primary" bindtap="showToast">显示</button>
+        <button class="weui-btn" type="default" bindtap="showToastDelay">显示，5秒之后消失</button>
+    </view>
+</view>
