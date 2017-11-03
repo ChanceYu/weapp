@@ -1,1 +1,17 @@
-/* pages/libs/font-awesome/font-awesome.wxss */
+.weui-grid{
+  text-align: center;
+  width: 20%;
+  padding: 10px 0;
+}
+
+.weui-grid.active{
+  background: #32b16c;
+  border-left-color: #32b16c;
+  border-right-color: #32b16c;
+  color: #fff;
+}
+
+.weui-grid__icon{
+  width: 100%;
+  font-size: 20px;
+}
