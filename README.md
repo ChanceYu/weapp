@@ -1,4 +1,7 @@
 # WeApp
+[![](https://img.shields.io/badge/language-JavaScript-brightgreen.svg)]
+[![](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php) 
+
 **微信小程序组件和功能封装（持续更新中...）**
 
 此项目封装一些小程序组件，您可以使用全部的组件或者单独集成某个组件到自己项目中。另外也对小程序的一些小功能进行了封装，方便开发使用。项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑，如果使用有问题，请使用最新版本基础库，并将微信更新到最新版本。
@@ -94,6 +97,6 @@
 
 
 ## License
-[![](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php) 
+[![](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php) 
 
 [MIT](https://opensource.org/licenses/MIT)，享受开源的乐趣。
