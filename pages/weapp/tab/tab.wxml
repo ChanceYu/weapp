@@ -1,0 +1,27 @@
+<import src="/components/weapp/tab/index.wxml" />
+
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">Tab</view>
+        <view class="page__desc">选项卡</view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+        <view class="weui-tab">
+            <template is="weapp-tab" data="{{ _data_: oTab1 }}"></template>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{oTab1.activeIndex != 0}}">选项一的内容</view>
+                <view class="weui-tab__content" hidden="{{oTab1.activeIndex != 1}}">选项二的内容</view>
+                <view class="weui-tab__content" hidden="{{oTab1.activeIndex != 2}}">选项三的内容</view>
+            </view>
+        </view>
+
+
+        <view class="weui-tab">
+            <template is="weapp-tab" data="{{ _data_: oTab2 }}"></template>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{oTab2.activeIndex != 0}}">活动一的内容</view>
+                <view class="weui-tab__content" hidden="{{oTab2.activeIndex != 1}}">活动二的内容</view>
+            </view>
+        </view>
+    </view>
+</view>

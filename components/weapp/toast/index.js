@@ -4,7 +4,7 @@ let Toast = {
    */
   defaults: {
     timer: null,
-    delay: 2000
+    delay: 1500
   },
   /**
    * 显示

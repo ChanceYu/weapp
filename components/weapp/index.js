@@ -1,8 +1,10 @@
 /**
  * 引入封装的组件
  */
+
 let components = {
-  Toast: require('./toast/index')
+  Toast: require('./toast/index'),
+  Tab: require('./tab/index')
 };
 
 let weapp = {};
@@ -13,7 +15,7 @@ weapp.inject = (pageScope) => {
 
     if (typeof componentObject === 'function') {
       // 类
-      weapp[attr] = (pageScope) => new componentObject(pageScope);
+      weapp[attr] = (options) => new componentObject(pageScope, options);
     }
     else if (typeof componentObject === 'object') {
       // 单例
