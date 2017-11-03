@@ -93,4 +93,6 @@
 
 
 ## License
-[![](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php) [MIT](https://opensource.org/licenses/MIT)，享受开源的乐趣。
+[![](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php) 
+
+[MIT](https://opensource.org/licenses/MIT)，享受开源的乐趣。
