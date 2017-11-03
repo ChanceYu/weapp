@@ -3,9 +3,9 @@
   color: #fff;
   display: inline-block;
   position: fixed;
-  bottom: 10px;
+  bottom: 20px;
   left: 50%;
-  font-size: 12px;
+  font-size: 14px;
   padding: 6px 10px;
   border-radius: 4px;
   transform: translateX(-50%);
