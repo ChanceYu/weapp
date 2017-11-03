@@ -1,6 +1,11 @@
 import Component from '../component';
 
 class Tab extends Component{
+  static defaultOptions = {
+    id: 'WeAppTab',
+    activeIndex: 0,
+    className: ''
+  }
   constructor(pageScope, options) {
     super(pageScope, options);
 

@@ -35,7 +35,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#32b16c",
-    "navigationBarTitleText": "小程序组件封装",
+    "navigationBarTitleText": "weapp-components",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -44,7 +44,7 @@
         "pagePath": "pages/index/index",
         "iconPath": "assets/images/wechat.png",
         "selectedIconPath": "assets/images/wechatHL.png",
-        "text": "WeAPP"
+        "text": "WeApp"
       },
       {
         "pagePath": "pages/libs/weui/index/index",

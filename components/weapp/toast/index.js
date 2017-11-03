@@ -2,14 +2,14 @@ let Toast = {
   /**
    * 默认参数
    */
-  defaults: {
+  defaultOptions: {
     timer: null,
     delay: 1500
   },
   /**
    * 显示
    */
-  show(title, delay) {
+  show(title, delay, onHide) {
     this.pageScope.setData({
       _ToastData_: {
         title: title,
@@ -17,20 +17,25 @@ let Toast = {
       }
     });
 
-    clearTimeout(this.defaults.timer);
-    this.defaults.timer = setTimeout(
-      () => this.hide(), delay || this.defaults.delay
+    clearTimeout(this.defaultOptions.timer);
+    this.defaultOptions.timer = setTimeout(
+      () => this.hide(onHide),
+      delay || this.defaultOptions.delay
     );
   },
   /**
    * 隐藏
    */
-  hide(){
+  hide(onHide){
     this.pageScope.setData({
       _ToastData_: {
         show: false
       }
     });
+
+    if (typeof onHide === 'function'){
+      onHide();
+    }
   }
 };
 
