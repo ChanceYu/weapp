@@ -1,5 +1,5 @@
 # WeApp
-[![](https://img.shields.io/badge/language-JavaScript-brightgreen.svg)]
+![](https://img.shields.io/badge/language-JavaScript-brightgreen.svg)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php) 
 
 **微信小程序组件和功能封装（持续更新中...）**
