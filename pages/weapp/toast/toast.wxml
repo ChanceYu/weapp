@@ -1,6 +1,6 @@
 <import src="/components/weapp/toast/index.wxml" />
 
-<template is="weapp-toast" data="{{ _ToastData_ }}"></template>
+<template is="weapp-toast" data="{{_data_: _WeAppToastData_}}"></template>
 
 <view class="page">
     <view class="page__hd">

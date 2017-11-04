@@ -1,8 +1,9 @@
-let Toast = {
+const Toast = {
   /**
    * 默认参数
    */
   defaultOptions: {
+    datakey: '_WeAppToastData_',
     timer: null,
     delay: 1500
   },
@@ -11,7 +12,7 @@ let Toast = {
    */
   show(title, delay, onHide) {
     this.pageScope.setData({
-      _ToastData_: {
+      [this.defaultOptions.datakey]: {
         title: title,
         show: true
       }
@@ -28,7 +29,7 @@ let Toast = {
    */
   hide(onHide){
     this.pageScope.setData({
-      _ToastData_: {
+      [this.defaultOptions.datakey]: {
         show: false
       }
     });

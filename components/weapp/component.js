@@ -5,12 +5,12 @@
  */
 
 class Component{
+  static components = {}
   constructor(pageScope, options) {
     this.pageScope = pageScope;
     this.options = options;
 
-    // 挂载当前组件到 Page 对象
-    this.pageScope[options.id] = this;
+    Component.components[options.id] = this;
   }
   /**
    * 获取组件的信息（根据参数event）
@@ -19,7 +19,7 @@ class Component{
     let dataset = event.currentTarget.dataset;
     let idx = dataset.idx;
     let componentId = dataset.componentId;
-    let componentInstance = this.pageScope[componentId];
+    let componentInstance = Component.components[componentId];
     let componentData = componentInstance.pageScope.data[componentId];
 
     return {

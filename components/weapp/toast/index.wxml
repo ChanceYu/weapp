@@ -1,5 +1,5 @@
 <template name="weapp-toast">
-  <view class="weapp-toast" wx:if="{{ _ToastData_.show }}">
-    {{ _ToastData_.title }}
+  <view class="weapp-toast" wx:if="{{ _data_.show }}">
+    {{ _data_.title }}
   </view>
 </template>

@@ -9,8 +9,5 @@ Page({
       title: 'tab 选项卡',
       url: '/pages/weapp/tab/tab'
     }]
-  },
-  onLoad() {
-
   }
 })

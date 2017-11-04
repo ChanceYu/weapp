@@ -8,10 +8,10 @@
           <view
             data-component-id="{{_data_.id}}"
             data-idx="{{idx}}"
-            bindtap="_TabAction"
+            bindtap="_WeAppTabAction_"
             class="weui-navbar__item {{_data_.activeIndex == idx ? 'weui-bar__item_on' : ''}}"
           >
-              <view class="weui-navbar__title">{{item.title}}</view>
+              <view class="weui-navbar__title">{{item}}</view>
           </view>
       </block>
   </view>
