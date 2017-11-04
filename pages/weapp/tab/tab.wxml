@@ -5,7 +5,7 @@
         <view class="page__title">Tab</view>
         <view class="page__desc">选项卡</view>
     </view>
-    <view class="page__bd page__bd_spacing">
+    <view class="page__bd page__bd_spacing weapp-bg-white">
         <view class="weui-tab">
             <template is="weapp-tab" data="{{ _data_: oTab1 }}"></template>
             <view class="weui-tab__panel">

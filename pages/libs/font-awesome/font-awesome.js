@@ -2,26 +2,54 @@ import icons from '../../../components/libs/font-awesome/icons';
 
 Page({
   data: {
-    icons: icons,
+    inputShowed: false,
+    inputVal: '',
+    icons: icons.slice(0),
     activeIcon: ''
   },
-  handlerSelect(event) {
-    var icon = event.currentTarget.dataset.icon;
-
+  showInput() {
     this.setData({
-      activeIcon: icon
+      inputShowed: true
     });
   },
-  handlerCopy(event) {
-    var icon = event.currentTarget.dataset.icon;
-
+  hideInput() {
     this.setData({
-      activeIcon: icon
+      inputVal: '',
+      icons: icons.slice(0),
+      inputShowed: false
     });
+  },
+  clearInput() {
+    this.setData({
+      icons: icons.slice(0),
+      inputVal: ''
+    });
+  },
+  inputTyping(e) {
+    let value = e.detail.value;
+    let allIcons = icons.slice(0);
+    let iconsData = [];
+
+    allIcons.forEach((item, idx) => {
+      if (item.indexOf(value) > -1){
+        iconsData.push(item);
+      }
+    });
+    
+    this.setData({
+      icons: iconsData,
+      inputVal: value
+    });
+  },
+  handlerSelect(event) {
+    this.getIconAndActive(event);
+  },
+  handlerCopy(event) {
+    let icon = this.getIconAndActive(event);
 
     wx.setClipboardData({
       data: `fa ${icon}`,
-      success: function (res) {
+      success: (res) => {
         wx.hideLoading();
         wx.showToast({
           title: '已复制',
@@ -30,5 +58,14 @@ Page({
         });
       }
     });
+  },
+  getIconAndActive(event) {
+    let icon = event.currentTarget.dataset.icon;
+
+    this.setData({
+      activeIcon: icon
+    });
+
+    return icon;
   }
 })

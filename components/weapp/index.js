@@ -1,5 +1,7 @@
-/**
- * 引入封装的组件
+/*!
+ * WeApp v1.0.0 (https://github.com/ChanceYu/weapp)
+ * Copyright 2017 ChanceYu.
+ * Licensed under the MIT license
  */
 
 let components = {
