@@ -95,7 +95,7 @@ Page({
 * Tab 选项卡
 
 
-## 公共方法的封装`common.js`
+## 公共方法
 * [common.share 页面转发分享](#commonshare-页面转发分享) 
 * [common.param 将对象解析成url字符串](#commonparam-将对象解析成url字符串) 
 * [common.unparam 将url字符串解析成对象](#commonunparam-将url字符串解析成对象) 
