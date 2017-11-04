@@ -14,16 +14,16 @@
 ## 目录结构
 ```
 ├─assets ---------- 静态资源文件
-│  ├─images -----     公共图片
-│  └─js ------------- 公共的JS
-│     └─common -------- 公共方法函数封装
+│  ├─images ---------- 公共图片
+│  └─js -------------- 公共的JS
+│     └─common ---------- 公共方法函数封装
 ├─components ------ 自定义组件和第三方组件
-│  ├─libs ----------- 第三方库
-│  └─weapp ---------- WeApp组件
+│  ├─libs ------------ 第三方库
+│  └─weapp ----------- WeApp组件
 ├─pages ----------- 页面目录
-│  ├─index ---------- 首页
-│  ├─libs ----------- 第三方库页面
-│  └─weapp ---------- WeApp组件页面
+│  ├─index ----------- 首页
+│  ├─libs ------------ 第三方库页面
+│  └─weapp ----------- WeApp组件页面
 ├─app.js
 ├─app.json
 ├─app.wxss
@@ -44,12 +44,12 @@
 
 
 ## 公共方法的封装`common.js`
-* [share 页面转发分享](#share-页面转发分享) 
-* [param 将对象解析成url字符串](#param-将对象解析成url字符串) 
-* [unparam 将url字符串解析成对象](#unparam-将url字符串解析成对象) 
+* [common.share 页面转发分享](#commonshare-页面转发分享) 
+* [common.param 将对象解析成url字符串](#commonparam-将对象解析成url字符串) 
+* [common.unparam 将url字符串解析成对象](#commonunparam-将url字符串解析成对象) 
 
 
-#### share 页面转发分享
+#### common.share 页面转发分享
 除去每个页面的繁杂配置，使用起来更加简单高效，支持页面传递参数 options
 ```javascript
   import common from '../../assets/js/common';
@@ -60,7 +60,7 @@
 ```
 
 
-#### param 将对象解析成url字符串
+#### common.param 将对象解析成url字符串
 ```javascript
   import common from '../../assets/js/common';
 
@@ -80,7 +80,7 @@
 ```
 
 
-#### unparam 将url字符串解析成对象
+#### common.unparam 将url字符串解析成对象
 与`common.param`使用相反
 ```javascript
   import common from '../../assets/js/common';
