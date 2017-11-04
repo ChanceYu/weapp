@@ -6,7 +6,7 @@
         wx:for-item="item"
       >
           <view
-            data-component-id="{{_data_._id_}}"
+            data-component-id="{{_data_.id}}"
             data-idx="{{idx}}"
             bindtap="_TabAction"
             class="weui-navbar__item {{_data_.activeIndex == idx ? 'weui-bar__item_on' : ''}}"

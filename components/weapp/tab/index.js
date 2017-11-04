@@ -7,7 +7,7 @@ class Tab extends Component{
     className: ''
   }
   constructor(pageScope, options) {
-    super(pageScope, options);
+    super(pageScope, Object.assign({}, Tab.defaultOptions, options));
 
     this.initData();
     this.injectEvents();
@@ -16,15 +16,8 @@ class Tab extends Component{
    * 初始化数据
    */
   initData() {
-    let data = {
-      _id_: this.options.id,
-      activeIndex: this.options.activeIndex || 0,
-      className: this.options.className || '',
-      list: this.options.list
-    };
-
     this.pageScope.setData({
-      [this.options.id]: data
+      [this.options.id]: this.options
     });
   }
   /**
