@@ -3,7 +3,7 @@ const Toast = {
    * 默认参数
    */
   defaultOptions: {
-    datakey: '_WeAppToastData_',
+    id: '_WeAppToastData_',
     timer: null,
     delay: 1500
   },
@@ -12,7 +12,7 @@ const Toast = {
    */
   show(title, delay, onHide) {
     this.pageScope.setData({
-      [this.defaultOptions.datakey]: {
+      [this.defaultOptions.id]: {
         title: title,
         show: true
       }
@@ -29,7 +29,7 @@ const Toast = {
    */
   hide(onHide){
     this.pageScope.setData({
-      [this.defaultOptions.datakey]: {
+      [this.defaultOptions.id]: {
         show: false
       }
     });

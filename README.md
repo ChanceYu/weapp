@@ -147,7 +147,7 @@ Page({
 ```
 
 
-## 第三方UI库目前使用到
+## 第三方UI库使用到
 字体图标使用FontAwesome，CSS组件样式使用WeUI
 
 * font-awesome (4.7) <https://github.com/FortAwesome/Font-Awesome>
