@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/weapp/toast/toast",
     "pages/libs/font-awesome/font-awesome",
     "pages/libs/weui/index/index",
     "pages/libs/weui/button/button",
@@ -30,6 +29,7 @@
     "pages/libs/weui/navbar/navbar",
     "pages/libs/weui/tabbar/tabbar",
     "pages/libs/weui/searchbar/searchbar",
+    "pages/weapp/toast/toast",
     "pages/weapp/tab/tab",
     "pages/weapp/cityPicker/cityPicker"
   ],
