@@ -1,0 +1,11 @@
+.weapp-city-picker-box{
+  position: relative;
+  min-height: 30px;
+}
+
+.weapp-city-picker{
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+}

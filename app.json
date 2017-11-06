@@ -30,7 +30,8 @@
     "pages/libs/weui/navbar/navbar",
     "pages/libs/weui/tabbar/tabbar",
     "pages/libs/weui/searchbar/searchbar",
-    "pages/weapp/tab/tab"
+    "pages/weapp/tab/tab",
+    "pages/weapp/cityPicker/cityPicker"
   ],
   "window": {
     "backgroundTextStyle": "light",

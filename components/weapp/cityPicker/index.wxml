@@ -1,0 +1,9 @@
+<template name="weapp-city-picker">
+  <view class="weapp-city-picker">
+    <picker mode="region" bindchange="WeApp_CityPicker_Change" data-component-id="{{_data_.id}}" value="{{_data_.region}}">
+      <view>
+        {{_data_.showLabel}}
+      </view>
+    </picker>
+  </view>
+</template>

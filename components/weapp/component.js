@@ -5,21 +5,21 @@
  */
 
 class Component{
-  static components = {}
+  static _components_ = {}
   constructor(pageScope, options) {
     this.pageScope = pageScope;
     this.options = options;
 
-    Component.components[options.id] = this;
+    Component._components_[options.id] = this;
   }
   /**
    * 获取组件的信息（根据参数event）
    */
-  getComponentInfo(event) {
+  _getComponentByEvent_(event) {
     let dataset = event.currentTarget.dataset;
     let idx = dataset.idx;
     let componentId = dataset.componentId;
-    let componentInstance = Component.components[componentId];
+    let componentInstance = Component._components_[componentId];
     let componentData = componentInstance.pageScope.data[componentId];
 
     return {
@@ -32,12 +32,12 @@ class Component{
   /**
    * 设置组件的 data 数据
    */
-  handlerComponentData(componentInstance, data) {
+  _componentData_(componentInstance, data) {
     let id = componentInstance.options.id;
 
     if (data) {
       /* set */
-      let _data = Object.assign({}, this.handlerComponentData(componentInstance), data);
+      let _data = Object.assign({}, this._componentData_(componentInstance), data);
 
       componentInstance.pageScope.setData({
         [id]: _data

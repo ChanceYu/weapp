@@ -1,3 +1,4 @@
 @import "./style.wxss";
 @import "./toast/index.wxss";
 @import "./tab/index.wxss";
+@import "./cityPicker/index.wxss";

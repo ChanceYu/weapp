@@ -8,7 +8,7 @@
           <view
             data-component-id="{{_data_.id}}"
             data-idx="{{idx}}"
-            bindtap="_WeAppTabAction_"
+            bindtap="WeApp_Tab_Action"
             class="weui-navbar__item {{_data_.activeIndex == idx ? 'weui-bar__item_on' : ''}}"
           >
               <view class="weui-navbar__title">{{item}}</view>

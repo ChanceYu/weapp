@@ -1,0 +1,13 @@
+<import src="/components/weapp/cityPicker/index.wxml" />
+
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">CityPicker</view>
+        <view class="page__desc">城市选择</view>
+    </view>
+    <view class="page__bd page__bd_spacing weapp-bg-white">
+        <view class="weapp-city-picker-box">
+            <template is="weapp-city-picker" data="{{ _data_: WeApp_CityPicker }}"></template>
+        </view>
+    </view>
+</view>

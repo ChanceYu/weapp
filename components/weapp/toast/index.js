@@ -3,7 +3,7 @@ const Toast = {
    * 默认参数
    */
   defaultOptions: {
-    id: '_WeAppToastData_',
+    id: 'WeApp_Toast',
     timer: null,
     delay: 1500
   },

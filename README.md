@@ -93,6 +93,7 @@ Page({
 ## WeApp组件
 * Toast 浮动提示
 * Tab 选项卡
+* CityPicker 城市选择
 
 
 ## 公共方法

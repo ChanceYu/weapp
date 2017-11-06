@@ -1,0 +1,9 @@
+.page__bd{
+  padding-top: 20px;
+}
+
+.weapp-city-picker-box{
+  border: 1px solid #eee;
+  padding: 10px;
+  display: block;
+}

@@ -2,7 +2,7 @@ import Component from '../component';
 
 class Tab extends Component{
   static defaultOptions = {
-    id: '_WeAppTab_',
+    id: 'WeApp_Tab',
     activeIndex: 0,
     className: ''
   }
@@ -24,23 +24,23 @@ class Tab extends Component{
    * 挂载组件的事件函数到 Page 对象
    */
   injectEvents(){
-    this.pageScope._WeAppTabAction_ = (event) => {
-      let { dataset, componentId, componentData, componentInstance} = this.getComponentInfo(event);
+    this.pageScope.WeApp_Tab_Action = (event) => {
+      let { dataset, componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
       let idx = dataset.idx;
 
       componentData.activeIndex = idx;
 
-      this.handlerComponentData(componentInstance, componentData);
+      this._componentData_(componentInstance, componentData);
       
       componentInstance.options.onChange && componentInstance.options.onChange(idx);
     }
   }
   select(index) {
-    let componentData = this.handlerComponentData(this);
+    let componentData = this._componentData_(this);
 
     componentData.activeIndex = index;
 
-    this.handlerComponentData(this, componentData);
+    this._componentData_(this, componentData);
   }
 }
 
