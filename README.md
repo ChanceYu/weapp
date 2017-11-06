@@ -9,15 +9,10 @@
 项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑，如果使用有问题，请使用最新版本基础库，并将微信更新到最新版本。
 
 
-
 ## 主要内容
 * WeApp组件，自定义封装和优化的组件
 * common.js，对公共功能函数和小程序API的封装
 * 第三方UI展示，方便预览查找，基本不做修改
-
-
-## 项目预览
-![WeApp组件](./assets/images/desc/components.png)
 
 
 ## 目录结构
@@ -153,6 +148,10 @@ Page({
 
 * font-awesome (4.7) <https://github.com/FortAwesome/Font-Awesome>
 * weui-wxss <https://github.com/Tencent/weui-wxss>
+
+
+## 项目预览
+![WeApp组件](./assets/images/desc/components.png)
 
 
 ## License
