@@ -86,10 +86,10 @@ Page({
 
 
 ## WeApp组件
-* [Toast 浮动提示](#weappToast)
-* [Tab 选项卡](#Tab-选项卡)
-* [CityPicker 城市选择](#CityPicker-城市选择)
-* [Loader 加载更多-暂无数据](#Loader-加载更多-暂无数据)
+* [Toast 浮动提示](#weapptoast)
+* [Tab 选项卡](#weapptab)
+* [CityPicker 城市选择](#weappcitypicker)
+* [Loader 加载更多-暂无数据](#weapploader)
 
 
 ## 公共方法
