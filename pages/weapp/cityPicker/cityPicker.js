@@ -5,7 +5,7 @@ Page({
     weapp.inject(this);
 
     weapp.CityPicker({
-      onChange: (region) => {
+      onChange(region){
         console.log(region)
       }
     });

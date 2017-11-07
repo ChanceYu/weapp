@@ -4,7 +4,7 @@
 
 **微信小程序组件和功能封装（持续更新中...）**
 
-**解决的痛点**：由于小程序和普通网页程序有所区别，组件的调用和使用相对来说更麻烦，此处封装的组件和功能函数是为了使用起来更加的简单，**减少麻烦的`data`设置、组件`event`事件绑定、多组件的隔离等问题**。为了能够让道友更好地理解组件的使用或集成到自己项目中，此处未使用任何第三方框架来构建，只使用了WeUI样式库和FontAwesome字体图标。几乎零学习成本，如果有什么问题，欢迎提个Issue。
+*解决的痛点*：由于小程序和普通网页程序有所区别，组件的调用和使用相对来说更麻烦，此处封装的组件和功能函数是为了使用起来更加的简单，**减少麻烦的`data`设置、组件`event`事件绑定、多组件的隔离等问题**。为了能够让道友更好地理解组件的使用或集成到自己项目中，此处未使用任何第三方框架来构建，只使用了WeUI样式库和FontAwesome字体图标。几乎零学习成本，如果有什么问题，欢迎提个Issue。
 
 项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑，如果使用有问题，请使用最新版本基础库，并将微信更新到最新版本。
 
@@ -86,20 +86,68 @@ Page({
 
 
 ## WeApp组件
-* Toast 浮动提示
-* Tab 选项卡
-* CityPicker 城市选择
-* Loader 加载更多-暂无数据
+* [Toast 浮动提示](#weappToast)
+* [Tab 选项卡](#Tab-选项卡)
+* [CityPicker 城市选择](#CityPicker-城市选择)
+* [Loader 加载更多-暂无数据](#Loader-加载更多-暂无数据)
 
 
 ## 公共方法
-* [common.share 页面转发分享](#commonshare-页面转发分享) 
-* [common.param 将对象解析成url字符串](#commonparam-将对象解析成url字符串) 
-* [common.unparam 将url字符串解析成对象](#commonunparam-将url字符串解析成对象) 
+* [common.share 页面转发分享](#commonshare)
+* [common.param 将对象解析成url字符串](#commonparam)
+* [common.unparam 将url字符串解析成对象](#commonunparam)
 
 
-#### common.share 页面转发分享
-除去每个页面的繁杂配置，使用起来更加简单高效，支持页面传递参数 options
+#### weapp.Toast
+浮动提示，普遍在移动开发中使用的Toast组件，与小程序的showToast不同
+###### 参数
+- `title`提示信息
+- `delay`自动关闭时间，单位毫秒，默认: 1500
+- `onHide`关闭之后回调
+###### 方法
+- `show`显示提示
+- `hide`关闭提示
+###### 使用
+```javascript
+weapp.Toast.show([title], [delay], [onHide]);
+```
+
+
+#### weapp.Tab
+选项卡
+###### 参数
+- `list`选项卡标题
+- `activeIndex`选中的索引，默认: 0
+- `className`主题样式，默认: ''，可传入`weapp-tab`或其它自定义样式
+- `onChange`切换的回调，参数index索引
+###### 方法
+- `select`激活选项卡，传入参数index激活的索引
+
+
+#### weapp.CityPicker
+城市选择
+###### 参数
+- `region`提示信息
+- `onChange`切换的回调，参数region
+
+
+#### weapp.Loader
+加载更多、暂无数据提示
+###### 参数
+- `iconType`小程序icon组件的type类型，默认: `search`
+- `status`当前的状态，可选值: `loading`加载中、`nomore`没有更多、`empty`暂无数据，默认: `loading`
+- `emptyTxt`暂无数据提示文字，默认: 暂无数据
+- `loadingTxt`加载中提示文字，默认: 正在加载
+- `noMoreTxt`没有更多提示文字，默认: 没有更多数据了
+###### 方法
+- `setStatus`传入参数status，可选值: `loading`、`nomore`、`empty`
+
+
+---------
+
+
+#### common.share
+页面转发分享，除去每个页面的繁杂配置，使用起来更加简单高效，支持页面传递参数 options
 ```javascript
 import common from '../../assets/js/common';
 
@@ -109,7 +157,8 @@ Page({
 ```
 
 
-#### common.param 将对象解析成url字符串
+#### common.param
+将对象解析成url字符串
 ```javascript
 import common from '../../assets/js/common';
 
@@ -129,8 +178,8 @@ Page({
 ```
 
 
-#### common.unparam 将url字符串解析成对象
-与`common.param`使用相反
+#### common.unparam
+将url字符串解析成对象，与`common.param`使用相反
 ```javascript
 import common from '../../assets/js/common';
 
