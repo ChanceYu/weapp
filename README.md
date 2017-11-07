@@ -86,6 +86,10 @@ Page({
 * [common.share 页面转发分享](#commonshare)
 * [common.param 将对象解析成url字符串](#commonparam)
 * [common.unparam 将url字符串解析成对象](#commonunparam)
+```
+
+
+---------
 
 
 ### weapp.Toast
