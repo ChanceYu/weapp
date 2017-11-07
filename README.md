@@ -98,7 +98,7 @@ Page({
 * [common.unparam 将url字符串解析成对象](#commonunparam)
 
 
-#### weapp.Toast
+### weapp.Toast
 浮动提示，普遍在移动开发中使用的Toast组件，与小程序的showToast不同
 ###### 参数
 - `title`提示信息
@@ -113,7 +113,7 @@ weapp.Toast.show([title], [delay], [onHide]);
 ```
 
 
-#### weapp.Tab
+### weapp.Tab
 选项卡
 ###### 参数
 - `list`选项卡标题
@@ -137,7 +137,7 @@ ActivityTab.select(1);
 ```
 
 
-#### weapp.CityPicker
+### weapp.CityPicker
 城市选择
 ###### 参数
 - `region`提示信息
@@ -152,7 +152,7 @@ weapp.CityPicker({
 ```
 
 
-#### weapp.Loader
+### weapp.Loader
 加载更多、暂无数据提示
 ###### 参数
 - `iconType`小程序icon组件的type类型，默认: `search`
@@ -180,7 +180,7 @@ oLoader.setStatus('empty');
 ---------
 
 
-#### common.share
+### common.share
 页面转发分享，除去每个页面的繁杂配置，使用起来更加简单高效，支持页面传递参数 options
 ```javascript
 import common from '../../assets/js/common';
@@ -191,7 +191,7 @@ Page({
 ```
 
 
-#### common.param
+### common.param
 将对象解析成url字符串
 ```javascript
 import common from '../../assets/js/common';
@@ -212,7 +212,7 @@ Page({
 ```
 
 
-#### common.unparam
+### common.unparam
 将url字符串解析成对象，与`common.param`使用相反
 ```javascript
 import common from '../../assets/js/common';
