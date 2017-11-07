@@ -48,20 +48,13 @@
 * 每个组件都必须传入唯一一个`id`，不能与页面`data`中已经包含的字段相同
 * 组件模板数据统一使用`data={{ _data_: componentId }}`形式，`componentId`与组件参数`id`必须一致
 
-WeApp组件主要分两种，一种主要是公共类型的组件，页面只使用一次模板调用，如`Toast`。另一种是一个页面可能多次使用，如`Tab`。
-使用`weapp.inject`注入当前的页面对象，是为了在每个组件内部可以调用当前的页面对象`this`，我称它为`pageScope`。在组件的内部你会时常看到它的影子，下面是展示`Tab`组件的简单使用，具体示例参考项目内部`pages/weapp/tab`中代码
+下面是展示`Tab`组件的简单使用，具体示例参考项目内部`pages/weapp/tab`中代码。其它类型组件使用基本和这种调用方式类似。
 
 ```html
 <!-- wxml -->
 <import src="/components/weapp/tab/index.wxml" />
 
 <template is="weapp-tab" data="{{ _data_: oTab1 }}"></template>
-
-<view class="weui-tab__panel">
-    <view class="weui-tab__content" hidden="{{oTab1.activeIndex != 0}}">选项一的内容</view>
-    <view class="weui-tab__content" hidden="{{oTab1.activeIndex != 1}}">选项二的内容</view>
-    <view class="weui-tab__content" hidden="{{oTab1.activeIndex != 2}}">选项三的内容</view>
-</view>
 ```
 ```javascript
 // js
@@ -75,10 +68,7 @@ Page({
     // 初始化组件
     weapp.Tab({
       id: 'oTab1',
-      list: ['选项1', '选项2', '选项3'],
-      onChange(idx) {
-        console.log('选项-' + idx);
-      }
+      list: ['选项1', '选项2', '选项3']
     });
   }
 })
