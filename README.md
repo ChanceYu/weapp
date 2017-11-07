@@ -89,6 +89,7 @@ Page({
 * Toast 浮动提示
 * Tab 选项卡
 * CityPicker 城市选择
+* Loader 加载更多-暂无数据
 
 
 ## 公共方法

@@ -31,7 +31,8 @@
     "pages/libs/weui/searchbar/searchbar",
     "pages/weapp/toast/toast",
     "pages/weapp/tab/tab",
-    "pages/weapp/cityPicker/cityPicker"
+    "pages/weapp/cityPicker/cityPicker",
+    "pages/weapp/loader/loader"
   ],
   "window": {
     "backgroundTextStyle": "light",

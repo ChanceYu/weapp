@@ -1,0 +1,25 @@
+<import src="/components/weapp/loader/index.wxml" />
+
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">Loader</view>
+        <view class="page__desc">加载更多-暂无数据</view>
+    </view>
+    <view class="page__bd_spacing weapp-bg-white">
+        <view class="weui-panel__bd" wx:if="{{ WeApp_Loader.status != 'empty' }}">
+            <view class="weui-media-box weui-media-box_text">
+                <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="handlerNoMore">设置没有更多数据</button>
+                <view><button class="weui-btn mini-btn" type="primary" size="mini" bindtap="handlerEmpty">暂无数据</button></view>
+
+                <view class="weui-media-box__title weui-media-box__title_in-text">标题一 </view>
+                <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+            </view>
+            <view class="weui-media-box weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">标题二</view>
+                <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+            </view>
+        </view>
+
+        <template is="weapp-loader" data="{{ _data_: WeApp_Loader }}"></template>
+    </view>
+</view>

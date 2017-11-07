@@ -14,6 +14,10 @@ Page({
       {
         title: 'CityPicker 城市选择',
         url: '/pages/weapp/cityPicker/cityPicker'
+      },
+      {
+        title: 'Loader 加载更多-暂无数据',
+        url: '/pages/weapp/loader/loader'
       }
     ]
   }

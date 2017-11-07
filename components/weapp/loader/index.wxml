@@ -1,0 +1,17 @@
+<template name="weapp-loader">
+  <view class="weapp-loader" wx:if="{{_data_.status}}">
+    <view class="weapp-loader-nodata" wx:if="{{_data_.status == 'empty'}}">
+      <icon type="{{ _data_.iconType }}" size="40" color="#eee"/>
+      <text class="weapp-loader-nodata-txt">{{ _data_.emptyTxt }}</text>
+    </view>
+
+    <view class="weapp-loader-more" wx:if="{{_data_.status == 'loading' || _data_.status == 'nomore'}}">
+      <view class="more-loading" wx:if="{{_data_.status == 'loading'}}">
+        <text class="weapp-loader-more-txt loading">{{ _data_.loadingTxt }}</text>
+      </view>
+      <view class="more-none" wx:if="{{_data_.status == 'nomore'}}">
+        <text class="weapp-loader-more-txt">{{ _data_.noMoreTxt }}</text>
+      </view>
+    </view>
+  </view>
+</template>
