@@ -122,6 +122,19 @@ weapp.Toast.show([title], [delay], [onHide]);
 - `onChange`切换的回调，参数index索引
 ###### 方法
 - `select`激活选项卡，传入参数index激活的索引
+###### 使用
+```javascript
+let ActivityTab = weapp.Tab({
+  list: ['活动1', '活动2'],
+  className: 'weapp-tab',
+  onChange(idx) {
+    console.log('活动-' + idx);
+  }
+});
+
+// 调用方法
+ActivityTab.select(1);
+```
 
 
 #### weapp.CityPicker
@@ -129,6 +142,14 @@ weapp.Toast.show([title], [delay], [onHide]);
 ###### 参数
 - `region`提示信息
 - `onChange`切换的回调，参数region
+###### 使用
+```javascript
+weapp.CityPicker({
+  onChange(region){
+    console.log(region)
+  }
+});
+```
 
 
 #### weapp.Loader
@@ -141,6 +162,19 @@ weapp.Toast.show([title], [delay], [onHide]);
 - `noMoreTxt`没有更多提示文字，默认: 没有更多数据了
 ###### 方法
 - `setStatus`传入参数status，可选值: `loading`、`nomore`、`empty`
+###### 使用
+```javascript
+let oLoader = weapp.Loader({
+  iconType: 'search',
+  status: 'loading',
+  emptyTxt: '暂无数据',
+  loadingTxt: '正在加载',
+  noMoreTxt: '没有更多数据了'
+});
+
+// 调用方法
+oLoader.setStatus('empty');
+```
 
 
 ---------
