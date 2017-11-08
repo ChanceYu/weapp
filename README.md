@@ -154,7 +154,7 @@ weapp.CityPicker({
 - `loadingTxt`加载中提示文字，默认: 正在加载
 - `noMoreTxt`没有更多提示文字，默认: 没有更多数据了
 ###### 方法
-- `setStatus`传入参数status，可选值: `loading`、`nomore`、`empty`
+- `setStatus`设置当前状态，传入参数status，可选值: `loading`、`nomore`、`empty`
 ###### 使用
 ```javascript
 let oLoader = weapp.Loader({
@@ -189,19 +189,15 @@ Page({
 ```javascript
 import common from '../../assets/js/common';
 
-Page({
-  onLoad(){
-    let obj = {
-      name: 'weapp',
-      uid: 8,
-      age: 24
-    };
+let obj = {
+  name: 'weapp',
+  uid: 8,
+  age: 24
+};
 
-    let params = common.param(obj);
+let params = common.param(obj);
 
-    console.log(params); // ?name=weapp&uid=8&age=24
-  }
-});
+console.log(params); // ?name=weapp&uid=8&age=24
 ```
 
 
@@ -210,13 +206,9 @@ Page({
 ```javascript
 import common from '../../assets/js/common';
 
-Page({
-  onLoad(){
-    let str = '?name=weapp&uid=8&age=24';
+let str = '?name=weapp&uid=8&age=24';
 
-    let obj = common.unparam(str);
-  }
-});
+let obj = common.unparam(str);
 ```
 
 
