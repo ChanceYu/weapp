@@ -4,13 +4,13 @@
  * 封装所有组件使用的公共逻辑
  */
 
-class Component{
+class WeAppComponent{
   static _components_ = {}
   constructor(pageScope, options) {
     this.pageScope = pageScope;
     this.options = options;
 
-    Component._components_[options.id] = this;
+    WeAppComponent._components_[options.id] = this;
   }
   /**
    * 获取组件的信息（根据参数event）
@@ -19,7 +19,7 @@ class Component{
     let dataset = event.currentTarget.dataset;
     let idx = dataset.idx;
     let componentId = dataset.componentId;
-    let componentInstance = Component._components_[componentId];
+    let componentInstance = WeAppComponent._components_[componentId];
     let componentData = componentInstance.pageScope.data[componentId];
 
     return {
@@ -49,4 +49,4 @@ class Component{
   }
 };
 
-module.exports = Component;
+module.exports = WeAppComponent;

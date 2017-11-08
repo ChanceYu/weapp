@@ -1,6 +1,6 @@
-import Component from '../component';
+import WeAppComponent from '../weappComponent';
 
-class Tab extends Component{
+class Tab extends WeAppComponent{
   static defaultOptions = {
     id: 'WeApp_Tab',
     activeIndex: 0,

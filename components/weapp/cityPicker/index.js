@@ -1,6 +1,6 @@
-import Component from '../component';
+import WeAppComponent from '../weappComponent';
 
-class CityPicker extends Component {
+class CityPicker extends WeAppComponent {
   static defaultOptions = {
     id: 'WeApp_CityPicker',
     region: [],

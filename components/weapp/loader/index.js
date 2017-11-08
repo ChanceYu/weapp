@@ -1,6 +1,6 @@
-import Component from '../component';
+import WeAppComponent from '../weappComponent';
 
-class Loader extends Component {
+class Loader extends WeAppComponent {
   static defaultOptions = {
     id: 'WeApp_Loader',
     iconType: 'search',
