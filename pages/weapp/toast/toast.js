@@ -1,9 +1,6 @@
 import weapp from '../../../components/weapp/index';
 
 Page({
-  onReady() {
-    weapp.inject(this);
-  },
   showToast() {
     weapp.Toast.show('你好，weapp');
   },

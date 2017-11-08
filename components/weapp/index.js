@@ -3,6 +3,7 @@
  * Copyright 2017 ChanceYu.
  * Licensed under the MIT license
  */
+import WeAppComponent from './weappComponent';
 
 let components = {
   Toast: require('./toast/index'),
@@ -13,20 +14,33 @@ let components = {
 
 let weapp = {};
 
-weapp.inject = (pageScope) => {
-  for (let attr in components) {
-    let componentObject = components[attr];
+for (let attr in components) {
+  let componentObject = components[attr];
 
-    if (typeof componentObject === 'function') {
-      // 类
-      weapp[attr] = (options) => new componentObject(pageScope, options);
-    }
-    else if (typeof componentObject === 'object') {
-      // 单例
-      componentObject.pageScope = pageScope;
-      weapp[attr] = componentObject;
-    }
+  if (typeof componentObject === 'function') {
+    // 类
+    weapp[attr] = (options) => new componentObject(options);
   }
-};
+  else if (typeof componentObject === 'object') {
+    // 单例
+    ((componentObject) => {
+      for (let method in componentObject) {
+        if (typeof componentObject[method] === 'function') {
+          let methodCallback = componentObject[method];
+
+          componentObject[method] = function(){
+            WeAppComponent._injectPageScope_(componentObject);
+
+            let args = Array.prototype.slice.call(arguments);
+
+            methodCallback.apply(componentObject, args);
+          }
+        }
+      }
+    })(componentObject);
+
+    weapp[attr] = componentObject;
+  }
+}
 
 module.exports = weapp;

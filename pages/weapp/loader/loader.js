@@ -2,8 +2,6 @@ import weapp from '../../../components/weapp/index';
 
 Page({
   onReady() {
-    weapp.inject(this);
-
     this.oLoader = weapp.Loader();
   },
   handlerNoMore() {

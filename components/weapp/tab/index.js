@@ -6,8 +6,8 @@ class Tab extends WeAppComponent{
     activeIndex: 0,
     className: ''
   }
-  constructor(pageScope, options) {
-    super(pageScope, Object.assign({}, Tab.defaultOptions, options));
+  constructor(options) {
+    super(Object.assign({}, Tab.defaultOptions, options));
 
     this.initData();
     this.injectEvents();

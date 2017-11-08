@@ -7,8 +7,8 @@ class CityPicker extends WeAppComponent {
     showLabel: '',
     onChange: null
   }
-  constructor(pageScope, options) {
-    super(pageScope, Object.assign({}, CityPicker.defaultOptions, options));
+  constructor(options) {
+    super(Object.assign({}, CityPicker.defaultOptions, options));
 
     this.initData();
     this.setShowLabel();

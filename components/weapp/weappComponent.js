@@ -4,13 +4,20 @@
  * 封装所有组件使用的公共逻辑
  */
 
-class WeAppComponent{
+class WeAppComponent {
   static _components_ = {}
-  constructor(pageScope, options) {
-    this.pageScope = pageScope;
+  static _injectPageScope_ = (componentInstance) => {
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length - 1];
+
+    componentInstance.pageScope = currPage;
+  }
+  constructor(options) {
     this.options = options;
 
     WeAppComponent._components_[options.id] = this;
+
+    WeAppComponent._injectPageScope_(this);
   }
   /**
    * 获取组件的信息（根据参数event）

@@ -44,9 +44,8 @@
 
 
 ## 使用注意
-* 必须使用`weapp.inject`注入当前页面对象
 * 每个组件都必须传入唯一一个`id`，不能与页面`data`中已经包含的字段相同
-* 组件模板数据统一使用`data={{ _data_: componentId }}`形式，`componentId`与组件参数`id`必须一致
+* 组件模板数据统一使用`data={{ _data_: componentId }}`形式，`componentId`与组件参数`id`必须一致，默认每个组件都有一个id
 
 下面是展示`Tab`组件的简单使用，具体示例参考项目内部`pages/weapp/tab`中代码。其它类型组件使用基本和这种调用方式类似。
 
@@ -62,9 +61,6 @@ import weapp from '../../../components/weapp/index';
 
 Page({
   onReady() {
-    // 注入当前页面对象
-    weapp.inject(this);
-
     // 初始化组件
     weapp.Tab({
       id: 'oTab1',

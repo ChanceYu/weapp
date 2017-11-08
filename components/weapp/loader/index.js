@@ -9,8 +9,8 @@ class Loader extends WeAppComponent {
     loadingTxt: '正在加载',
     noMoreTxt: '没有更多数据了'
   }
-  constructor(pageScope, options) {
-    super(pageScope, Object.assign({}, Loader.defaultOptions, options));
+  constructor(options) {
+    super(Object.assign({}, Loader.defaultOptions, options));
 
     this.initData();
   }

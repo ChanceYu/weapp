@@ -2,8 +2,6 @@ import weapp from '../../../components/weapp/index';
 
 Page({
   onReady() {
-    weapp.inject(this);
-
     weapp.Tab({
       id: 'oTab1',
       list: ['选项1', '选项2', '选项3'],

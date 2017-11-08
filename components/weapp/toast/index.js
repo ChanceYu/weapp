@@ -1,3 +1,5 @@
+import WeAppComponent from '../weappComponent';
+
 const Toast = {
   /**
    * 默认参数
@@ -27,7 +29,7 @@ const Toast = {
   /**
    * 隐藏
    */
-  hide(onHide){
+  hide(onHide) {
     this.pageScope.setData({
       [this.defaultOptions.id]: {
         show: false
