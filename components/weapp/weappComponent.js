@@ -39,10 +39,9 @@ class WeAppComponent {
   _getComponentByEvent_(event) {
     let pageScope = this.pageScope;
     let dataset = event.currentTarget.dataset;
-    let idx = dataset.idx;
     let componentId = dataset.componentId;
-    let componentInstance = pageScope._WeAppComponents_[componentId];
     let componentData = pageScope.data[componentId];
+    let componentInstance = pageScope._WeAppComponents_[componentId];
 
     return {
       dataset: dataset,

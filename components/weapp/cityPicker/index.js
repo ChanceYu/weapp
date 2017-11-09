@@ -10,7 +10,7 @@ class CityPicker extends WeAppComponent {
   constructor(options) {
     super(Object.assign({}, CityPicker.defaultOptions, options));
 
-    this.setShowLabel();
+    this._setShowLabel();
     this._injectEvents();
   }
   _injectEvents() {
@@ -21,12 +21,12 @@ class CityPicker extends WeAppComponent {
       componentData.region = region;
 
       this._componentData_(componentInstance, componentData);
-      this.setShowLabel();
+      this._setShowLabel();
 
       componentInstance.options.onChange && componentInstance.options.onChange(region);
     }
   }
-  setShowLabel(){
+  _setShowLabel(){
     let componentData = this._componentData_(this);
 
     if (componentData.region.length){

@@ -13,17 +13,19 @@ const Toast = {
    * 显示
    */
   show(title, delay, onHide) {
+    let defaultOptions = this.defaultOptions;
+
     this.pageScope.setData({
-      [this.defaultOptions.id]: {
+      [defaultOptions.id]: {
         title: title,
         show: true
       }
     });
 
-    clearTimeout(this.defaultOptions.timer);
-    this.defaultOptions.timer = setTimeout(
+    clearTimeout(defaultOptions.timer);
+    defaultOptions.timer = setTimeout(
       () => this.hide(onHide),
-      delay || this.defaultOptions.delay
+      delay || defaultOptions.delay
     );
   },
   /**

@@ -3,7 +3,6 @@
  * Copyright 2017 ChanceYu.
  * Licensed under the MIT license
  */
-import WeAppComponent from './weappComponent';
 
 let components = {
   Toast:      require('./toast/index'),
