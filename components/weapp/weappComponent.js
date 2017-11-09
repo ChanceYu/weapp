@@ -65,6 +65,19 @@ class WeAppComponent {
       return this.pageScope.data[id];
     }
   }
+  /**
+   * 销毁组件
+   */
+  destroy(){
+    let id = this.options.id;
+
+    this.pageScope.setData({
+      [id]: null
+    });
+
+    delete this.pageScope.data[id];
+    delete this.pageScope._WeAppComponents_[id];
+  }
 };
 
 module.exports = WeAppComponent;
