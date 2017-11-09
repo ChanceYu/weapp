@@ -10,22 +10,10 @@ class CityPicker extends WeAppComponent {
   constructor(options) {
     super(Object.assign({}, CityPicker.defaultOptions, options));
 
-    this.initData();
     this.setShowLabel();
-    this.injectEvents();
+    this._injectEvents();
   }
-  /**
-   * 初始化数据
-   */
-  initData() {
-    this.pageScope.setData({
-      [this.options.id]: this.options
-    });
-  }
-  /**
-   * 挂载组件的事件函数到 Page 对象
-   */
-  injectEvents() {
+  _injectEvents() {
     this.pageScope.WeApp_CityPicker_Change = (event) => {
       let { componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
       let region = event.detail.value;

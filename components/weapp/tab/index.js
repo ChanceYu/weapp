@@ -9,21 +9,9 @@ class Tab extends WeAppComponent{
   constructor(options) {
     super(Object.assign({}, Tab.defaultOptions, options));
 
-    this.initData();
-    this.injectEvents();
+    this._injectEvents();
   }
-  /**
-   * 初始化数据
-   */
-  initData() {
-    this.pageScope.setData({
-      [this.options.id]: this.options
-    });
-  }
-  /**
-   * 挂载组件的事件函数到 Page 对象
-   */
-  injectEvents(){
+  _injectEvents(){
     this.pageScope.WeApp_Tab_Action = (event) => {
       let { dataset, componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
       let idx = dataset.idx;

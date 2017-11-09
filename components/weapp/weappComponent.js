@@ -5,19 +5,30 @@
  */
 
 class WeAppComponent {
-  static _components_ = {}
-  static _injectPageScope_ = (componentInstance) => {
-    let pages = getCurrentPages();
-    let currPage = pages[pages.length - 1];
-
-    componentInstance.pageScope = currPage;
-  }
   constructor(options) {
     this.options = options;
 
-    WeAppComponent._components_[options.id] = this;
+    this._initData_();
+  }
+  /**
+   * 获取页面对象
+   */
+  get pageScope(){
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length - 1];
 
-    WeAppComponent._injectPageScope_(this);
+    return currPage;
+  }
+  /**
+   * 初始化数据
+   */
+  _initData_() {
+    this.pageScope._WeAppComponents_ = this.pageScope._WeAppComponents_ || {};
+    this.pageScope._WeAppComponents_[this.options.id] = this;
+
+    this.pageScope.setData({
+      [this.options.id]: this.options
+    });
   }
   /**
    * 获取组件的信息（根据参数event）
@@ -26,8 +37,8 @@ class WeAppComponent {
     let dataset = event.currentTarget.dataset;
     let idx = dataset.idx;
     let componentId = dataset.componentId;
-    let componentInstance = WeAppComponent._components_[componentId];
-    let componentData = componentInstance.pageScope.data[componentId];
+    let componentInstance = this.pageScope._WeAppComponents_[componentId];
+    let componentData = this.pageScope.data[componentId];
 
     return {
       dataset: dataset,
@@ -46,12 +57,12 @@ class WeAppComponent {
       /* set */
       let _data = Object.assign({}, this._componentData_(componentInstance), data);
 
-      componentInstance.pageScope.setData({
+      this.pageScope.setData({
         [id]: _data
       });
     } else {
       /* get */
-      return componentInstance.pageScope.data[id];
+      return this.pageScope.data[id];
     }
   }
 };

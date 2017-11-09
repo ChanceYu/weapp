@@ -11,16 +11,6 @@ class Loader extends WeAppComponent {
   }
   constructor(options) {
     super(Object.assign({}, Loader.defaultOptions, options));
-
-    this.initData();
-  }
-  /**
-   * 初始化数据
-   */
-  initData() {
-    this.pageScope.setData({
-      [this.options.id]: this.options
-    });
   }
   setStatus(status) {
     let componentData = this._componentData_(this);
