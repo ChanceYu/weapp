@@ -23,22 +23,26 @@ class WeAppComponent {
    * 初始化数据
    */
   _initData_() {
-    this.pageScope._WeAppComponents_ = this.pageScope._WeAppComponents_ || {};
-    this.pageScope._WeAppComponents_[this.options.id] = this;
+    let id = this.options.id;
+    let pageScope = this.pageScope;
 
-    this.pageScope.setData({
-      [this.options.id]: this.options
+    pageScope._WeAppComponents_ = pageScope._WeAppComponents_ || {};
+    pageScope._WeAppComponents_[id] = this;
+
+    pageScope.setData({
+      [id]: this.options
     });
   }
   /**
    * 获取组件的信息（根据参数event）
    */
   _getComponentByEvent_(event) {
+    let pageScope = this.pageScope;
     let dataset = event.currentTarget.dataset;
     let idx = dataset.idx;
     let componentId = dataset.componentId;
-    let componentInstance = this.pageScope._WeAppComponents_[componentId];
-    let componentData = this.pageScope.data[componentId];
+    let componentInstance = pageScope._WeAppComponents_[componentId];
+    let componentData = pageScope.data[componentId];
 
     return {
       dataset: dataset,
@@ -70,13 +74,14 @@ class WeAppComponent {
    */
   destroy(){
     let id = this.options.id;
+    let pageScope = this.pageScope;
 
-    this.pageScope.setData({
+    pageScope.setData({
       [id]: null
     });
 
-    delete this.pageScope.data[id];
-    delete this.pageScope._WeAppComponents_[id];
+    delete pageScope.data[id];
+    delete pageScope._WeAppComponents_[id];
   }
 };
 

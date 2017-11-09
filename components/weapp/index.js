@@ -29,6 +29,7 @@ for (let attr in components) {
         return currPage;
       }
     });
+    
     weapp[attr] = componentObject;
   }
 }
