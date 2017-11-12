@@ -76,6 +76,7 @@ Page({
 * [Tab 选项卡](#weapptab)
 * [CityPicker 城市选择](#weappcitypicker)
 * [Loader 加载更多-暂无数据](#weapploader)
+* [Popover 加载更多-暂无数据](#weapppopover)
 
 
 ## 公共方法
@@ -163,6 +164,28 @@ let oLoader = weapp.Loader({
 
 // 调用方法
 oLoader.setStatus('empty');
+```
+
+
+### weapp.Popover
+弹出菜单
+###### 参数
+- `list`菜单列表
+- `onSelect`选择每项的回调，参数index索引
+###### 方法
+- `show`显示对应Popover，传入参数event（Popover组件根据当前元素位置定位）
+- `show`隐藏对应Popover
+###### 使用
+```javascript
+let oPopover = weapp.Popover({
+  list: ['选项1', '选项2', '选项3'],
+  onSelect(idx){
+    console.log(idx);
+  }
+});
+
+// 调用方法
+oPopover.hide();
 ```
 
 
