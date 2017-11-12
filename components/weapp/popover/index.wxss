@@ -1,0 +1,61 @@
+.weapp-popover{
+  opacity: 0;
+}
+
+.weapp-popover.styled{
+  opacity: 1;
+}
+
+.weapp-popover-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1009;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+}
+
+.weapp-popover-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1030;
+  margin: 0;
+  color: #333;
+}
+
+.weapp-popover-inner .weui-cell__bd{
+  margin-right: 16px;
+}
+
+.weapp-popover-inner .weui-cells{
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.weapp-popover-inner .weui-cell{
+  padding: 6px 15px;
+  font-size: 14px;
+}
+
+.weapp-popover-triangle {
+  position: absolute;
+  z-index: 120;
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 8px;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.weapp-popover-triangle.bottom-center {
+  left: 50%;
+  bottom: 1px;
+  border-top-color: #fff;
+  -webkit-transform: translate3d(-50%, 100%, 0);
+  transform: translate3d(-50%, 100%, 0);
+}

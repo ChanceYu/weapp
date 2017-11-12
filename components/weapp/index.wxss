@@ -3,3 +3,4 @@
 @import "./tab/index.wxss";
 @import "./cityPicker/index.wxss";
 @import "./loader/index.wxss";
+@import "./popover/index.wxss";

@@ -18,6 +18,10 @@ Page({
       {
         title: 'Loader 加载更多-暂无数据',
         url: '/pages/weapp/loader/loader'
+      },
+      {
+        title: 'Popover 弹出菜单',
+        url: '/pages/weapp/popover/popover'
       }
     ]
   }

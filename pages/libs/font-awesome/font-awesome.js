@@ -48,7 +48,7 @@ Page({
     let icon = this.getIconAndActive(event);
 
     wx.setClipboardData({
-      data: `fa ${icon}`,
+      data: `<text class="fa ${icon}"></text>`,
       success: (res) => {
         wx.hideLoading();
         wx.showToast({

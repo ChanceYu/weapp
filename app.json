@@ -32,12 +32,13 @@
     "pages/weapp/toast/toast",
     "pages/weapp/tab/tab",
     "pages/weapp/cityPicker/cityPicker",
-    "pages/weapp/loader/loader"
+    "pages/weapp/loader/loader",
+    "pages/weapp/popover/popover"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#32b16c",
-    "navigationBarTitleText": "weapp-components",
+    "navigationBarTitleText": "WeApp",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

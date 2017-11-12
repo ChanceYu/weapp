@@ -8,7 +8,8 @@ let components = {
   Toast:      require('./toast/index'),
   Tab:        require('./tab/index'),
   CityPicker: require('./cityPicker/index'),
-  Loader:     require('./loader/index')
+  Loader:     require('./loader/index'),
+  Popover:    require('./popover/index')
 };
 
 let weapp = {};

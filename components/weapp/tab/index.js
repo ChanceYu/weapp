@@ -4,7 +4,8 @@ class Tab extends WeAppComponent{
   static defaultOptions = {
     id: 'WeApp_Tab',
     activeIndex: 0,
-    className: ''
+    className: '',
+    onChange: null
   }
   constructor(options) {
     super(Object.assign({}, Tab.defaultOptions, options));

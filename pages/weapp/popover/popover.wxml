@@ -1,0 +1,15 @@
+<import src="/components/weapp/popover/index.wxml" />
+
+<template is="weapp-popover" data="{{ _data_: WeApp_Popover }}"></template>
+
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">Popover</view>
+        <view class="page__desc">弹出菜单</view>
+    </view>
+    <view class="page__bd page__bd_spacing weapp-bg-white">
+        <button class="weui-btn" type="default" bindtap="showPopover" id="btnPopover" style="margin-top:50px;">
+          <text class="fa fa-list"></text>  显示
+        </button>
+    </view>
+</view>
