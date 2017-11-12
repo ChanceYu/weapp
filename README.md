@@ -76,7 +76,7 @@ Page({
 * [Tab 选项卡](#weapptab)
 * [CityPicker 城市选择](#weappcitypicker)
 * [Loader 加载更多-暂无数据](#weapploader)
-* [Popover 加载更多-暂无数据](#weapppopover)
+* [Popover 弹出菜单](#weapppopover)
 
 
 ## 公共方法
