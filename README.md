@@ -173,8 +173,8 @@ oLoader.setStatus('empty');
 - `list`菜单列表
 - `onSelect`选择每项的回调，参数index索引
 ###### 方法
-- `show`显示对应Popover，传入参数event（Popover组件根据当前元素位置定位）
-- `show`隐藏对应Popover
+- `show`显示对应Popover，传入参数event（Popover组件根据当前点击的元素位置定位）
+- `hide`隐藏对应Popover
 ###### 使用
 ```javascript
 let oPopover = weapp.Popover({
