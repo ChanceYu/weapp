@@ -63,6 +63,57 @@ const common = {
         path: (url || path) + params
       }
     }
+  },
+  /**
+   * 保留当前页面，跳转到应用内的某个页面
+   * @param {String} url 页面路径
+   * @param {Object} params 页面参数
+   */
+  navigateTo(url, params) {
+    this._openInterceptor('navigateTo', url, params);
+  },
+  /**
+   * 关闭当前页面，跳转到应用内的某个页面
+   * @param {String} url 页面路径
+   * @param {Object} params 页面参数
+   */
+  redirectTo(url, params) {
+    this._openInterceptor('redirectTo', url, params);
+  },
+  /**
+   * 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+   * @param {String} url 页面路径
+   * @param {Object} params 页面参数
+   */
+  switchTab(url, params) {
+    this._openInterceptor('switchTab', url, params);
+  },
+  /**
+   * 关闭所有页面，打开到应用内的某个页面
+   * @param {String} url 页面路径
+   * @param {Object} params 页面参数
+   */
+  reLaunch(url, params) {
+    this._openInterceptor('reLaunch', url, params);
+  },
+  /**
+   * 页面跳转封装
+   * @param {String} method 微信JS方法
+   * @param {String} url 页面路径
+   * @param {Object} params 页面参数
+   */
+  _openInterceptor(method, url, params) {
+    if (this.IsPageNavigating) return;
+    this.IsPageNavigating = true;
+
+    params = this.param(params);
+
+    wx[method]({
+      url: url + params,
+      complete: () => {
+        this.IsPageNavigating = false;
+      }
+    });
   }
 };
 

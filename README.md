@@ -83,6 +83,10 @@ Page({
 * [common.share 页面转发分享](#commonshare)
 * [common.param 将对象解析成url字符串](#commonparam)
 * [common.unparam 将url字符串解析成对象](#commonunparam)
+* [common.navigateTo 保留当前页面，跳转到应用内的某个页面](#commonnavigateto)
+* [common.redirectTo 关闭当前页面，跳转到应用内的某个页面](#commonnavigateto)
+* [common.switchTab 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面](#commonnavigateto)
+* [common.reLaunch 关闭所有页面，打开到应用内的某个页面](#commonnavigateto)
 
 
 ---------
@@ -228,6 +232,25 @@ import common from '../../assets/js/common';
 let str = '?name=weapp&uid=8&age=24';
 
 let obj = common.unparam(str);
+```
+
+
+### common.navigateTo
+### common.redirectTo
+### common.switchTab
+### common.reLaunch
+页面跳转，防止快速点击打开两个页面，支持对象形式传url参数，分别对应小程序的`wx.navigateTo`、`wx.redirectTo`、`wx.switchTab`、`wx.reLaunch`
+```javascript
+import common from '../../assets/js/common';
+
+Page({
+  onTapElem(){
+    common.navigateTo('/pages/weapp/popover/popover', {
+      userid: 123,
+      info: 'Hello,WeApp'
+    });
+  }
+});
 ```
 
 

@@ -25,7 +25,9 @@ class Popover extends WeAppComponent {
     }
   }
   _getInnerRect(callback){
-    wx.createSelectorQuery().select('#WeApp_Popover_Inner').boundingClientRect((rect) => {
+    wx.createSelectorQuery()
+    .select('#WeApp_Popover_Inner')
+    .boundingClientRect((rect) => {
       if (rect){
         callback(rect);
       }else{
@@ -46,15 +48,17 @@ class Popover extends WeAppComponent {
 
     this._componentData_(this, componentData);
 
-    wx.createSelectorQuery().select(selectorId).boundingClientRect((rectElem) => {
-      this._getInnerRect((rectInner) => {
-        let leftPos = rectElem.left + rectElem.width / 2 - rectInner.width / 2;
+    wx.createSelectorQuery()
+    .select(selectorId)
+    .boundingClientRect((elemRect) => {
+      this._getInnerRect((innerRect) => {
+        let leftPos = elemRect.left + elemRect.width / 2 - innerRect.width / 2;
         let topPos = 0;
 
-        if (rectElem.top > rectInner.height){
-          topPos = rectElem.top - rectInner.height - 8;
+        if (elemRect.top > innerRect.height){
+          topPos = elemRect.top - innerRect.height - 8;
         }else{
-          topPos = rectElem.top + rectElem.height;
+          topPos = elemRect.top + elemRect.height;
         }
 
         componentData.left = parseInt(leftPos);
