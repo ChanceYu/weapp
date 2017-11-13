@@ -3,7 +3,7 @@
 const common = {
   /**
    * 将对象解析成url字符串
-   * @param {String} obj 参数对象
+   * @param {Object} obj 参数对象
    * @param {Boolean} unEncodeURI 不使用编码
    */
   param(obj = {}, unEncodeURI) {
