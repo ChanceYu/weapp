@@ -1,3 +1,9 @@
+/*!
+ * WeApp v1.0.0 (https://github.com/ChanceYu/weapp)
+ * Copyright 2017 ChanceYu.
+ * Licensed under the MIT license
+ */
+
 /* 公共方法封装 */
 
 const common = {
