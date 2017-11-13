@@ -1,7 +1,12 @@
+/*!
+ * WeApp v1.0.0 (https://github.com/ChanceYu/weapp)
+ * Copyright 2017 ChanceYu.
+ * Licensed under the MIT license
+ */
+
 /**
  * 父组件
- * 每个组件的类可继承自父组件
- * 封装所有组件使用的公共逻辑
+ * 封装所有class类组件使用的公共逻辑
  */
 
 class WeAppComponent {
@@ -67,6 +72,9 @@ class WeAppComponent {
       /* get */
       return this.pageScope.data[id];
     }
+  }
+  _throwError_(msg){
+    throw new Error(`WeApp提示：${msg}`);
   }
   /**
    * 销毁组件

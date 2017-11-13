@@ -29,13 +29,16 @@ class Popover extends WeAppComponent {
       if (rect){
         callback(rect);
       }else{
-        // hack to get rect when rect is null
+        // 处理 rect 获取不到的时候
         setTimeout(() => this._getInnerRect(callback), 100);
       }
     }).exec();
   }
   show(event) {
     let id = event.currentTarget.id;
+
+    if (!id) this._throwError_('event.currentTarget 缺少属性 id');
+
     let selectorId = `#${id}`;
     let componentData = this._componentData_(this);
 
@@ -44,7 +47,6 @@ class Popover extends WeAppComponent {
     this._componentData_(this, componentData);
 
     wx.createSelectorQuery().select(selectorId).boundingClientRect((rectElem) => {
-
       this._getInnerRect((rectInner) => {
         let leftPos = rectElem.left + rectElem.width / 2 - rectInner.width / 2;
         let topPos = 0;
