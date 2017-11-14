@@ -41,7 +41,7 @@ class WeAppComponent {
   }
   /**
    * 获取组件的信息
-   * @param {Event} event 事件对象
+   * @param  {Event} event 事件对象
    * @return {Object} 组件的信息
    */
   _getComponentByEvent_(event) {
@@ -60,8 +60,8 @@ class WeAppComponent {
   }
   /**
    * 设置组件的 data 数据
-   * @param {Object} componentInstance 组件实例
-   * @param {Object} data 要设置的数据
+   * @param  {Object} componentInstance 组件实例
+   * @param  {Object} data 要设置的数据
    * @return {Object} 组件的数据
    */
   _componentData_(componentInstance, data) {

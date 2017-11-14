@@ -9,8 +9,9 @@
 const common = {
   /**
    * 将对象解析成url字符串
-   * @param {Object} obj 参数对象
-   * @param {Boolean} unEncodeURI 不使用编码
+   * @param  {Object} obj 参数对象
+   * @param  {Boolean} unEncodeURI 不使用编码
+   * @return {String} 转换之后的url参数
    */
   param(obj = {}, unEncodeURI) {
     let result = [];
@@ -29,8 +30,9 @@ const common = {
   },
   /**
    * 将url字符串解析成对象
-   * @param {String} str 带url参数的地址
-   * @param {Boolean} unDecodeURI 不使用解码
+   * @param  {String} str 带url参数的地址
+   * @param  {Boolean} unDecodeURI 不使用解码
+   * @return {Object} 转换之后的url参数
    */
   unparam(str = '', unDecodeURI) {
     let result = {};
@@ -54,8 +56,9 @@ const common = {
   },
   /**
    * 转发分享
-   * @param {String} title 标题
-   * @param {String} url 页面地址，默认就是当前页面地址
+   * @param  {String} title 标题
+   * @param  {String} url 页面地址，默认就是当前页面地址
+   * @return {Function} 转发函数
    */
   share(title = '小程序名称!', url) {
     return () => {
