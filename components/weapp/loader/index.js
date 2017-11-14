@@ -12,6 +12,10 @@ class Loader extends WeAppComponent {
   constructor(options) {
     super(Object.assign({}, Loader.defaultOptions, options));
   }
+  /**
+   * 设置组件状态
+   * @param {String} status 状态参数，可选loading、nomore、empty
+   */
   setStatus(status) {
     let componentData = this._componentData_(this);
     

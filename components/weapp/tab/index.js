@@ -24,6 +24,10 @@ class Tab extends WeAppComponent{
       componentInstance.options.onChange && componentInstance.options.onChange(idx);
     }
   }
+  /**
+   * 设置选中的Tab
+   * @param {Number} index 对应的索引
+   */
   select(index) {
     let componentData = this._componentData_(this);
 

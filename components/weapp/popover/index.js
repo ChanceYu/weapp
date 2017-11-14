@@ -36,6 +36,10 @@ class Popover extends WeAppComponent {
       }
     }).exec();
   }
+  /**
+   * 显示
+   * @param {Event} event 事件对象，点击的元素
+   */
   show(event) {
     let id = event.currentTarget.id;
 
@@ -69,6 +73,9 @@ class Popover extends WeAppComponent {
       });
     }).exec();
   }
+  /**
+   * 隐藏
+   */
   hide(){
     let componentData = this._componentData_(this);
 

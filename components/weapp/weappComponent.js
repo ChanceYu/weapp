@@ -17,6 +17,7 @@ class WeAppComponent {
   }
   /**
    * 获取页面对象
+   * @return {Object} 页面对象
    */
   get pageScope(){
     let pages = getCurrentPages();
@@ -39,7 +40,9 @@ class WeAppComponent {
     });
   }
   /**
-   * 获取组件的信息（根据参数event）
+   * 获取组件的信息
+   * @param {Event} event 事件对象
+   * @return {Object} 组件的信息
    */
   _getComponentByEvent_(event) {
     let pageScope = this.pageScope;
@@ -57,6 +60,9 @@ class WeAppComponent {
   }
   /**
    * 设置组件的 data 数据
+   * @param {Object} componentInstance 组件实例
+   * @param {Object} data 要设置的数据
+   * @return {Object} 组件的数据
    */
   _componentData_(componentInstance, data) {
     let id = componentInstance.options.id;
@@ -73,6 +79,10 @@ class WeAppComponent {
       return this.pageScope.data[id];
     }
   }
+  /**
+   * 统一处理组件异常提示
+   * @param {String} msg 错误信息
+   */
   _throwError_(msg){
     throw new Error(`WeApp提示：${msg}`);
   }

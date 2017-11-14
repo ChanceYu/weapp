@@ -11,6 +11,9 @@ const Toast = {
   },
   /**
    * 显示
+   * @param {String} title 信息内容
+   * @param {Number} delay 延迟关闭时间
+   * @param {Function} onHide 关闭之后的回调函数
    */
   show(title, delay, onHide) {
     let defaultOptions = this.defaultOptions;
@@ -30,6 +33,7 @@ const Toast = {
   },
   /**
    * 隐藏
+   * @param {Function} onHide 关闭之后的回调函数
    */
   hide(onHide) {
     this.pageScope.setData({
