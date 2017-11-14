@@ -6,7 +6,8 @@
   opacity: 1;
 }
 
-.weapp-popover-mask {
+.weapp-popover .weapp-popover-mask{
+  opacity: 0;
   position: fixed;
   top: 0;
   right: 0;
@@ -14,6 +15,10 @@
   left: 0;
   z-index: 1009;
   background: rgba(0, 0, 0, 0.3);
+  transition: opacity .3s ease-in;
+}
+
+.weapp-popover.styled .weapp-popover-mask {
   opacity: 1;
 }
 
