@@ -23,7 +23,9 @@ class CityPicker extends WeAppComponent {
       this._componentData_(componentInstance, componentData);
       this._setShowLabel();
 
-      componentInstance.options.onChange && componentInstance.options.onChange(region);
+      if (typeof componentInstance.options.onChange === 'function'){
+        componentInstance.options.onChange(region);
+      }
     }
   }
   _setShowLabel(){

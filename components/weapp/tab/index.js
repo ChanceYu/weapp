@@ -20,8 +20,10 @@ class Tab extends WeAppComponent{
       componentData.activeIndex = idx;
 
       this._componentData_(componentInstance, componentData);
-      
-      componentInstance.options.onChange && componentInstance.options.onChange(idx);
+
+      if (typeof componentInstance.options.onChange === 'function') {
+        componentInstance.options.onChange(idx);
+      }
     }
   }
   /**
