@@ -1,4 +1,4 @@
-# WeApp
+# weapp
 ![](https://img.shields.io/badge/language-JavaScript-brightgreen.svg)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php) 
 
@@ -10,7 +10,7 @@
 
 
 ## 主要内容
-* [WeApp组件，自定义封装和优化的组件](#weapp组件)
+* [weapp组件，自定义封装和优化的组件](#weapp组件)
 * [common.js，对公共功能函数和小程序API的封装](#公共方法)
 * [第三方UI展示，方便预览查找，基本不做修改](#第三方ui库使用到)
 
@@ -23,11 +23,11 @@
 │     └─common ---------- 公共方法函数封装
 ├─components ------ 自定义组件和第三方组件
 │  ├─libs ------------ 第三方库
-│  └─weapp ----------- WeApp组件
+│  └─weapp ----------- weapp组件
 ├─pages ----------- 页面目录
 │  ├─index ----------- 首页
 │  ├─libs ------------ 第三方库页面
-│  └─weapp ----------- WeApp组件页面
+│  └─weapp ----------- weapp组件页面
 ├─app.js
 ├─app.json
 ├─app.wxss
@@ -71,7 +71,7 @@ Page({
 ```
 
 
-## WeApp组件
+## weapp组件
 * [Toast 浮动提示](#weapptoast)
 * [Tab 选项卡](#weapptab)
 * [CityPicker 城市选择](#weappcitypicker)
@@ -126,7 +126,7 @@ let ActivityTab = weapp.Tab({
   }
 });
 
-// 调用方法
+// 选择第二个（索引为1）
 ActivityTab.select(1);
 ```
 
@@ -166,7 +166,7 @@ let oLoader = weapp.Loader({
   noMoreTxt: '没有更多数据了'
 });
 
-// 调用方法
+// 设置成暂无数据状态
 oLoader.setStatus('empty');
 ```
 
@@ -188,7 +188,7 @@ let oPopover = weapp.Popover({
   }
 });
 
-// 调用方法
+// 隐藏弹出菜单
 oPopover.hide();
 ```
 
@@ -198,8 +198,14 @@ oPopover.hide();
 
 ### common.share
 页面转发分享，除去每个页面的繁杂配置，使用起来更加简单高效，支持页面传递参数 options
+###### 参数
+- `title`显示的标题
+- `url`转发的页面地址，默认为当前页面地址
+###### 使用
 ```javascript
 import common from '../../assets/js/common';
+
+// common.share([title], [url])
 
 Page({
   onShareAppMessage: common.share()
@@ -209,8 +215,14 @@ Page({
 
 ### common.param
 将对象解析成url字符串
+###### 参数
+- `urlObject`参数对象，要转换成字符串参数的对象
+- `unEncodeURI`不使用编码，默认使用编码`encodeURIComponent`
+###### 使用
 ```javascript
 import common from '../../assets/js/common';
+
+// common.param([urlObject], [unEncodeURI])
 
 let obj = {
   name: 'weapp',
@@ -226,8 +238,14 @@ console.log(params); // ?name=weapp&uid=8&age=24
 
 ### common.unparam
 将url字符串解析成对象，与`common.param`使用相反
+###### 参数
+- `urlString`地址，带url参数的地址
+- `unDecodeURI`不使用解码，默认使用解码`decodeURIComponent`
+###### 使用
 ```javascript
 import common from '../../assets/js/common';
+
+// common.unparam([urlString], [unDecodeURI])
 
 let str = '?name=weapp&uid=8&age=24';
 
@@ -240,14 +258,20 @@ let obj = common.unparam(str);
 ### common.switchTab
 ### common.reLaunch
 页面跳转，优化防止快速点击打开两个页面，支持对象形式传url参数，分别对应小程序的wx.navigateTo、wx.redirectTo、wx.switchTab、wx.reLaunch
+###### 参数
+- `url`页面地址
+- `params`页面参数对象
+###### 使用
 ```javascript
 import common from '../../assets/js/common';
+
+// common.navigateTo([url], [params])
 
 Page({
   onTapElem(){
     common.navigateTo('/pages/weapp/popover/popover', {
       userid: 123,
-      info: 'Hello,WeApp'
+      info: 'Hello,weapp'
     });
   }
 });
@@ -262,7 +286,7 @@ Page({
 
 
 ## 项目预览
-![WeApp组件](./assets/images/desc/components.png)
+![weapp组件](./assets/images/desc/components.png)
 
 
 ## License
