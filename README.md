@@ -176,6 +176,7 @@ oLoader.setStatus('empty');
 ###### 参数
 - `list`菜单列表
 - `onSelect`选择每项的回调，参数index索引
+- `dir`箭头方向，可选值`tl tc tr rt rc rb bl bc br lt lc lb`，分别代表上右下左中，组合而成的12个方位
 ###### 方法
 - `show`显示对应Popover，传入参数event（Popover组件根据当前点击的元素位置定位）
 - `hide`隐藏对应Popover
@@ -188,8 +189,8 @@ let oPopover = weapp.Popover({
   }
 });
 
-// 隐藏弹出菜单
-oPopover.hide();
+// 显示弹出菜单
+oPopover.show(event, 'tr');
 ```
 
 

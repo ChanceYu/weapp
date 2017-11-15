@@ -1,1 +1,3 @@
-/* pages/weapp/popover/popover.wxss */
+.btn-box{
+  text-align: center
+}
