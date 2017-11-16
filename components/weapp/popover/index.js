@@ -289,7 +289,7 @@ class Popover extends WeAppComponent {
 
         let offsetPos = this._supportOffset(boxRect, viewRect, elemRect, pageRect);
 
-        console.log(offsetPos)
+        // console.log(offsetPos)
 
         let supportDir = dir || this.options.dir;
 

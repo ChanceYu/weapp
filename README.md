@@ -8,6 +8,9 @@
 
 项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑，如果使用有问题，请使用最新版本基础库，并将微信更新到最新版本。
 
+## 项目预览
+![weapp组件](./assets/images/desc/components.gif)
+
 
 ## 主要内容
 * [weapp组件，自定义封装和优化的组件](#weapp组件)
@@ -286,7 +289,7 @@ Page({
 * weui-wxss <https://github.com/Tencent/weui-wxss>
 
 
-## 项目预览
+## 项目截图
 ![weapp组件](./assets/images/desc/components.png)
 
 
