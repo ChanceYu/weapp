@@ -182,6 +182,17 @@ oLoader.setStatus('empty');
 - `onSelect`选择每项的回调，参数index索引
 - `dir`箭头方向，可选值`tl tc tr rt rc rb bl bc br lt lc lb`，分别代表上右下左中，组合而成的12个方位
   - `tl` 对应 `top-left`
+  - `tc` 对应 `top-center`
+  - `tr` 对应 `top-right`
+  - `rt` 对应 `right-top`
+  - `rc` 对应 `right-center`
+  - `rb` 对应 `right-bottom`
+  - `bl` 对应 `bottom-left`
+  - `bc` 对应 `bottom-center`
+  - `br` 对应 `bottom-right`
+  - `lt` 对应 `left-top`
+  - `lc` 对应 `left-center`
+  - `lb` 对应 `left-bottom`
 ###### 方法
 - `show`显示对应Popover，第一个参数event（Popover组件根据当前点击的元素位置定位）、第二个参数dir，可选（箭头显示方向）
 - `hide`隐藏对应Popover
