@@ -3,11 +3,14 @@ import WeAppComponent from '../weappComponent';
 const Toast = {
   /**
    * 默认参数
+   * @param {String} id 组件id
+   * @param {Number} delay 自动关闭的延迟时间
+   * @param {Number|Null} timer 定时器
    */
   defaultOptions: {
     id: 'WeApp_Toast',
-    timer: null,
-    delay: 1500
+    delay: 1500,
+    timer: null
   },
   /**
    * 显示

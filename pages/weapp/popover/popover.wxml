@@ -22,6 +22,11 @@
                         <text class="fa fa-list"></text>   显示菜单
                       </button>
                     </view>
+                    <view class="btn-box">
+                      <button class="weui-btn mini-btn" size="mini" type="default" bindtap="showPopover2" id="btnPopover2">
+                        <text class="fa fa-list"></text>   显示菜单2
+                      </button>
+                    </view>
 
                     <view class="weui-article__p">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

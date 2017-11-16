@@ -1,6 +1,13 @@
 import WeAppComponent from '../weappComponent';
 
 class Popover extends WeAppComponent {
+  /**
+   * 默认参数
+   * @param {String} id 组件id
+   * @param {String} pageSelector 整个页面最外层容器的CSS的选择器
+   * @param {Function} onSelect 选择每项的回调函数
+   * @param {String} dir 箭头方向
+   */
   static defaultOptions = {
     id: 'WeApp_Popover',
     pageSelector: '.page',

@@ -1,6 +1,13 @@
 import WeAppComponent from '../weappComponent';
 
-class Tab extends WeAppComponent{
+class Tab extends WeAppComponent {
+  /**
+   * 默认参数
+   * @param {String} id 组件id
+   * @param {Number} activeIndex 选中的索引
+   * @param {String} className 主题样式
+   * @param {Function} onChange 切换的回调函数
+   */
   static defaultOptions = {
     id: 'WeApp_Tab',
     activeIndex: 0,

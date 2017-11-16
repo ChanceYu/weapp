@@ -1,6 +1,13 @@
 import WeAppComponent from '../weappComponent';
 
 class CityPicker extends WeAppComponent {
+  /**
+   * 默认参数
+   * @param {String} id 组件id
+   * @param {Array} region 默认区域
+   * @param {String} showLabel 展示的信息
+   * @param {Function} onChange 选择之后的回调函数
+   */
   static defaultOptions = {
     id: 'WeApp_CityPicker',
     region: [],
