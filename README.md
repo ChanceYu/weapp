@@ -4,7 +4,7 @@
 
 **微信小程序组件和功能封装（持续更新中...）**
 
-*解决的痛点*：由于小程序和普通网页程序有所区别，组件的调用和使用相对来说更麻烦，此处封装的组件和功能函数是为了使用起来更加的简单，**减少麻烦的`data`设置、组件`event`事件绑定、多组件的隔离等问题**。为了能够让道友更好地理解组件的使用或集成到自己项目中，此处未使用任何第三方框架来构建，只使用了WeUI样式库和FontAwesome字体图标。几乎零学习成本，如果有什么问题，欢迎提个Issue。
+*解决的痛点*：由于小程序和普通网页程序有所区别，组件的调用和使用相对有点麻烦，此处封装的组件和功能函数是为了使用起来更加的简单，**减少麻烦的`data`设置、组件`event`事件绑定、多组件的隔离等问题**。为了能够让道友更好地理解组件的使用或集成到自己项目中，此处未使用任何第三方框架来构建，只使用了WeUI样式库和FontAwesome字体图标。几乎零学习成本，如果有什么问题，欢迎提个Issue。
 
 项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑，如果使用有问题，请使用最新版本基础库，并将微信更新到最新版本。
 
@@ -115,10 +115,10 @@ weapp.Toast.show([title], [delay], [onHide]);
 ###### 参数
 - `list`选项卡标题
 - `activeIndex`选中的索引，默认: 0
-- `className`主题样式，默认: ''，可传入`weapp-tab`或其它自定义样式
+- `className`主题样式，默认为空，可传入`weapp-tab`或其它自定义样式
 - `onChange`切换的回调，参数index索引
 ###### 方法
-- `select`激活选项卡，传入参数index激活的索引
+- `select`激活选项卡，传入参数index索引
 ###### 使用
 ```javascript
 let ActivityTab = weapp.Tab({
@@ -138,7 +138,7 @@ ActivityTab.select(1);
 城市选择
 ###### 参数
 - `region`提示信息
-- `onChange`切换的回调，参数region
+- `onChange`切换的回调，参数region选择的区域信息
 ###### 使用
 ```javascript
 weapp.CityPicker({
@@ -178,12 +178,15 @@ oLoader.setStatus('empty');
 弹出菜单
 ###### 参数
 - `list`菜单列表
+- `pageSelector`整个页面最外层容器的CSS的选择器，默认为`.page`
 - `onSelect`选择每项的回调，参数index索引
 - `dir`箭头方向，可选值`tl tc tr rt rc rb bl bc br lt lc lb`，分别代表上右下左中，组合而成的12个方位
+  - `tl` 对应 `top-left`
 ###### 方法
-- `show`显示对应Popover，传入参数event（Popover组件根据当前点击的元素位置定位）
+- `show`显示对应Popover，第一个参数event（Popover组件根据当前点击的元素位置定位）、第二个参数dir，可选（箭头显示方向）
 - `hide`隐藏对应Popover
 ###### 使用
+Popover组件会根据元素计算可以显示的箭头方向，优先级为：show方法的dir参数 -> 组件初始化默认的dir参数 -> 组件计算之后的第一个dir参数
 ```javascript
 let oPopover = weapp.Popover({
   list: ['选项1', '选项2', '选项3'],
@@ -192,7 +195,7 @@ let oPopover = weapp.Popover({
   }
 });
 
-// 显示弹出菜单
+// 显示弹出菜单，箭头方向：上右 top-right
 oPopover.show(event, 'tr');
 ```
 
