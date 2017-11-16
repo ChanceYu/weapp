@@ -1,22 +1,15 @@
-# weapp
-
 <div align="center">
   <h1 align="center">
     <br>
-    <image src="assets/images/logo.png" alt="weapp" />
+    <image width="360" src="assets/images/logo.png" alt="weapp" />
     <br>
 
-    <image src="https://img.shields.io/badge/language-JavaScript-brightgreen.svg" />
-    <image src="https://img.shields.io/badge/license-MIT-blue.svg" />
+    ![](https://img.shields.io/badge/language-JavaScript-brightgreen.svg)
+    [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php) 
   </h1>
   <p><strong>微信小程序组件和功能封装（持续更新中...）</strong></p>
 </div>
-  
 
-[comment]: ![](https://img.shields.io/badge/language-JavaScript-brightgreen.svg)
-[comment]: [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php) 
-
-[comment]: **微信小程序组件和功能封装（持续更新中...）**
 
 *解决的痛点*：由于小程序和普通网页程序有所区别，组件的调用和使用相对有点麻烦，此处封装的组件和功能函数是为了使用起来更加的简单，**减少麻烦的`data`设置、组件`event`事件绑定、多组件的隔离等问题**。为了能够让道友更好地理解组件的使用或集成到自己项目中，此处未使用任何第三方框架来构建，只使用了WeUI样式库和FontAwesome字体图标。几乎零学习成本，如果有什么问题，欢迎提个Issue。
 
