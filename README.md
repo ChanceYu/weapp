@@ -3,10 +3,11 @@
     <br>
     <img width="360" src="assets/images/logo.png" alt="weapp" />
     <br>
-
-    <a href="javascript:;"><img src="https://img.shields.io/badge/language-JavaScript-brightgreen.svg" /></a>
-    <a href="https://opensource.org/licenses/mit-license.php"><img src="https://img.shields.io/badge/license-MIT-blue.svg" /></a>
   </h1>
+
+  <a href="javascript:;"><img src="https://img.shields.io/badge/language-JavaScript-brightgreen.svg" /></a>
+  <a href="https://opensource.org/licenses/mit-license.php"><img src="https://img.shields.io/badge/license-MIT-blue.svg" /></a>
+    
   <p><strong>微信小程序组件和功能封装（持续更新中...）</strong></p>
 </div>
 
