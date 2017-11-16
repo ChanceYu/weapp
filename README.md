@@ -197,7 +197,7 @@ oLoader.setStatus('empty');
 - `show`显示对应Popover，第一个参数event（Popover组件根据当前点击的元素位置定位）、第二个参数dir，可选（箭头显示方向）
 - `hide`隐藏对应Popover
 ###### 使用
-Popover组件会根据元素计算可以显示的箭头方向，优先级为：show方法的dir参数 -> 组件初始化默认的dir参数 -> 组件计算之后的第一个dir参数
+Popover组件会根据元素计算可以显示的箭头方向，优先级为：show方法的dir参数 -> 组件初始化默认的dir参数 -> 组件计算之后的第一个dir参数，如果传递的dir箭头方向不支持显示，那么显示默认使用第一个支持的方向
 ```javascript
 let oPopover = weapp.Popover({
   list: ['选项1', '选项2', '选项3'],

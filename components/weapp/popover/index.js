@@ -32,7 +32,7 @@ class Popover extends WeAppComponent {
     }
   }
   /**
-   * 整个页面的宽高等位置信息
+   * 获取整个页面的宽高等位置信息
    */
   _getPageRect() {
     let getRect = (callback) => {
@@ -65,7 +65,7 @@ class Popover extends WeAppComponent {
     });
   }
   /**
-   * 弹出菜单的宽高等位置信息
+   * 获取弹出菜单的宽高等位置信息
    */
   _getBoxRect(){
     let getRect = (callback) => {
@@ -99,16 +99,18 @@ class Popover extends WeAppComponent {
     });
   }
   /**
-   * 查看元素所支持的箭头方向和位置
-   * @param {Object} boxRect 弹出菜单的宽高等位置信息
-   * @param {Object} viewRect 页面滚动区域的宽高等位置信息
-   * @param {Object} elemRect 点击元素的宽高等位置信息
-   * @param {Object} pageRect 整个页面的宽高等位置信息
+   * 计算元素所支持的箭头方向和位置
+   * @param  {Object} boxRect 弹出菜单的宽高等位置信息
+   * @param  {Object} viewRect 页面滚动区域的宽高等位置信息
+   * @param  {Object} elemRect 点击元素的宽高等位置信息
+   * @param  {Object} pageRect 整个页面的宽高等位置信息
+   * @return {Object} result 当前元素支持显示的箭头方向
    */
-  _supportOffset(boxRect, viewRect, elemRect, pageRect){
+  _getSupportOffset(boxRect, viewRect, elemRect, pageRect){
     let result = {
       supports: []
     };
+
     // page
     let pageWidth = pageRect.width;
     let pageHeight = pageRect.height;
@@ -142,12 +144,14 @@ class Popover extends WeAppComponent {
     let elemEdgeBottom = elemCenterBottom - elemHeight / 2;
 
     // tl
+    let TTop = elemEdgeTop + elemHeight + 8;
+
     if (elemEdgeBottom > boxTotalHeight
       && elemCenterRight > boxWidth + 16){
       result.supports.push('tl');
       result.tl = {};
       result.tl.left = elemCenterLeft - 16;
-      result.tl.top = elemEdgeTop + elemHeight + 8;
+      result.tl.top = TTop;
     }
 
     // tr
@@ -156,7 +160,7 @@ class Popover extends WeAppComponent {
       result.supports.push('tr');
       result.tr = {};
       result.tr.left = elemCenterLeft - boxWidth + 16;
-      result.tr.top = elemEdgeTop + elemHeight + 8;
+      result.tr.top = TTop;
     }
 
     // tc
@@ -166,15 +170,18 @@ class Popover extends WeAppComponent {
       result.supports.push('tc');
       result.tc = {};
       result.tc.left = elemCenterLeft - boxWidth / 2;
-      result.tc.top = elemEdgeTop + elemHeight + 8;
+      result.tc.top = TTop;
     }
 
+
     // rt
+    let RLeft = elemEdgeLeft - boxTotalWidth;
+
     if (elemEdgeLeft > boxTotalWidth
       && elemCenterBottom > boxHeight + 16) {
       result.supports.push('rt');
       result.rt = {};
-      result.rt.left = elemEdgeLeft - boxTotalWidth;
+      result.rt.left = RLeft;
       result.rt.top = elemCenterTop - 16;
     }
 
@@ -183,7 +190,7 @@ class Popover extends WeAppComponent {
       && elemCenterTop > boxHeight + 16) {
       result.supports.push('rb');
       result.rb = {};
-      result.rb.left = elemEdgeLeft - boxTotalWidth;
+      result.rb.left = RLeft;
       result.rb.top = elemCenterTop - boxHeight + 16;
     }
 
@@ -193,17 +200,20 @@ class Popover extends WeAppComponent {
       && elemCenterTop > boxHeight + 16) {
       result.supports.push('rc');
       result.rc = {};
-      result.rc.left = elemEdgeLeft - boxTotalWidth;
+      result.rc.left = RLeft;
       result.rc.top = elemCenterTop - boxHeight / 2;
     }
 
+
     // bl
+    let BTop = elemEdgeTop - boxHeight - 8;
+
     if (elemEdgeTop > boxTotalHeight
       && elemCenterRight > boxWidth + 16) {
       result.supports.push('bl');
       result.bl = {};
       result.bl.left = elemCenterLeft - 16;
-      result.bl.top = elemEdgeTop - boxHeight - 8;
+      result.bl.top = BTop;
     }
 
     // br
@@ -212,7 +222,7 @@ class Popover extends WeAppComponent {
       result.supports.push('br');
       result.br = {};
       result.br.left = elemCenterLeft - boxWidth + 16;
-      result.br.top = elemEdgeTop - boxHeight - 8;
+      result.br.top = BTop;
     }
 
     // bc
@@ -222,15 +232,18 @@ class Popover extends WeAppComponent {
       result.supports.push('bc');
       result.bc = {};
       result.bc.left = elemCenterLeft - boxWidth / 2;
-      result.bc.top = elemEdgeTop - boxHeight - 8;
+      result.bc.top = BTop;
     }
 
+
     // lt
+    let LLeft = elemEdgeLeft + elemWidth + 8;
+
     if (elemEdgeRight > boxTotalWidth
       && elemCenterBottom > boxHeight + 16) {
       result.supports.push('lt');
       result.lt = {};
-      result.lt.left = elemEdgeLeft + elemWidth + 8;
+      result.lt.left = LLeft;
       result.lt.top = elemCenterTop - 16;
     }
 
@@ -239,7 +252,7 @@ class Popover extends WeAppComponent {
       && elemCenterTop > boxHeight + 16) {
       result.supports.push('lb');
       result.lb = {};
-      result.lb.left = elemEdgeLeft + elemWidth + 8;
+      result.lb.left = LLeft;
       result.lb.top = elemCenterTop - boxHeight + 16;
     }
 
@@ -249,8 +262,19 @@ class Popover extends WeAppComponent {
       && elemCenterTop > boxHeight + 16) {
       result.supports.push('lc');
       result.lc = {};
-      result.lc.left = elemEdgeLeft + elemWidth + 8;
+      result.lc.left = LLeft;
       result.lc.top = elemCenterTop - boxHeight / 2;
+    }
+
+    for(let attr in result){
+      let item = result[attr];
+
+      if (item.top) {
+        result[attr].top = parseInt(item.top);
+      }
+      if (item.left) {
+        result[attr].left = parseInt(item.left);
+      }
     }
 
     return result;
@@ -287,18 +311,22 @@ class Popover extends WeAppComponent {
         let elemRect = result[2];
         let pageRect = result[3];
 
-        let offsetPos = this._supportOffset(boxRect, viewRect, elemRect, pageRect);
+        let supportResult = this._getSupportOffset(boxRect, viewRect, elemRect, pageRect);
 
-        // console.log(offsetPos)
+        // console.log(supportResult)
 
         let supportDir = dir || this.options.dir;
 
-        if (offsetPos.supports.indexOf(supportDir) === -1) {
-          supportDir = offsetPos.supports[0];
+        if (supportResult.supports.indexOf(supportDir) === -1) {
+          if (supportResult.supports.length == 0){
+            this._throwError_('Popover组件不支持该元素位置显示');
+          } else {
+            supportDir = supportResult.supports[0];
+          }
         }
 
-        componentData.left = offsetPos[supportDir].left;
-        componentData.top = offsetPos[supportDir].top;
+        componentData.left = supportResult[supportDir].left;
+        componentData.top = supportResult[supportDir].top;
         componentData.dir = supportDir;
         componentData.setStyle = true;
 
