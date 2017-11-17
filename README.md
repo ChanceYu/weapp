@@ -1,5 +1,4 @@
 <div align="center">
-  <br>
   <img width="360" src="assets/images/logo.png" alt="weapp" />
   <br>
 
@@ -147,11 +146,15 @@ ActivityTab.select(1);
 ###### 参数
 - `region`提示信息
 - `onChange`切换的回调，参数region选择的区域信息
+- `onSetLabel`修改显示的文字，必须返回要显示的字符串内容，参数region
 ###### 使用
 ```javascript
 weapp.CityPicker({
   onChange(region){
     console.log(region)
+  },
+  onSetLabel(region){
+    return '您选择的是：' + region.join(', ');
   }
 });
 ```
