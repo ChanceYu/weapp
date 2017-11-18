@@ -33,7 +33,8 @@
     "pages/weapp/tab/tab",
     "pages/weapp/cityPicker/cityPicker",
     "pages/weapp/loader/loader",
-    "pages/weapp/popover/popover"
+    "pages/weapp/popover/popover",
+    "pages/weapp/toptip/toptip"
   ],
   "window": {
     "backgroundTextStyle": "light",

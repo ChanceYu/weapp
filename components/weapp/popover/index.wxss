@@ -15,7 +15,7 @@
   left: 0;
   z-index: 1009;
   background: rgba(0, 0, 0, 0.3);
-  transition: opacity .3s ease-in;
+  transition: opacity .1s ease-in;
 }
 
 .weapp-popover.styled .weapp-popover-mask {

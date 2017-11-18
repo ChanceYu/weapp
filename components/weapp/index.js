@@ -9,7 +9,8 @@ let components = {
   Tab:        require('./tab/index'),
   CityPicker: require('./cityPicker/index'),
   Loader:     require('./loader/index'),
-  Popover:    require('./popover/index')
+  Popover:    require('./popover/index'),
+  Toptip:     require('./toptip/index')
 };
 
 let weapp = {};

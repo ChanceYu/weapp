@@ -22,6 +22,10 @@ Page({
       {
         title: 'Popover 弹出菜单',
         url: '/pages/weapp/popover/popover'
+      },
+      {
+        title: 'Toptip 顶部提示',
+        url: '/pages/weapp/toptip/toptip'
       }
     ]
   }

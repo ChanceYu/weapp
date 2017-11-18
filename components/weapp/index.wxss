@@ -4,3 +4,4 @@
 @import "./cityPicker/index.wxss";
 @import "./loader/index.wxss";
 @import "./popover/index.wxss";
+@import "./toptip/index.wxss";

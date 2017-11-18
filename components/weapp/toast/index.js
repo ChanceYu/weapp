@@ -1,5 +1,3 @@
-import WeAppComponent from '../weappComponent';
-
 const Toast = {
   /**
    * 默认参数
