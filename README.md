@@ -10,7 +10,7 @@
 </div>
 
 
-*解决的痛点*：由于小程序和普通网页程序有所区别，组件的调用和使用相对有点麻烦，此处封装的组件和功能函数是为了使用起来更加的简单，**减少麻烦的`data`设置、组件`event`事件绑定、组件的隔离与复用等问题**。为了能够让道友更好地理解组件的使用或集成到自己项目中，此处未使用任何第三方框架来构建，只使用了WeUI样式库和FontAwesome字体图标。几乎零学习成本，如果有什么问题，欢迎提个Issue。
+*解决的痛点*：由于小程序和普通网页程序有所区别，组件的调用和使用相对有点麻烦，此处封装的组件和功能函数是为了使用起来更加的简单，**减少麻烦的`data`设置、组件`event`事件绑定、组件的隔离与复用等问题**。为了能够让道友更好地理解组件的使用或集成到自己项目中，此处未使用任何第三方框架来构建，只使用了WeUI样式库和FontAwesome字体图标。**几乎零学习成本**，如果有什么问题，欢迎提个Issue。
 
 项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑，如果使用有问题，请使用最新版本基础库，并将微信更新到最新版本。
 
@@ -87,6 +87,7 @@ Page({
 * [CityPicker 城市选择](#weappcitypicker)
 * [Loader 加载更多-暂无数据](#weapploader)
 * [Popover 弹出菜单](#weapppopover)
+* [Toptip 顶部提示](#weapptoptip)
 
 
 ## 公共方法
@@ -219,6 +220,25 @@ let oPopover = weapp.Popover({
 
 // 显示弹出菜单，箭头方向：上右 top-right
 oPopover.show(event, 'tr');
+```
+
+
+### weapp.Toptip
+顶部提示
+###### 参数
+- `title`提示信息
+- `type`提示类型，`success`成功、`error`失败、`warn`警告，默认: `default`
+- `delay`自动关闭的延迟时间，单位毫秒，默认: 1500
+- `onHide`关闭之后回调
+###### 方法
+- `success`显示成功提示，参数：title, delay, onHide
+- `error`显示失败提示，参数：title, delay, onHide
+- `warn`显示警告提示，参数：title, delay, onHide
+- `show`显示提示，参数：title, type, delay, onHide
+- `hide`关闭提示
+###### 使用
+```javascript
+weapp.Toptip.success('提示信息');
 ```
 
 
