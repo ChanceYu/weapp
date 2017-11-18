@@ -12,7 +12,7 @@
 
 *解决的痛点*：由于小程序和普通网页程序有所区别，组件的调用和使用相对有点麻烦，此处封装的组件和功能函数是为了使用起来更加的简单，**减少麻烦的`data`设置、组件`event`事件绑定、组件的隔离与复用等问题**。为了能够让道友更好地理解组件的使用或集成到自己项目中，此处未使用任何第三方框架来构建，只使用了WeUI样式库和FontAwesome字体图标。**几乎零学习成本**，如果有什么问题，欢迎提个Issue。
 
-项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑，如果使用有问题，请使用最新版本基础库，并将微信更新到最新版本。
+需要开启微信开发者工具中的ES6转ES5功能（或者使用其它方式转化），项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑，如果使用有问题，请使用最新版本基础库，并将微信更新到最新版本。
 
 ## 项目预览
 ![weapp组件](./assets/images/desc/components.gif)
@@ -107,7 +107,7 @@ Page({
 浮动提示，普遍在移动开发中使用的Toast组件，与小程序的showToast不同
 ###### 参数
 - `title`提示信息
-- `delay`自动关闭的延迟时间，单位毫秒，默认: 1500
+- `delay`自动关闭的延迟时间，单位毫秒，默认: `1500`
 - `onHide`关闭之后回调
 ###### 方法
 - `show`显示提示
@@ -122,7 +122,7 @@ weapp.Toast.show([title], [delay], [onHide]);
 选项卡
 ###### 参数
 - `list`选项卡标题
-- `activeIndex`选中的索引，默认: 0
+- `activeIndex`选中的索引，默认: `0`
 - `className`主题样式，默认为空，可传入`weapp-tab`或其它自定义样式
 - `onChange`切换的回调，参数index索引
 ###### 方法
@@ -166,9 +166,9 @@ weapp.CityPicker({
 ###### 参数
 - `iconType`小程序icon组件的type类型，默认: `search`
 - `status`当前的状态，可选值: `loading`加载中、`nomore`没有更多、`empty`暂无数据，默认: `loading`
-- `emptyTxt`暂无数据提示文字，默认: 暂无数据
-- `loadingTxt`加载中提示文字，默认: 正在加载
-- `noMoreTxt`没有更多提示文字，默认: 没有更多数据了
+- `emptyTxt`暂无数据提示文字，默认: `暂无数据`
+- `loadingTxt`加载中提示文字，默认: `正在加载`
+- `noMoreTxt`没有更多提示文字，默认: `没有更多数据了`
 ###### 方法
 - `setStatus`设置当前状态，传入参数status，可选值: `loading`、`nomore`、`empty`
 ###### 使用
@@ -187,12 +187,12 @@ oLoader.setStatus('empty');
 
 
 ### weapp.Popover
-弹出菜单，最多12个可支持的箭头方向，满足绝大部分场景
+弹出菜单，最多12个可支持的箭头方位，满足绝大部分场景
 ###### 参数
 - `list`菜单列表
 - `pageSelector`整个页面最外层容器的CSS的选择器，默认为`.page`
 - `onSelect`选择每项的回调，参数index索引
-- `dir`箭头方向，可选值`tl tc tr rt rc rb bl bc br lt lc lb`，分别代表上右下左中，组合而成的12个方位
+- `dir`箭头方位，可选值`tl tc tr rt rc rb bl bc br lt lc lb`，分别代表上右下左中，组合而成的12个方位
   - `tl` 对应 `top-left`
   - `tc` 对应 `top-center`
   - `tr` 对应 `top-right`
@@ -206,10 +206,10 @@ oLoader.setStatus('empty');
   - `lc` 对应 `left-center`
   - `lb` 对应 `left-bottom`
 ###### 方法
-- `show`显示对应Popover，第一个参数event（Popover组件根据当前点击的元素位置定位）、第二个参数dir，可选（箭头显示方向）
+- `show`显示对应Popover，第一个参数event事件对象（来源于点击的元素），或者传入元素的id（Popover组件根据此的元素位置定位）、第二个参数dir，可选（箭头显示方位）
 - `hide`隐藏对应Popover
 ###### 使用
-Popover组件会根据元素计算可以显示的箭头方向，优先级为：show方法的dir参数 -> 组件初始化默认的dir参数 -> 组件计算之后的第一个dir参数，如果传递的dir箭头方向不支持显示，那么显示默认使用第一个支持的方向
+Popover组件会根据元素计算可以显示的箭头方位，优先级为：show方法的dir参数 -> 组件初始化默认的dir参数 -> 组件计算之后的第一个dir参数，如果传递的dir箭头方位不支持显示，那么默认使用第一个支持的方位，**定位显示的元素需要有id参数**
 ```javascript
 let oPopover = weapp.Popover({
   list: ['选项1', '选项2', '选项3'],
@@ -218,8 +218,8 @@ let oPopover = weapp.Popover({
   }
 });
 
-// 显示弹出菜单，箭头方向：上右 top-right
-oPopover.show(event, 'tr');
+// 显示弹出菜单，箭头方位：上右 top-right
+oPopover.show('btnPopover', 'tr');
 ```
 
 
@@ -228,7 +228,7 @@ oPopover.show(event, 'tr');
 ###### 参数
 - `title`提示信息
 - `type`提示类型，`success`成功、`error`失败、`warn`警告，默认: `default`
-- `delay`自动关闭的延迟时间，单位毫秒，默认: 1500
+- `delay`自动关闭的延迟时间，单位毫秒，默认: `1500`
 - `onHide`关闭之后回调
 ###### 方法
 - `success`显示成功提示，参数：title, delay, onHide
