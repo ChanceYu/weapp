@@ -34,7 +34,8 @@
     "pages/weapp/cityPicker/cityPicker",
     "pages/weapp/loader/loader",
     "pages/weapp/popover/popover",
-    "pages/weapp/toptip/toptip"
+    "pages/weapp/toptip/toptip",
+    "pages/weapp/calendarPicker/calendarPicker"
   ],
   "window": {
     "backgroundTextStyle": "light",

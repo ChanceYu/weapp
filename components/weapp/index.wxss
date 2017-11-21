@@ -5,3 +5,4 @@
 @import "./loader/index.wxss";
 @import "./popover/index.wxss";
 @import "./toptip/index.wxss";
+@import "./calendarPicker/index.wxss";

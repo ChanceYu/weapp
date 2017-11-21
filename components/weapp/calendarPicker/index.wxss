@@ -1,0 +1,99 @@
+.weapp-calendar-picker{
+  display: none;
+}
+
+.weapp-calendar-picker.shown{
+  display: block;
+}
+
+.weapp-calendar-picker-box{
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 6666;
+}
+
+.weapp-calendar-picker-mask{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1009;
+  background: rgba(0, 0, 0, 0.3);
+  transition: opacity .1s ease-in;
+}
+
+.weapp-calendar-picker swiper{
+   height: 77vw;
+}
+
+.weapp-calendar-picker-header{
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  color: #999;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.weapp-calendar-picker-header .title-date{
+  -webkit-box-flex: 8;
+  -webkit-flex: 8;
+  -ms-flex: 8;
+  flex: 8;
+}
+
+.weapp-calendar-picker-header .fa{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.weapp-calendar-picker-week{
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.weapp-calendar-picker-week .week-cell,
+.weapp-calendar-picker-month .date-cell{
+    display: inline-block;
+    width: 14vw;
+    text-align: center;
+    font-size: 12px;
+}
+
+.weapp-calendar-picker-week .week-cell{
+    height: 30px;
+    line-height: 30px;
+    color: #999;
+}
+
+.weapp-calendar-picker-month .date-cell{
+    height: 14vw;
+    line-height: 14vw;
+    border-radius: 50%;
+}
+
+.weapp-calendar-picker-month .date-cell.disabled{
+  color: #ddd;
+}
+
+.weapp-calendar-picker-month{
+  padding: 10px 0;
+}
+
+.weapp-calendar-picker-month .date-cell.active{
+  background: #32b16c;
+  color: #fff;
+}

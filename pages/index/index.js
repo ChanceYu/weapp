@@ -26,6 +26,10 @@ Page({
       {
         title: 'Toptip 顶部提示',
         url: '/pages/weapp/toptip/toptip'
+      },
+      {
+        title: 'CalendarPicker 日历选择',
+        url: '/pages/weapp/calendarPicker/calendarPicker'
       }
     ]
   }

@@ -5,12 +5,13 @@
  */
 
 const components = {
-  Toast:      require('./toast/index'),
-  Tab:        require('./tab/index'),
-  CityPicker: require('./cityPicker/index'),
-  Loader:     require('./loader/index'),
-  Popover:    require('./popover/index'),
-  Toptip:     require('./toptip/index')
+  Toast:          require('./toast/index'),
+  Tab:            require('./tab/index'),
+  CityPicker:     require('./cityPicker/index'),
+  Loader:         require('./loader/index'),
+  Popover:        require('./popover/index'),
+  Toptip:         require('./toptip/index'),
+  CalendarPicker: require('./calendarPicker/index')
 };
 
 module.exports = components;
