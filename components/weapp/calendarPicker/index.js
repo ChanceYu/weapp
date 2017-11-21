@@ -83,7 +83,12 @@ class CalendarPicker extends WeAppComponent {
     }
   }
   _getTotalMonth(){
-    let oMonth = new monthDate();
+    let options = this.options;
+    let oMonth = new monthDate({
+      startDate: options.startDate,
+      endDate: options.endDate,
+      format: options.format
+    });
     let months = oMonth.getTotal();
 
     // console.log(months)

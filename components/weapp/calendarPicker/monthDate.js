@@ -154,8 +154,8 @@ class SingleMonth{
 
 class MonthDate {
   static defaultOptions = {
-    startDate: '2017-05-06',
-    endDate: '2017-11-28',
+    startDate: '',
+    endDate: '',
     format: 'YYYY-MM-DD'
   }
   constructor(options) {
