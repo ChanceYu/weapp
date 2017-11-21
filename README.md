@@ -88,6 +88,7 @@ Page({
 * [Loader 加载更多-暂无数据](#weapploader)
 * [Popover 弹出菜单](#weapppopover)
 * [Toptip 顶部提示](#weapptoptip)
+* [CalendarPicker 日历选择](#weappcalendarpicker)
 
 
 ## 公共方法
@@ -239,6 +240,29 @@ oPopover.show('btnPopover', 'tr');
 ###### 使用
 ```javascript
 weapp.Toptip.success('提示信息');
+```
+
+
+### weapp.CalendarPicker
+日历选择
+###### 参数
+- `startDate`开始日期
+- `endDate`结束日期
+- `selectedDate`默认选择的日期
+- `current`默认显示第几个月，从开始日期为第一个月，默认: `0`
+- `onChange`选中日期的回调函数
+###### 方法
+- `show`显示日历
+- `hide`隐藏日历
+###### 使用
+```javascript
+this.oCP = weapp.CalendarPicker({
+  onChange: (date)  => {
+    
+  }
+});
+
+this.oCP.show();
 ```
 
 
