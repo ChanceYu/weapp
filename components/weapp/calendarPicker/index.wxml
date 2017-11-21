@@ -29,6 +29,7 @@
                 wx:for-index="dateIndex"
                 wx:for-item="date"
                 data-component-id="{{_data_.id}}"
+                data-disabled="{{date.disabled}}"
                 data-datestr="{{date.date}}"
                 bindtap="WeApp_CalendarPicker_TapDate"
               >{{date.day}}</view>

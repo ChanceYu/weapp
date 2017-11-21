@@ -13,7 +13,8 @@ class CalendarPicker extends WeAppComponent {
     selectedDate: '2017-05-06',
     format: 'YYYY-MM-DD',
     show: false,
-    current: 0
+    current: 0,
+    onChange: null
   }
   constructor(options) {
     super(Object.assign({}, CalendarPicker.defaultOptions, options));
@@ -64,9 +65,15 @@ class CalendarPicker extends WeAppComponent {
     pageScope.WeApp_CalendarPicker_TapDate = (event) => {
       let { dataset, componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
 
+      if (dataset.disabled) return;
+
       componentData.selectedDate = dataset.datestr;
 
       this._componentData_(componentInstance, componentData);
+
+      if (typeof componentInstance.options.onChange === 'function') {
+        componentInstance.options.onChange(dataset.datestr);
+      }
     }
   }
   _getTotalMonth(){

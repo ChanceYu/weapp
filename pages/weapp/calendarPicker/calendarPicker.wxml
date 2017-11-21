@@ -10,7 +10,6 @@
     <view class="page__bd page__bd_spacing weapp-bg-white">
 
         <view class="weui-article">
-            <view class="weui-article__h1">大标题</view>
             <view class="weui-article__section">
                 <view class="weui-article__title">章标题</view>
                 <view class="weui-article__section">
@@ -24,10 +23,9 @@
 
                     <view class="weui-article__p">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
+                        tempor incididunt ut labore et dolore magna aliqua.
                     </view>
+                    <view class="weui-article__h1" style="color:red">你选择的是：{{date}}</view>
 
                     <view class="weui-article__p">
                         <image class="weui-article__img" src="/pages/libs/weui/images/pic_article.png" mode="aspectFit" style="height: 180px" />
