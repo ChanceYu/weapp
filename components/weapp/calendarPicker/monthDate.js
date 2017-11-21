@@ -2,8 +2,6 @@ import moment from '../../libs/moment/we-moment-with-locales';
 
 class SingleMonth{
   static defaultOptions = {
-    startDate: '2017-11-06',
-    endDate: '2017-11-28',
     format: 'YYYY-MM-DD'
   }
   constructor(options) {
