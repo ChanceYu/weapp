@@ -14,9 +14,9 @@ class CalendarPicker extends WeAppComponent {
    */
   static defaultOptions = {
     id: 'WeApp_CalendarPicker',
-    startDate: '2017-05-06',
-    endDate: '2017-11-08',
-    selectedDate: '2017-05-06',
+    startDate: '',
+    endDate: '',
+    selectedDate: '',
     format: 'YYYY-MM-DD',
     show: false,
     current: 0,
