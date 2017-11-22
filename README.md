@@ -257,6 +257,8 @@ weapp.Toptip.success('提示信息');
 ###### 使用
 ```javascript
 this.oCP = weapp.CalendarPicker({
+  startDate: '2017-07-07',
+  endDate: '2018-08-08',
   onChange: (date)  => {
     
   }

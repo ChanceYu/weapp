@@ -133,19 +133,10 @@ class SingleMonth{
   getTotalDateCell() {
     var cells = [];
 
-    // 开始时间之前 不可点击的日期
     this.getCurrentMonthDisableDateCell(cells, 'prev');
-
-    // 上个月 补位的日期
     this.getEdgeMonthDateCell(cells, 'prev');
-
-    // 当前月 可点击的日期
     this.getCurrentMonthClickableDateCell(cells);
-
-    // 结束时间之后 不可点击的日期
     this.getCurrentMonthDisableDateCell(cells, 'next');
-
-    // 下个月 补位的日期
     this.getEdgeMonthDateCell(cells, 'next');
 
     return cells;
