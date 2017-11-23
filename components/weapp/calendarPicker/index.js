@@ -7,7 +7,7 @@ class CalendarPicker extends WeAppComponent {
    * @param {String} id 组件id
    * @param {String} startDate 开始日期
    * @param {String} endDate 结束日期
-   * @param {String} selectedDate 默认选择的日期
+   * @param {String} currentDate 默认选择的日期
    * @param {String} format 格式化
    * @param {Number} current 默认显示第几个月，从开始日期为第一个月，current = 0
    * @param {Function} onChange 选中日期的回调函数
@@ -16,7 +16,7 @@ class CalendarPicker extends WeAppComponent {
     id: 'WeApp_CalendarPicker',
     startDate: '',
     endDate: '',
-    selectedDate: '',
+    currentDate: '',
     format: 'YYYY-MM-DD',
     show: false,
     current: 0,
@@ -73,7 +73,7 @@ class CalendarPicker extends WeAppComponent {
 
       if (dataset.disabled) return;
 
-      componentData.selectedDate = dataset.datestr;
+      componentData.currentDate = dataset.datestr;
 
       this._componentData_(componentInstance, componentData);
 
@@ -91,7 +91,7 @@ class CalendarPicker extends WeAppComponent {
     });
     let months = oMonth.getTotal();
 
-    console.log(months)
+    // console.log(months)
 
     let componentData = this._componentData_(this);
 

@@ -25,7 +25,7 @@
           <swiper-item>
             <view class="weapp-calendar-picker-month">
               <view
-                class="date-cell {{date.disabled ? 'disabled' : ''}} {{date.isPrevMonth ? 'prev-month-day' : ''}} {{date.isNextMonth ? 'next-month-day' : ''}} {{date.date == _data_.selectedDate ? 'active' : ''}}"
+                class="date-cell {{date.disabled ? 'disabled' : ''}} {{date.isPrevMonth ? 'prev-month-day' : ''}} {{date.isNextMonth ? 'next-month-day' : ''}} {{date.date == _data_.currentDate ? 'active' : ''}}"
                 wx:for="{{month.dates}}"
                 wx:for-index="dateIndex"
                 wx:for-item="date"

@@ -248,7 +248,7 @@ weapp.Toptip.success('提示信息');
 ###### 参数
 - `startDate`开始日期
 - `endDate`结束日期
-- `selectedDate`默认选择的日期
+- `currentDate`默认选择的日期
 - `current`默认显示第几个月，从开始日期为第一个月，默认: `0`
 - `onChange`选中日期的回调函数
 ###### 方法
