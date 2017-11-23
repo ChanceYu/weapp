@@ -35,6 +35,8 @@ class CalendarPicker extends WeAppComponent {
       componentData.current = current;
 
       this._componentData_(componentInstance, componentData);
+
+      componentInstance._setSwiperHeight(current);
     },
     WeApp_CalendarPicker_ChangeToPrev(event) {
       let { componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
@@ -75,6 +77,21 @@ class CalendarPicker extends WeAppComponent {
       }
     }
   }
+  _setSwiperHeight(current){
+    let boxId = `WeApp_CalendarPicker_Box_${this.options.id}`;
+
+    wx.createSelectorQuery().selectAll(`#${boxId} .weapp-calendar-picker-month`).boundingClientRect((rects)=>  {
+      let rect = rects[current || 0];
+
+      if(!rect || !rect.height) return;
+
+      let componentData = this._componentData_(this);
+
+      componentData.swiperHeight = rect.height + 'px';
+
+      this._componentData_(this, componentData);
+    }).exec();
+  }
   _getTotalMonth(){
     let options = this.options;
     let oMonth = new MonthDate({
@@ -98,6 +115,8 @@ class CalendarPicker extends WeAppComponent {
     componentData.show = true;
 
     this._componentData_(this, componentData);
+    
+    setTimeout(() => { this._setSwiperHeight() }, 10);
   }
   hide() {
     let componentData = this._componentData_(this);

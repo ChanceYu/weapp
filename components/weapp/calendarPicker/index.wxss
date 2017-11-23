@@ -28,6 +28,7 @@
 
 .weapp-calendar-picker swiper{
    height: 77vw;
+   transition: height .1s ease-in;
 }
 
 .weapp-calendar-picker-header{
