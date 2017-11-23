@@ -15,14 +15,10 @@ class Popover extends WeAppComponent {
     dir: 'auto'
   }
   constructor(options) {
-    super(Object.assign({}, Popover.defaultOptions, options));
-
-    this._injectEvents();
+    super(Object.assign({}, Popover.defaultOptions, options), Popover);
   }
-  _injectEvents() {
-    let pageScope = this.pageScope;
-
-    pageScope.WeApp_Popover_Select = (event) => {
+  static listeners = {
+    WeApp_Popover_Select(event) {
       let { dataset, componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
       let idx = dataset.idx;
 
@@ -31,8 +27,8 @@ class Popover extends WeAppComponent {
       if (typeof componentInstance.options.onSelect === 'function') {
         componentInstance.options.onSelect(idx);
       }
-    }
-    pageScope.WeApp_Popover_TapMask = (event) => {
+    },
+    WeApp_Popover_TapMask(event) {
       let { dataset, componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
 
       componentInstance.hide();

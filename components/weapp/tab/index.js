@@ -15,12 +15,10 @@ class Tab extends WeAppComponent {
     onChange: null
   }
   constructor(options) {
-    super(Object.assign({}, Tab.defaultOptions, options));
-
-    this._injectEvents();
+    super(Object.assign({}, Tab.defaultOptions, options), Tab);
   }
-  _injectEvents(){
-    this.pageScope.WeApp_Tab_Action = (event) => {
+  static listeners = {
+    WeApp_Tab_Action(event) {
       let { dataset, componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
       let idx = dataset.idx;
 

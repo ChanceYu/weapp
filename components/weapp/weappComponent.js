@@ -10,9 +10,10 @@
  */
 
 class WeAppComponent {
-  constructor(options) {
+  constructor(options, ComponentConstructor) {
     this.options = options;
 
+    this._injectListeners_(ComponentConstructor);
     this._initData_();
   }
   /**
@@ -38,6 +39,22 @@ class WeAppComponent {
     pageScope.setData({
       [id]: this.options
     });
+  }
+  /**
+   * 挂载组件事件
+   * @param  {Function} ComponentConstructor 组件构造函数
+   */
+  _injectListeners_(ComponentConstructor) {
+    if (!ComponentConstructor || !ComponentConstructor.listeners) return;
+
+    let listeners = ComponentConstructor.listeners;
+    let pageScope = this.pageScope;
+
+    for (let event in listeners){
+      if (!listeners.hasOwnProperty(event) || typeof listeners[event] !== 'function') continue;
+
+      pageScope[event] = listeners[event].bind(this);
+    }
   }
   /**
    * 获取组件的信息

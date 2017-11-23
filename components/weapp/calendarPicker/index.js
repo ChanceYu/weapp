@@ -23,24 +23,20 @@ class CalendarPicker extends WeAppComponent {
     onChange: null
   }
   constructor(options) {
-    super(Object.assign({}, CalendarPicker.defaultOptions, options));
+    super(Object.assign({}, CalendarPicker.defaultOptions, options), CalendarPicker);
 
-    this._injectEvents();
     this._getTotalMonth();
   }
-  _injectEvents() {
-    let pageScope = this.pageScope;
-
-    pageScope.WeApp_CalendarPicker_Change = (event) => {
+  static listeners = {
+    WeApp_CalendarPicker_Change(event) {
       let { componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
       let current = event.detail.current;
 
       componentData.current = current;
 
       this._componentData_(componentInstance, componentData);
-    }
-
-    pageScope.WeApp_CalendarPicker_ChangeToPrev = (event) => {
+    },
+    WeApp_CalendarPicker_ChangeToPrev(event) {
       let { componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
 
       componentData.current--;
@@ -48,9 +44,8 @@ class CalendarPicker extends WeAppComponent {
       if (componentData.current < 0) componentData.current = 0;
 
       this._componentData_(componentInstance, componentData);
-    }
-
-    pageScope.WeApp_CalendarPicker_ChangeToNext = (event) => {
+    },
+    WeApp_CalendarPicker_ChangeToNext(event) {
       let { componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
 
       componentData.current++;
@@ -58,17 +53,15 @@ class CalendarPicker extends WeAppComponent {
       if (componentData.current >= componentData.months.length) componentData.current = componentData.months.length - 1;
 
       this._componentData_(componentInstance, componentData);
-    }
-
-    pageScope.WeApp_CalendarPicker_TapMask = (event) => {
+    },
+    WeApp_CalendarPicker_TapMask(event) {
       let { dataset, componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
 
       componentData.show = false;
 
       this._componentData_(componentInstance, componentData);
-    }
-
-    pageScope.WeApp_CalendarPicker_TapDate = (event) => {
+    },
+    WeApp_CalendarPicker_TapDate(event) {
       let { dataset, componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
 
       if (dataset.disabled) return;
