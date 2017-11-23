@@ -13,13 +13,14 @@
         <text class="week-cell">四</text>
         <text class="week-cell">五</text>
         <text class="week-cell">六</text>
-        <text class="week-cell">七</text>
+        <text class="week-cell">日</text>
       </view>
       <swiper current="{{_data_.current}}" data-component-id="{{_data_.id}}"  bindchange="WeApp_CalendarPicker_Change">
           <block
             wx:for="{{_data_.months}}"
             wx:for-index="monthIndex"
             wx:for-item="month"
+            wx:key="title"
           >
           <swiper-item>
             <view class="weapp-calendar-picker-month">
@@ -28,6 +29,7 @@
                 wx:for="{{month.dates}}"
                 wx:for-index="dateIndex"
                 wx:for-item="date"
+                wx:key="date"
                 data-component-id="{{_data_.id}}"
                 data-disabled="{{date.disabled}}"
                 data-datestr="{{date.date}}"

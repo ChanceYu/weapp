@@ -13,6 +13,7 @@
             wx:for="{{_data_.list}}"
             wx:for-index="idx"
             wx:for-item="item"
+            wx:key="*this"
             data-idx="{{idx}}"
             data-component-id="{{_data_.id}}"
             bindtap="WeApp_Popover_Select"

@@ -4,6 +4,7 @@
         wx:for="{{_data_.list}}"
         wx:for-index="idx"
         wx:for-item="item"
+        wx:key="*this"
       >
           <view
             data-component-id="{{_data_.id}}"

@@ -1,5 +1,5 @@
 import WeAppComponent from '../weappComponent';
-import monthDate from './monthDate';
+import MonthDate from './monthDate';
 
 class CalendarPicker extends WeAppComponent {
   /**
@@ -84,14 +84,14 @@ class CalendarPicker extends WeAppComponent {
   }
   _getTotalMonth(){
     let options = this.options;
-    let oMonth = new monthDate({
+    let oMonth = new MonthDate({
       startDate: options.startDate,
       endDate: options.endDate,
       format: options.format
     });
     let months = oMonth.getTotal();
 
-    // console.log(months)
+    console.log(months)
 
     let componentData = this._componentData_(this);
 
