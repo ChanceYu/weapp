@@ -245,6 +245,9 @@ weapp.Toptip.success('提示信息');
 
 ### weapp.CalendarPicker
 日历选择，支持多个月份滑动切换展示，左右点击切换
+<div>
+  ![weapp.CalendarPicker](./assets/images/preview/calendarPicker.gif)
+</div>
 ###### 参数
 - `startDate`开始日期
 - `endDate`结束日期
