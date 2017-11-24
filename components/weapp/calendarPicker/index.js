@@ -9,6 +9,7 @@ class CalendarPicker extends WeAppComponent {
    * @param {String} endDate 结束日期
    * @param {String} currentDate 默认选择的日期
    * @param {String} format 格式化
+   * @param {Boolean} show 是否显示
    * @param {Number} current 默认显示第几个月，从开始日期为第一个月，current = 0
    * @param {Function} onChange 选中日期的回调函数
    */
@@ -36,7 +37,7 @@ class CalendarPicker extends WeAppComponent {
 
       this._componentData_(componentInstance, componentData);
 
-      componentInstance._setSwiperHeight(current);
+      componentInstance._setSwiperHeight();
     },
     WeApp_CalendarPicker_ChangeToPrev(event) {
       let { componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
@@ -55,6 +56,18 @@ class CalendarPicker extends WeAppComponent {
       if (componentData.current >= componentData.months.length) componentData.current = componentData.months.length - 1;
 
       this._componentData_(componentInstance, componentData);
+    },
+    WeApp_CalendarPicker_ChangeToToday(event) {
+      let { componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
+
+      componentData.current = componentData.todayMonthIndex;
+      componentData.currentDate = componentData.todayDate;
+
+      this._componentData_(componentInstance, componentData);
+
+      if (typeof componentInstance.options.onChange === 'function') {
+        componentInstance.options.onChange(componentData.currentDate);
+      }
     },
     WeApp_CalendarPicker_TapMask(event) {
       let { dataset, componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
@@ -77,15 +90,15 @@ class CalendarPicker extends WeAppComponent {
       }
     }
   }
-  _setSwiperHeight(current){
+  _setSwiperHeight(){
     let boxId = `WeApp_CalendarPicker_Box_${this.options.id}`;
 
     wx.createSelectorQuery().selectAll(`#${boxId} .weapp-calendar-picker-month`).boundingClientRect((rects)=>  {
-      let rect = rects[current || 0];
+      let componentData = this._componentData_(this);
+
+      let rect = rects[componentData.current];
 
       if(!rect || !rect.height) return;
-
-      let componentData = this._componentData_(this);
 
       componentData.swiperHeight = rect.height + 'px';
 
@@ -100,15 +113,23 @@ class CalendarPicker extends WeAppComponent {
       format: options.format
     });
     let months = oMonth.getTotal();
-
-    // console.log(months)
+    let enableToday = oMonth.getToday();
 
     let componentData = this._componentData_(this);
+
+    if (enableToday) {
+      componentData.showTodayBtn = true;
+      componentData.todayMonthIndex = enableToday.monthIndex;
+      componentData.todayDate = enableToday.date;
+    }
 
     componentData.months = months;
 
     this._componentData_(this, componentData);
   }
+  /**
+   * 显示
+   */
   show() {
     let componentData = this._componentData_(this);
 
@@ -116,8 +137,11 @@ class CalendarPicker extends WeAppComponent {
 
     this._componentData_(this, componentData);
     
-    setTimeout(() => { this._setSwiperHeight() }, 10);
+    setTimeout(() => { this._setSwiperHeight() }, 30);
   }
+  /**
+   * 隐藏
+   */
   hide() {
     let componentData = this._componentData_(this);
 

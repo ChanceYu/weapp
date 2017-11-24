@@ -321,7 +321,7 @@ class Popover extends WeAppComponent {
         let supportDir = dir || this.options.dir;
 
         if (supportResult.supports.indexOf(supportDir) === -1) {
-          if (supportResult.supports.length == 0){
+          if (supportResult.supports.length === 0){
             this._throwError_('Popover组件不支持该元素位置显示');
           } else {
             supportDir = supportResult.supports[0];

@@ -253,7 +253,8 @@ weapp.Toptip.success('提示信息');
 - `startDate`开始日期
 - `endDate`结束日期
 - `currentDate`默认选择的日期
-- `current`默认显示第几个月，从开始日期为第一个月，默认: `0`
+- `show`是否一开始就显示，默认: `false`
+- `current`默认显示第几个月，从开始日期的月份为第一个月，默认: `0`
 - `onChange`选中日期的回调函数
 ###### 方法
 - `show`显示日历

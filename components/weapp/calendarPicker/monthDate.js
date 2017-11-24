@@ -1,11 +1,18 @@
 import moment from '../../libs/moment/we-moment-with-locales';
 
+/**
+ * 获取单个月份所有的天数
+ */
 class SingleMonth{
   static defaultOptions = {
+    startDate: '',
+    endDate: '',
     format: 'YYYY-MM-DD'
   }
   constructor(options) {
     this.options = Object.assign({}, SingleMonth.defaultOptions, options);
+
+    this.today = moment().format(this.options.format);
   }
   getCurrentMonthDisableDateCell(cells, type /* prev | next */) {
     let startDate = this.options.startDate;
@@ -13,15 +20,15 @@ class SingleMonth{
     let format = this.options.format;
     
     let prevJudge = () => {
-      return startDate != moment(startDate).startOf('month').format(format);
+      return startDate !== moment(startDate).startOf('month').format(format);
     };
     let nextJudge = () => {
-      return endDate != moment(endDate).endOf('month').format(format)
+      return endDate !== moment(endDate).endOf('month').format(format)
     };
 
-    if ((type == 'prev' && prevJudge()) || (type == 'next' && nextJudge())) {
+    if ((type === 'prev' && prevJudge()) || (type === 'next' && nextJudge())) {
       let disabledDays = 0;
-      if (type == 'prev') {
+      if (type === 'prev') {
         disabledDays = moment(startDate).get('date') - moment(startDate).startOf('month').get('date');
       } else {
         disabledDays = moment(endDate).endOf('month').get('date') - moment(endDate).get('date');
@@ -31,7 +38,7 @@ class SingleMonth{
         let method = '';
         let cellDate;
 
-        if (type == 'prev') {
+        if (type === 'prev') {
           method = 'unshift';
           cellDate = moment(startDate).subtract(i, 'days');
         } else {
@@ -54,16 +61,16 @@ class SingleMonth{
     let format = this.options.format;
 
     let weekOfEdgeDate;
-    if (type == 'prev') {
+    if (type === 'prev') {
       weekOfEdgeDate = moment(startDate).startOf('month').weekday();
     } else {
       weekOfEdgeDate = moment(endDate).endOf('month').weekday();
     }
 
-    if ((type == 'prev' && weekOfEdgeDate != 1) || (type == 'next' && weekOfEdgeDate != 0)) {
-      if (type == 'prev' && weekOfEdgeDate == 0) {
+    if ((type === 'prev' && weekOfEdgeDate !== 1) || (type === 'next' && weekOfEdgeDate !== 0)) {
+      if (type === 'prev' && weekOfEdgeDate === 0) {
         weekOfEdgeDate = 7;
-      } else if (type == 'next') {
+      } else if (type === 'next') {
         weekOfEdgeDate = 8 - weekOfEdgeDate;
       }
 
@@ -74,7 +81,7 @@ class SingleMonth{
           disabled: true
         };
 
-        if (type == 'prev') {
+        if (type === 'prev') {
           data.isPrevMonth = true;
           method = 'unshift';
           cellDate = moment(startDate).startOf('month').subtract(i, 'days');
@@ -96,42 +103,58 @@ class SingleMonth{
     let startDate = this.options.startDate;
     let endDate = this.options.endDate;
     let format = this.options.format;
+    let today = this.today;
+    let date, itemDate;
 
-    if (startDate == endDate) {
+    if (startDate === endDate) {
       // when startDate == endDate ( only one day )
       let singleDate = moment(endDate);
 
-      cells.push({
-        date: singleDate.format(format),
+      date = singleDate.format(format);
+      itemDate = {
+        date: date,
         week: singleDate.weekday(),
         day: singleDate.format('DD')
-      });
+      };
+
+      if (date === today) this.todayDate = Object.assign({}, itemDate);
+
+      cells.push(itemDate);
     }
 
-    while (startDate != endDate) {
+    while (startDate !== endDate) {
       let cellDate = moment(startDate);
 
-      cells.push({
-        date: cellDate.format(format),
+      date = cellDate.format(format);
+      itemDate = {
+        date: date,
         week: cellDate.weekday(),
         day: cellDate.format('DD')
-      });
+      };
+
+      if (date === today) this.todayDate = Object.assign({}, itemDate);
+
+      cells.push(itemDate);
 
       startDate = cellDate.subtract(-1, 'days').format(format);
 
-      if (startDate == endDate) {
+      if (startDate === endDate) {
         cellDate = moment(endDate);
-
-        cells.push({
-          date: cellDate.format(format),
+        date = cellDate.format(format);
+        itemDate = {
+          date: date,
           week: cellDate.weekday(),
           day: cellDate.format('DD')
-        });
+        };
+
+        if (date === today) this.todayDate = Object.assign({}, itemDate);
+
+        cells.push(itemDate);
       }
     }
   }
   getTotalDateCell() {
-    var cells = [];
+    let cells = [];
 
     this.getCurrentMonthDisableDateCell(cells, 'prev');
     this.getEdgeMonthDateCell(cells, 'prev');
@@ -143,6 +166,9 @@ class SingleMonth{
   }
 }
 
+/**
+ * 获取多个月份所有的天数
+ */
 class MonthDate {
   static defaultOptions = {
     startDate: '',
@@ -163,7 +189,7 @@ class MonthDate {
 
     let oMonth;
 
-    if (startEdgeDateOfStartDate == startEdgeDateOfEndDate) {
+    if (startEdgeDateOfStartDate === startEdgeDateOfEndDate) {
       oMonth = new SingleMonth({
         startDate: startDate,
         endDate: endDate
@@ -173,6 +199,11 @@ class MonthDate {
         title: moment(startDate).format('YYYY-MM'),
         dates: oMonth.getTotalDateCell()
       });
+
+      if (oMonth.todayDate) {
+        this.todayDate = oMonth.todayDate;
+        this.todayDate.monthIndex = monthData.length - 1;
+      }
     } else {
       let _startDate = startDate;
       let _endDate = moment(startDate).endOf('month').format(format);
@@ -187,6 +218,11 @@ class MonthDate {
           title: moment(_startDate).format('YYYY-MM'),
           dates: oMonth.getTotalDateCell()
         });
+
+        if (oMonth.todayDate) {
+          this.todayDate = oMonth.todayDate;
+          this.todayDate.monthIndex = monthData.length - 1;
+        }
 
         let nextMonth = moment(_endDate).subtract(-1, "days");
 
@@ -203,9 +239,17 @@ class MonthDate {
         title: moment(startEdgeDateOfEndDate).format('YYYY-MM'),
         dates: oMonth.getTotalDateCell()
       });
+
+      if (oMonth.todayDate) {
+        this.todayDate = oMonth.todayDate;
+        this.todayDate.monthIndex = monthData.length - 1;
+      }
     }
 
     return monthData;
+  }
+  getToday(){
+    return this.todayDate;
   }
 };
 

@@ -16,6 +16,7 @@
 }
 
 .weapp-calendar-picker-mask{
+  opacity: 0;
   position: fixed;
   top: 0;
   right: 0;
@@ -23,7 +24,24 @@
   left: 0;
   z-index: 1009;
   background: rgba(0, 0, 0, 0.3);
-  transition: opacity .1s ease-in;
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.weapp-calendar-picker.shown .weapp-calendar-picker-mask{
+  opacity: 1;
+   animation:fadeIn .2s 1;
+  -webkit-animation:fadeIn .2s 1; 
 }
 
 .weapp-calendar-picker swiper{
@@ -48,6 +66,14 @@
   -webkit-flex: 8;
   -ms-flex: 8;
   flex: 8;
+  position: relative;
+}
+
+.weapp-calendar-picker-header .title-date-today{
+  color: #32b16c;
+  font-size: 10px;
+  position: absolute;
+  right: 10px;
 }
 
 .weapp-calendar-picker-header .fa{
@@ -64,6 +90,7 @@
 .weapp-calendar-picker-week{
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  text-align:center;
 }
 
 .weapp-calendar-picker-week .week-cell,
@@ -92,6 +119,7 @@
 
 .weapp-calendar-picker-month{
   padding: 10px 0;
+  text-align:center;
 }
 
 .weapp-calendar-picker-month .date-cell.active{
