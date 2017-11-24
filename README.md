@@ -189,6 +189,8 @@ oLoader.setStatus('empty');
 
 ### weapp.Popover
 弹出菜单，最多12个可支持的箭头方位，满足绝大部分场景
+<br>
+![weapp.Popover](./assets/images/preview/popover.gif)
 ###### 参数
 - `list`菜单列表
 - `pageSelector`整个页面最外层容器的CSS的选择器，默认为`.page`
