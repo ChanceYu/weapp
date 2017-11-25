@@ -16,8 +16,12 @@ class WeAppComponent {
    * @return {Object} 页面对象
    */
   get pageScope(){
+    if (this._pageScope_) return this._pageScope_;
+
     let pages = getCurrentPages();
     let currPage = pages[pages.length - 1];
+
+    this._pageScope_ = currPage;
 
     return currPage;
   }

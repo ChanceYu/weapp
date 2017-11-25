@@ -15,7 +15,10 @@
 需要开启微信开发者工具中的ES6转ES5功能，项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑。如果使用有问题，请使用最新版本基础库，并将微信更新到最新版本。
 
 ## 项目预览
-![weapp组件](./assets/images/desc/components.gif)
+<div>
+<img src="assets/images/desc/components.gif" alt="weapp" />
+<img style="vertical-align: top;" src="assets/images/qrcode.jpg" alt="weapp" />
+</div>
 
 
 ## 主要内容
@@ -92,13 +95,13 @@ Page({
 
 
 ## 公共方法
-* [common.share 页面转发分享](#commonshare)
-* [common.param 将对象解析成url字符串](#commonparam)
-* [common.unparam 将url字符串解析成对象](#commonunparam)
-* [common.navigateTo 保留当前页面，跳转到应用内的某个页面](#commonnavigateto)
-* [common.redirectTo 关闭当前页面，跳转到应用内的某个页面](#commonnavigateto)
-* [common.switchTab 跳转到tabBar页面，并关闭其他所有非tabBar页面](#commonnavigateto)
-* [common.reLaunch 关闭所有页面，打开到应用内的某个页面](#commonnavigateto)
+* [share 页面转发分享](#commonshare)
+* [param 将对象解析成url字符串](#commonparam)
+* [unparam 将url字符串解析成对象](#commonunparam)
+* [navigateTo 保留当前页面，跳转到应用内的某个页面](#commonnavigateto)
+* [redirectTo 关闭当前页面，跳转到应用内的某个页面](#commonnavigateto)
+* [switchTab 跳转到tabBar页面，并关闭其他所有非tabBar页面](#commonnavigateto)
+* [reLaunch 关闭所有页面，打开到应用内的某个页面](#commonnavigateto)
 
 
 ---------
@@ -163,7 +166,7 @@ weapp.CityPicker({
 
 
 ### weapp.Loader
-加载更多、暂无数据提示，通常配合下拉列表使用
+加载更多、暂无数据提示，通常配合上拉数据列表使用
 ###### 参数
 - `iconType`小程序icon组件的type类型，默认: `search`
 - `status`当前的状态，可选值: `loading`加载中、`nomore`没有更多、`empty`暂无数据，默认: `loading`
@@ -246,7 +249,7 @@ weapp.Toptip.success('提示信息');
 
 
 ### weapp.CalendarPicker
-日历选择，支持多个月份滑动切换展示，左右点击切换
+日历选择，支持多个月份滑动切换展示，左右点击切换月份，切换到今天
 <br><br>
 ![weapp.CalendarPicker](./assets/images/preview/calendarPicker.gif)
 ###### 参数
@@ -261,7 +264,7 @@ weapp.Toptip.success('提示信息');
 - `hide`隐藏日历
 ###### 使用
 ```javascript
-this.oCP = weapp.CalendarPicker({
+let oCP = weapp.CalendarPicker({
   startDate: '2017-07-07',
   endDate: '2018-08-08',
   onChange: (date)  => {
@@ -269,7 +272,7 @@ this.oCP = weapp.CalendarPicker({
   }
 });
 
-this.oCP.show();
+oCP.show();
 ```
 
 
