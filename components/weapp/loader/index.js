@@ -19,7 +19,7 @@ class Loader extends WeAppComponent {
     noMoreTxt: '没有更多数据了'
   }
   constructor(options) {
-    super(Object.assign({}, Loader.defaultOptions, options));
+    super(options, Loader);
   }
   /**
    * 设置组件状态

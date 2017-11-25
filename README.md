@@ -189,7 +189,7 @@ oLoader.setStatus('empty');
 
 ### weapp.Popover
 弹出菜单，最多12个可支持的箭头方位，满足绝大部分场景
-<br>
+<br><br>
 ![weapp.Popover](./assets/images/preview/popover.gif)
 ###### 参数
 - `list`菜单列表
@@ -247,7 +247,7 @@ weapp.Toptip.success('提示信息');
 
 ### weapp.CalendarPicker
 日历选择，支持多个月份滑动切换展示，左右点击切换
-<br>
+<br><br>
 ![weapp.CalendarPicker](./assets/images/preview/calendarPicker.gif)
 ###### 参数
 - `startDate`开始日期

@@ -24,7 +24,7 @@ class CalendarPicker extends WeAppComponent {
     onChange: null
   }
   constructor(options) {
-    super(Object.assign({}, CalendarPicker.defaultOptions, options), CalendarPicker);
+    super(options, CalendarPicker);
 
     this._getTotalMonth();
   }

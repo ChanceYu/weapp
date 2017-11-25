@@ -4,14 +4,9 @@
  * Licensed under the MIT license
  */
 
-/**
- * 父组件
- * 封装所有class类组件使用的公共逻辑
- */
-
 class WeAppComponent {
   constructor(options, ComponentConstructor) {
-    this.options = options;
+    this.options = Object.assign({}, ComponentConstructor.defaultOptions, options);
 
     this._injectListeners_(ComponentConstructor);
     this._initData_();

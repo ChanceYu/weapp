@@ -15,7 +15,7 @@ class Popover extends WeAppComponent {
     dir: 'auto'
   }
   constructor(options) {
-    super(Object.assign({}, Popover.defaultOptions, options), Popover);
+    super(options, Popover);
   }
   static listeners = {
     WeApp_Popover_Select(event) {

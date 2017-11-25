@@ -15,7 +15,7 @@ class Tab extends WeAppComponent {
     onChange: null
   }
   constructor(options) {
-    super(Object.assign({}, Tab.defaultOptions, options), Tab);
+    super(options, Tab);
   }
   static listeners = {
     WeApp_Tab_Action(event) {

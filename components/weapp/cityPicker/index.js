@@ -17,7 +17,7 @@ class CityPicker extends WeAppComponent {
     onSetLabel: null
   }
   constructor(options) {
-    super(Object.assign({}, CityPicker.defaultOptions, options), CityPicker);
+    super(options, CityPicker);
 
     this._setShowLabel();
   }
