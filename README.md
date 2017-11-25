@@ -15,10 +15,8 @@
 需要开启微信开发者工具中的ES6转ES5功能，项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑。如果使用有问题，请使用最新版本基础库，并将微信更新到最新版本。
 
 ## 项目预览
-<div>
-<img src="assets/images/desc/components.gif" alt="weapp" />
-<img style="vertical-align: top;" src="assets/images/qrcode.jpg" alt="weapp" />
-</div>
+![weapp组件](./assets/images/desc/components.gif)
+![weapp组件](./assets/images/qrcode.jpg)
 
 
 ## 主要内容
