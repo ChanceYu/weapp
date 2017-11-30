@@ -5,6 +5,7 @@
  */
 
 import components from './components';
+import common from '../../assets/js/common';
 
 let weapp = {};
 
@@ -25,9 +26,31 @@ weapp.getCurrentPage = () => {
  */
 weapp.getComponent = (componentId) => {
   let currPage = weapp.getCurrentPage();
-  let allComponents = currPage._WeAppComponents_;
+  let allComponents = currPage._WeAppComponents_ || {};
 
   return componentId ? allComponents[componentId] : allComponents;
+};
+
+/**
+ * 销毁对应组件
+ * @param  {String|Array|Object} componentId 组件id | ComponentInstance
+ */
+weapp.destroy = (componentId) => {
+  let res = [];
+  let components = this.getComponent();
+  let stype = common.type(componentId);
+
+  if (stype === 'String'){
+    res.push(componentId);
+  } else if (stype === 'Array') {
+    res = componentId;
+  } else if (stype === 'Object') {
+    componentId.destroy && componentId.destroy();
+  }
+
+  res.forEach((item) => {
+    components[item] && components[item].destroy && components[item].destroy();
+  });
 };
 
 for (let attr in components) {

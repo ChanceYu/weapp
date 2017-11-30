@@ -8,6 +8,17 @@
 
 const common = {
   /**
+   * 对象类型判断
+   * @param {Any} value 任意需要判断的参数
+   */
+  type(value) {
+    let str = Object.prototype.toString.call(value).split(' ')[1];
+    str = str.substr(0, str.length - 1);
+
+    /* Object Array Boolean String Function Number ... */
+    return str;
+  },
+  /**
    * 将对象解析成url字符串
    * @param  {Object} obj 参数对象
    * @param  {Boolean} unEncodeURI 不使用编码
