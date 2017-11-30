@@ -8,8 +8,9 @@
 
 const common = {
   /**
-   * 对象类型判断
+   * 类型判断
    * @param {Any} value 任意需要判断的参数
+   * @return {String} 返回的类型
    */
   type(value) {
     let str = Object.prototype.toString.call(value).split(' ')[1];

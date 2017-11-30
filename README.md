@@ -94,6 +94,7 @@ Page({
 
 ## 公共方法
 * [share 页面转发分享](#commonshare)
+* [type 类型判断](#commontype)
 * [param 将对象解析成url字符串](#commonparam)
 * [unparam 将url字符串解析成对象](#commonunparam)
 * [navigateTo 保留当前页面，跳转到应用内的某个页面](#commonnavigateto)
@@ -291,6 +292,27 @@ import common from '../../assets/js/common';
 Page({
   onShareAppMessage: common.share()
 });
+```
+
+
+### common.type
+类型判断，返回`Number`、`String`、`Boolean`、`Array`、`Object`、`Function`等类型字符串
+###### 参数
+- `value`任意需要判断的参数
+###### 使用
+```javascript
+import common from '../../assets/js/common';
+
+// common.type([value])
+
+common.type(1); // Number
+common.type('abc'); // String
+common.type(true); // Boolean
+common.type([]); // Array
+common.type({}); // Object
+common.type(function(){}); // Function
+common.type(/\d/); // RegExp
+common.type(new Date()); // Date
 ```
 
 
