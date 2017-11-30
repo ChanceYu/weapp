@@ -305,14 +305,14 @@ import common from '../../assets/js/common';
 
 // common.type([value])
 
-common.type(1); // Number
-common.type('abc'); // String
-common.type(true); // Boolean
-common.type([]); // Array
-common.type({}); // Object
+common.type(1);            // Number
+common.type('abc');        // String
+common.type(true);         // Boolean
+common.type([]);           // Array
+common.type({});           // Object
 common.type(function(){}); // Function
-common.type(/\d/); // RegExp
-common.type(new Date()); // Date
+common.type(/\d/);         // RegExp
+common.type(new Date());   // Date
 ```
 
 
