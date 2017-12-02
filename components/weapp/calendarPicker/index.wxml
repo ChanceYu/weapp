@@ -10,13 +10,13 @@
         <text class="fa fa-angle-right" data-component-id="{{_data_.id}}"  bindtap="WeApp_CalendarPicker_ChangeToNext"></text>
       </view>
       <view class="weapp-calendar-picker-week">
+        <text class="week-cell">日</text>
         <text class="week-cell">一</text>
         <text class="week-cell">二</text>
         <text class="week-cell">三</text>
         <text class="week-cell">四</text>
         <text class="week-cell">五</text>
         <text class="week-cell">六</text>
-        <text class="week-cell">日</text>
       </view>
       <swiper current="{{_data_.current}}" style="height: {{_data_.swiperHeight || '77vw'}}" data-component-id="{{_data_.id}}"  bindchange="WeApp_CalendarPicker_Change">
           <block
