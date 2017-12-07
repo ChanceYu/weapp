@@ -6,7 +6,7 @@
 
 class WeAppComponent {
   constructor(options, ComponentConstructor) {
-    this.options = Object.assign({}, ComponentConstructor.defaultOptions, options);
+    this.options = Object.assign({}, ComponentConstructor.defaultOptions || {}, options || {});
 
     this._injectListeners_(ComponentConstructor);
     this._initData_();
