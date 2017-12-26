@@ -22,6 +22,8 @@ class Tab extends WeAppComponent {
       let { dataset, componentId, componentData, componentInstance } = this._getComponentByEvent_(event);
       let idx = dataset.idx;
 
+      if(componentData.activeIndex == idx) return;
+
       componentData.activeIndex = idx;
 
       this._componentData_(componentInstance, componentData);
