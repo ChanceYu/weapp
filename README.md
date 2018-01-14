@@ -9,7 +9,7 @@
   <h1></h1>
 </div>
 
-旧版本不再维护，新版本全部基于微信的Component封装！查看旧版本[weapp v1](https://github.com/ChanceYu/weapp/tree/v1)，使用简单
+*旧版本不再维护，新版本全部基于微信的Component封装！*查看旧版本[weapp v1](https://github.com/ChanceYu/weapp/tree/v1)，使用简单
 
 基于微信的Component自定义组件封装，简洁的组件化编程，关于Component自定义组件参考 [Component API](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/custom-component/)，使用简单
 
