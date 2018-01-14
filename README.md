@@ -75,7 +75,7 @@
 下面是展示`Tab`组件的简单使用，具体示例参考项目内部`pages/weapp/tab`中代码。其它类型组件使用基本和这种调用方式类似。
 
 ```javascript
-<!-- tab.json -->
+// tab.json
 {
   "navigationBarTitleText": "Tab",
   "usingComponents": {
@@ -85,7 +85,7 @@
 ```
 ```html
 <!-- tab.wxml -->
-<weapp-tab list="{{ list1 }}" activeIndex="{{activeIndex}}" />
+<weapp-tab list="{{ list1 }}" activeIndex="{{activeIndex}}" bind:change="onTabChange" />
 ```
 ```javascript
 // tab.js
@@ -97,6 +97,9 @@ Page({
     this.setData({
       activeIndex: 1
     });
+  },
+  onTabChange(event){
+    console.log(event.detail.activeIndex)
   }
 })
 ```
