@@ -10,5 +10,8 @@ Page({
     this.setData({
       activeIndex: 1
     });
+  },
+  onTabChange(event){
+    console.log(event.detail.activeIndex)
   }
 })

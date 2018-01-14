@@ -5,7 +5,7 @@
     </view>
     <view class="page__bd page__bd_spacing weapp-bg-white">
         <view class="weui-tab">
-            <weapp-tab list="{{ list1 }}" activeIndex="{{activeIndex}}" />
+            <weapp-tab list="{{ list1 }}" activeIndex="{{activeIndex}}"  bind:change="onTabChange" />
             <view class="weui-tab__panel">
                 <view class="weui-tab__content" hidden="{{oTab1.activeIndex != 0}}">选项一的内容</view>
                 <view class="weui-tab__content" hidden="{{oTab1.activeIndex != 1}}">选项二的内容</view>

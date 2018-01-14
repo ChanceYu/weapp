@@ -25,6 +25,8 @@ Component({
       this.setData({
         activeIndex: activeIndex
       });
+
+      this.triggerEvent('change', { activeIndex });
     }
   }
 })

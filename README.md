@@ -9,11 +9,11 @@
   <h1></h1>
 </div>
 
-*旧版本不再维护，新版本全部基于微信的Component封装！*查看旧版本[weapp v1](https://github.com/ChanceYu/weapp/tree/v1)，使用简单
+**旧版本不再维护，新版本全部基于微信的Component封装！** 组件的使用方式完全改变！查看旧版本[weapp v1](https://github.com/ChanceYu/weapp/tree/v1)。
 
-基于微信的Component自定义组件封装，简洁的组件化编程，关于Component自定义组件参考 [Component API](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/custom-component/)，使用简单
+**基于微信的Component自定义组件封装**，简洁的组件化编程，关于Component自定义组件参考 [Component API](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/custom-component/)。
 
-注意需要开启微信开发者工具中的ES6转ES5功能，项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑。如果使用有问题，请使用大于`1.6.3`版本的小程序基础库，并将微信更新到最新版本。
+注意需要开启微信开发者工具中的ES6转ES5功能，请使用大于`1.6.3`版本的小程序基础库，并将微信更新到最新版本。
 
 ## 项目预览
 ![weapp组件](./assets/images/desc/components.gif)
@@ -53,7 +53,25 @@
 * 小程序API的二次封装，如转发分享
 * 公共方法的封装，如URL参数转换
 
+## 组件使用
+需要在每个页面的文件配置参数，如下：
 
+配置页面中的组件引用字段`usingComponents`
+```javascript
+// page.json
+{
+  "usingComponents": {
+    "weapp-toast": "/components/weapp/toast/toast",
+    "weapp-tab": "/components/weapp/tab/tab"
+  }
+}
+```
+引入组件模板
+```html
+<!-- page.wxml-->
+<weapp-toast title="{{ toastTitle }}" bind:hide="onToastHide" />
+<weapp-tab list="{{ list1 }}" activeIndex="{{activeIndex}}" bind:change="onTabChange" />
+```
 下面是展示`Tab`组件的简单使用，具体示例参考项目内部`pages/weapp/tab`中代码。其它类型组件使用基本和这种调用方式类似。
 
 ```javascript
