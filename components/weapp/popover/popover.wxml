@@ -1,0 +1,23 @@
+  <view class="weapp-popover {{setStyle ? 'styled' : ''}}" wx:if="{{show}}">
+    <view class="weapp-popover-mask" bindtap="tapMask"></view>
+    <view
+      class="weapp-popover-box"
+      style="left: {{left + 'px'}};top: {{top + 'px'}}"
+    >
+      <view class="weui-cells weui-cells_after-title">
+          <view
+            class="weui-cell"
+            hover-class="weui-cell_active"
+            wx:for="{{list}}"
+            wx:for-index="idx"
+            wx:for-item="item"
+            wx:key="*this"
+            data-idx="{{idx}}"
+            bindtap="select"
+          >
+              <view class="weui-cell__bd">{{item}}</view>
+          </view>
+      </view>
+      <view class="weapp-popover-triangle weapp-popover-triangle-{{dir}}"></view>
+    </view>
+  </view>

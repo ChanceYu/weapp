@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "Toptip"
+  "navigationBarTitleText": "Toptip",
+  "usingComponents": {
+    "weapp-toptip": "/components/weapp/toptip/toptip"
+  }
 }

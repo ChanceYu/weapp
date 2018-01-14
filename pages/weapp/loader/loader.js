@@ -1,13 +1,15 @@
-import weapp from '../../../components/weapp/index';
-
 Page({
-  onReady() {
-    this.oLoader = weapp.Loader();
+  data: {
+    status: 'loading'
   },
   handlerNoMore() {
-    this.oLoader.setStatus('nomore');
+    this.setData({
+      status: 'nomore'
+    });
   },
   handlerEmpty() {
-    this.oLoader.setStatus('empty');
+    this.setData({
+      status: 'empty'
+    });
   }
 })

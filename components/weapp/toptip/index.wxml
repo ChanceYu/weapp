@@ -1,5 +1,0 @@
-<template name="weapp-toptip">
-  <view class="weapp-toptip {{_data_.type}}" wx:if="{{ _data_.show }}">
-    {{ _data_.title }}
-  </view>
-</template>

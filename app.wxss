@@ -2,7 +2,6 @@
 
 @import "/components/libs/font-awesome/font-awesome.wxss";
 @import "/components/libs/weui/weui.wxss";
-@import "/components/weapp/index.wxss";
 
 page{
     background-color: #F8F8F8;

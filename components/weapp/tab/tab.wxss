@@ -1,3 +1,5 @@
+@import "/components/libs/weui/weui.wxss";
+
 .weapp-tab .weui-navbar__item{
   background: #f5f5f5;
   color: #32b16c;

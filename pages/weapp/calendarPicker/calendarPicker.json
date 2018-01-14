@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "CalendarPicker"
+  "navigationBarTitleText": "CalendarPicker",
+  "usingComponents": {
+    "weapp-calendar-picker": "/components/weapp/calendarPicker/calendarPicker"
+  }
 }

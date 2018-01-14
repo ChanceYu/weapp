@@ -1,5 +1,3 @@
-import weapp from '../../../components/weapp/index';
-
 let allDirs = 'tl tc tr rt rc rb bl bc br lt lc lb';
 let currIndex = -1;
 
@@ -13,23 +11,19 @@ Page({
 
     let dir = allDirs[currIndex];
 
-    let oPopover = weapp.Popover({
+    this.setData({
       list: ['选项1', '选项2', '选项3'],
-      onSelect(idx) {
-        console.log('选项' + idx);
-      }
+      dir: dir,
+      event: event,
+      show: true
     });
-
-    oPopover.show(event, dir);
   },
   showPopover2(event) {
-    let oPopover2 = weapp.Popover({
+    this.setData({
       list: ['操作菜单1', '操作菜单2', '操作菜单3'],
-      onSelect(idx) {
-        console.log('操作菜单' + idx);
-      }
+      dir: 'tc',
+      event: event,
+      show: true
     });
-
-    oPopover2.show(event, 'tc');
   }
 })

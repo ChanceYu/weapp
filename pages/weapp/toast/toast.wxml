@@ -1,6 +1,4 @@
-<import src="/components/weapp/toast/index.wxml" />
-
-<template is="weapp-toast" data="{{_data_: WeApp_Toast }}"></template>
+<weapp-toast title="{{ toastTitle }}" bind:hide="onToastHide" />
 
 <view class="page">
     <view class="page__hd">

@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "CityPicker"
+  "navigationBarTitleText": "CityPicker",
+  "usingComponents": {
+    "weapp-city-picker": "/components/weapp/cityPicker/cityPicker"
+  }
 }

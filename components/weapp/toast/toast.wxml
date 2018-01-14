@@ -1,0 +1,3 @@
+<view class="weapp-toast" wx:if="{{ show && title }}">
+  {{ title }}
+</view>

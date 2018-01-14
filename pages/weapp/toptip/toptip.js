@@ -1,13 +1,20 @@
-import weapp from '../../../components/weapp/index';
-
 Page({
-  showToptipSuccess(){
-    weapp.Toptip.success('提示信息');
+  showToptipSuccess() {
+    this.setData({
+      type: 'success',
+      title: '提示信息'
+    });
   },
   showToptipError() {
-    weapp.Toptip.error('提示信息');
+    this.setData({
+      type: 'error',
+      title: '提示信息'
+    });
   },
   showToptipWarn() {
-    weapp.Toptip.warn('提示信息');
+    this.setData({
+      type: 'warn',
+      title: '提示信息'
+    });
   }
 })

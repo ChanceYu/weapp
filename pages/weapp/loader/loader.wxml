@@ -1,5 +1,3 @@
-<import src="/components/weapp/loader/index.wxml" />
-
 <view class="page">
     <view class="page__hd">
         <view class="page__title">Loader</view>
@@ -20,6 +18,6 @@
             </view>
         </view>
 
-        <template is="weapp-loader" data="{{ _data_: WeApp_Loader }}"></template>
+        <weapp-loader status="{{status}}" />
     </view>
 </view>

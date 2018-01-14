@@ -1,6 +1,4 @@
-<import src="/components/weapp/calendarPicker/index.wxml" />
-
-<template is="weapp-calendar-picker" data="{{ _data_: WeApp_CalendarPicker }}"></template>
+<weapp-calendar-picker start-date="2017-07-07" end-date="2018-08-08" show="{{ isCalendarPickerShow }}" />
 
 <view class="page">
     <view class="page__hd">

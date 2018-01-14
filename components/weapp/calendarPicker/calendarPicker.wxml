@@ -1,0 +1,46 @@
+<view class="weapp-calendar-picker {{show ? 'shown' : ''}} static">
+  <view class="weapp-calendar-picker-box">
+    <view class="weapp-calendar-picker-header">
+      <text class="fa fa-angle-left"  bindtap="changeToPrev"></text>
+      <view class="title-date">
+        {{months[current].title}}
+        <text hidden="{{!showTodayBtn}}" class="title-date-today"  bindtap="changeToToday">今天</text>
+      </view>
+      <text class="fa fa-angle-right"  bindtap="changeToNext"></text>
+    </view>
+    <view class="weapp-calendar-picker-week">
+      <text class="week-cell">日</text>
+      <text class="week-cell">一</text>
+      <text class="week-cell">二</text>
+      <text class="week-cell">三</text>
+      <text class="week-cell">四</text>
+      <text class="week-cell">五</text>
+      <text class="week-cell">六</text>
+    </view>
+    <swiper current="{{current}}" style="height: {{swiperHeight || '77vw'}}"  bindchange="change">
+        <block
+          wx:for="{{months}}"
+          wx:for-index="monthIndex"
+          wx:for-item="month"
+          wx:key="title"
+        >
+        <swiper-item>
+          <view class="weapp-calendar-picker-month">
+            <view
+              class="date-cell {{date.disabled ? 'disabled' : ''}} {{date.isPrevMonth ? 'prev-month-day' : ''}} {{date.isNextMonth ? 'next-month-day' : ''}} {{date.date == currentDate ? 'active' : ''}}"
+              wx:for="{{month.dates}}"
+              wx:for-index="dateIndex"
+              wx:for-item="date"
+              wx:key="date"
+            
+              data-disabled="{{date.disabled}}"
+              data-datestr="{{date.date}}"
+              bindtap="tapDate"
+            >{{date.day}}</view>
+          </view>
+        </swiper-item>
+        </block>
+    </swiper>
+  </view>
+  <view class="weapp-calendar-picker-mask" bindtap="tapMask"></view>
+</view>

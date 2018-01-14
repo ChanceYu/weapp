@@ -1,0 +1,7 @@
+<view class="weapp-city-picker">
+  <picker mode="region" bindchange="change" value="{{region}}">
+    <view>
+      {{label}}
+    </view>
+  </picker>
+</view>

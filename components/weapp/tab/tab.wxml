@@ -1,0 +1,16 @@
+<view class="weui-navbar {{className || ''}}">
+    <block
+      wx:for="{{list}}"
+      wx:for-index="idx"
+      wx:for-item="item"
+      wx:key="*this"
+    >
+        <view
+          data-idx="{{idx}}"
+          bindtap="action"
+          class="weui-navbar__item {{activeIndex == idx ? 'weui-bar__item_on' : ''}}"
+        >
+            <view class="weui-navbar__title">{{item}}</view>
+        </view>
+    </block>
+</view>

@@ -1,6 +1,4 @@
-<import src="/components/weapp/toptip/index.wxml" />
-
-<template is="weapp-toptip" data="{{_data_: WeApp_Toptip }}"></template>
+<weapp-toptip type="{{ type }}" title="{{ title }}" />
 
 <view class="page">
     <view class="page__hd">

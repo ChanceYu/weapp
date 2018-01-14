@@ -1,25 +1,14 @@
-import weapp from '../../../components/weapp/index';
-
 Page({
+  data: {
+    list1: ['选项1', '选项2', '选项3'],
+    list2: ['活动1', '活动2']
+  },
   onReady() {
-    weapp.Tab({
-      id: 'oTab1',
-      list: ['选项1', '选项2', '选项3'],
-      onChange(idx) {
-        console.log('选项-' + idx);
-      }
-    });
-
-    this.ActivityTab = weapp.Tab({
-      id: 'oTab2',
-      className: 'weapp-tab',
-      list: ['活动1', '活动2'],
-      onChange(idx) {
-        console.log('活动-' + idx);
-      }
-    });
+    
   },
   handlerSelect(){
-    this.ActivityTab.select(1);
+    this.setData({
+      activeIndex: 1
+    });
   }
 })

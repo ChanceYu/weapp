@@ -5,14 +5,15 @@
   <a href="javascript:;"><img src="https://img.shields.io/badge/language-JavaScript-brightgreen.svg" /></a>
   <a href="https://opensource.org/licenses/mit-license.php"><img src="https://img.shields.io/badge/license-MIT-blue.svg" /></a>
 
-  <p><strong>微信小程序组件和功能封装（持续更新中...）</strong></p>
+  <p><strong>微信小程序组件和功能封装，简洁的组件化编程（持续更新中...）</strong></p>
   <h1></h1>
 </div>
 
+旧版本不再维护，新版本全部基于微信的Component封装！查看旧版本[weapp v1](https://github.com/ChanceYu/weapp/tree/v1)，使用简单
 
-*解决的痛点*：由于小程序和普通网页程序有所区别，组件的调用和使用相对有点麻烦。此处封装的组件和功能函数是为了使用起来更加的简单，**减少麻烦的`data`设置、组件`event`事件绑定、组件的隔离与复用等问题**。此处未使用任何第三方框架来构建，只使用了WeUI样式库和FontAwesome字体图标。**几乎零学习成本**，如果有什么问题，欢迎提个Issue。
+基于微信的Component自定义组件封装，简洁的组件化编程，关于Component自定义组件参考 [Component API](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/custom-component/)，使用简单
 
-注意需要开启微信开发者工具中的ES6转ES5功能，项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑。如果使用有问题，请使用最新版本基础库，并将微信更新到最新版本。
+注意需要开启微信开发者工具中的ES6转ES5功能，项目中的代码以最新的小程序基础库版本为主，低版本API不做兼容性考虑。如果使用有问题，请使用大于`1.6.3`版本的小程序基础库，并将微信更新到最新版本。
 
 ## 项目预览
 ![weapp组件](./assets/images/desc/components.gif)
@@ -47,35 +48,36 @@
 
 ## 主要特点
 * 组件调用简单
-* 面向对象组件开发，可配置、可扩展、可复用
+* 组件化编程开发，可配置、可扩展、可复用
 * 使用ES6代码特性
 * 小程序API的二次封装，如转发分享
 * 公共方法的封装，如URL参数转换
 
 
-## 使用注意
-* 每个组件都必须传入唯一一个`id`，不能与页面`data`中已经包含的字段相同
-* 组件模板数据统一使用`data={{ _data_: componentId }}`形式，`componentId`与组件参数`id`必须一致，默认每个组件都有一个id
-* 个别组件的模板`template`一个页面只需要使用一次，id参数可以省略（使用默认），目前此类组件有：`Toast`、`Popover`、`Toptip`
-
 下面是展示`Tab`组件的简单使用，具体示例参考项目内部`pages/weapp/tab`中代码。其它类型组件使用基本和这种调用方式类似。
 
+```javascript
+<!-- tab.json -->
+{
+  "navigationBarTitleText": "Tab",
+  "usingComponents": {
+    "weapp-tab": "/components/weapp/tab/tab"
+  }
+}
+```
 ```html
-<!-- wxml -->
-<import src="/components/weapp/tab/index.wxml" />
-
-<template is="weapp-tab" data="{{ _data_: oTab1 }}"></template>
+<!-- tab.wxml -->
+<weapp-tab list="{{ list1 }}" activeIndex="{{activeIndex}}" />
 ```
 ```javascript
-// js
-import weapp from '../../../components/weapp/index';
-
+// tab.js
 Page({
-  onReady() {
-    // 初始化组件
-    weapp.Tab({
-      id: 'oTab1',
-      list: ['选项1', '选项2', '选项3']
+  data: {
+    list1: ['选项1', '选项2', '选项3']
+  },
+  handlerSelect(){
+    this.setData({
+      activeIndex: 1
     });
   }
 })
@@ -83,13 +85,13 @@ Page({
 
 
 ## weapp组件
-* [Toast 浮动提示](#weapptoast)
-* [Tab 选项卡](#weapptab)
-* [CityPicker 城市选择](#weappcitypicker)
-* [Loader 加载更多-暂无数据](#weapploader)
-* [Popover 弹出菜单](#weapppopover)
-* [Toptip 顶部提示](#weapptoptip)
-* [CalendarPicker 日历选择](#weappcalendarpicker)
+* [Toast 浮动提示](#weapp-toast)
+* [Tab 选项卡](#weapp-tab)
+* [CityPicker 城市选择](#weapp-city-picker)
+* [Loader 加载更多-暂无数据](#weapp-loader)
+* [Popover 弹出菜单](#weapp-popover)
+* [Toptip 顶部提示](#weapp-toptip)
+* [CalendarPicker 日历选择](#weapp-calendar-picker)
 
 
 ## 公共方法
@@ -106,97 +108,50 @@ Page({
 ---------
 
 
-### weapp.Toast
+### weapp-toast
 浮动提示，普遍在移动开发中使用的Toast组件，与小程序的showToast不同
-###### 参数
+###### 属性
 - `title`提示信息
 - `delay`自动关闭的延迟时间，单位毫秒，默认: `1500`
-- `onHide`关闭之后回调
-###### 方法
-- `show`显示提示
-- `hide`关闭提示
-###### 使用
-```javascript
-weapp.Toast.show([title], [delay], [onHide]);
-```
+###### 事件
+- `hide`关闭之后回调
 
 
-### weapp.Tab
+### weapp-tab
 选项卡
-###### 参数
+###### 属性
 - `list`选项卡标题
 - `activeIndex`选中的索引，默认: `0`
 - `className`主题样式，默认为空，可传入`weapp-tab`或其它自定义样式
-- `onChange`切换的回调，参数index索引
-###### 方法
-- `select`激活选项卡，传入参数index索引
-###### 使用
-```javascript
-let ActivityTab = weapp.Tab({
-  list: ['活动1', '活动2'],
-  className: 'weapp-tab',
-  onChange(idx) {
-    console.log('活动-' + idx);
-  }
-});
-
-// 选择第二个（索引为1）
-ActivityTab.select(1);
-```
+###### 事件
+- `change`切换的回调，参数index索引
 
 
-### weapp.CityPicker
+### weapp-city-picker
 城市选择
-###### 参数
+###### 属性
 - `region`提示信息
-- `onChange`切换的回调，参数region选择的区域信息
-- `onSetLabel`修改显示的文字，必须返回要显示的字符串内容，参数region
-###### 使用
-```javascript
-weapp.CityPicker({
-  onChange(region){
-    console.log(region)
-  },
-  onSetLabel(region){
-    return '您选择的是：' + region.join(', ');
-  }
-});
-```
+###### 事件
+- `change`切换的回调，参数region选择的区域信息
 
 
-### weapp.Loader
+### weapp-loader
 加载更多、暂无数据提示，通常配合上拉数据列表使用
-###### 参数
+###### 属性
 - `iconType`小程序icon组件的type类型，默认: `search`
 - `status`当前的状态，可选值: `loading`加载中、`nomore`没有更多、`empty`暂无数据，默认: `loading`
 - `emptyTxt`暂无数据提示文字，默认: `暂无数据`
 - `loadingTxt`加载中提示文字，默认: `正在加载`
 - `noMoreTxt`没有更多提示文字，默认: `没有更多数据了`
-###### 方法
-- `setStatus`设置当前状态，传入参数status，可选值: `loading`、`nomore`、`empty`
-###### 使用
-```javascript
-let oLoader = weapp.Loader({
-  iconType: 'search',
-  status: 'loading',
-  emptyTxt: '暂无数据',
-  loadingTxt: '正在加载',
-  noMoreTxt: '没有更多数据了'
-});
-
-// 设置成暂无数据状态
-oLoader.setStatus('empty');
-```
 
 
-### weapp.Popover
+### weapp-popover
 弹出菜单，最多12个可支持的箭头方位，满足绝大部分场景
 <br><br>
-![weapp.Popover](./assets/images/preview/popover.gif)
-###### 参数
+![weapp-popover](./assets/images/preview/popover.gif)
+###### 属性
 - `list`菜单列表
 - `pageSelector`整个页面最外层容器的CSS的选择器，默认为`.page`
-- `onSelect`选择每项的回调，参数index索引
 - `dir`箭头方位，可选值`tl tc tr rt rc rb bl bc br lt lc lb`，分别代表上右下左中，组合而成的12个方位
   - `tl` 对应 `top-left`
   - `tc` 对应 `top-center`
@@ -210,69 +165,34 @@ oLoader.setStatus('empty');
   - `lt` 对应 `left-top`
   - `lc` 对应 `left-center`
   - `lb` 对应 `left-bottom`
-###### 方法
-- `show`显示对应Popover，第一个参数event事件对象（来源于点击的元素），或者传入元素的id（Popover组件根据此的元素位置定位）、第二个参数dir，可选（箭头显示方位）
-- `hide`隐藏对应Popover
-###### 使用
-Popover组件会根据元素计算可以显示的箭头方位，优先级为：show方法的dir参数 -> 组件初始化默认的dir参数 -> 组件计算之后的第一个dir参数，如果传递的dir箭头方位不支持显示，那么默认使用第一个支持的方位，**定位显示的元素需要有id属性**。
-```javascript
-let oPopover = weapp.Popover({
-  list: ['选项1', '选项2', '选项3'],
-  onSelect(idx){
-    console.log(idx);
-  }
-});
-
-// 显示弹出菜单，箭头方位：上右 top-right
-oPopover.show('btnPopover', 'tr');
-```
+###### 事件
+- `select`选择每项的回调，参数index索引
+- `show`显示的回调
+- `hide`隐藏的回调
 
 
-### weapp.Toptip
+### weapp-toptip
 顶部提示
-###### 参数
+###### 属性
 - `title`提示信息
 - `type`提示类型，`success`成功、`error`失败、`warn`警告，默认: `default`
 - `delay`自动关闭的延迟时间，单位毫秒，默认: `1500`
-- `onHide`关闭之后回调
-###### 方法
-- `success`显示成功提示，参数：title, delay, onHide
-- `error`显示失败提示，参数：title, delay, onHide
-- `warn`显示警告提示，参数：title, delay, onHide
-- `show`显示提示，参数：title, type, delay, onHide
-- `hide`关闭提示
-###### 使用
-```javascript
-weapp.Toptip.success('提示信息');
-```
+###### 事件
+- `hide`关闭之后回调
 
 
-### weapp.CalendarPicker
+### weapp-calendar-picker
 日历选择，支持多个月份滑动切换展示，左右点击切换月份，切换到今天
 <br><br>
-![weapp.CalendarPicker](./assets/images/preview/calendarPicker.gif)
-###### 参数
+![weapp-calendar-picker](./assets/images/preview/calendarPicker.gif)
+###### 属性
 - `startDate`开始日期
 - `endDate`结束日期
 - `currentDate`默认选择的日期
 - `show`是否一开始就显示，默认: `false`
 - `current`默认显示第几个月，从开始日期的月份为第一个月，默认: `0`
-- `onChange`选中日期的回调函数
-###### 方法
-- `show`显示日历
-- `hide`隐藏日历
-###### 使用
-```javascript
-let oCP = weapp.CalendarPicker({
-  startDate: '2017-07-07',
-  endDate: '2018-08-08',
-  onChange: (date)  => {
-    
-  }
-});
-
-oCP.show();
-```
+###### 事件
+- `change`选中日期的回调函数
 
 
 ---------

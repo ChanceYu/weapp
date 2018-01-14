@@ -1,0 +1,3 @@
+<view class="weapp-toptip {{type}}" wx:if="{{ show && title }}">
+  {{ title }}
+</view>
