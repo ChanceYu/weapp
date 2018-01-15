@@ -1,15 +1,33 @@
 Component({
   properties: {
-    setStyle: {
-      type: Boolean,
-      value: false
-    },
+    /* 是否显示 */
     show: {
       type: Boolean,
       value: false,
       observer(newVal, oldVal) {
         if (newVal) this.show();
       }
+    },
+    /* 显示的菜单数据 */
+    list: {
+      type: Array,
+      value: []
+    },
+    /* 显示的箭头方向 */
+    dir: {
+      type: String,
+      value: 'auto'
+    },
+    /* 根据哪个元素定位 */
+    event: Object,
+    /* 页面最外层容器 */
+    pageSelector: {
+      type: String,
+      value: '.page'
+    },
+    setStyle: {
+      type: Boolean,
+      value: false
     },
     left: {
       type: Number,
@@ -19,21 +37,11 @@ Component({
       type: Number,
       value: 0
     },
-    list: {
-      type: Array,
-      value: []
-    },
-    dir: {
-      type: String,
-      value: 'auto'
-    },
-    event: Object,
-    pageSelector: {
-      type: String,
-      value: '.page'
-    }
   },
   methods: {
+    /**
+     * 选择了菜单项
+     */
     select(event) {
       let { list } = this.data;
       let idx = event.currentTarget.dataset.idx;
@@ -47,26 +55,26 @@ Component({
     /**
      * 获取整个页面的宽高等位置信息
      */
-      _getPageRect() {
-        let { pageSelector} = this.data;
+    _getPageRect() {
+      let { pageSelector} = this.data;
 
-        let getRect = (callback) => {
-          wx.createSelectorQuery()
-            .select(pageSelector)
-            .boundingClientRect((rect) => {
-              if (rect) {
-                callback(rect);
-              } else {
-                // 处理 rect 获取不到的时候
-                setTimeout(() => getRect(callback), 100);
-              }
-            }).exec();
-        }
+      let getRect = (callback) => {
+        wx.createSelectorQuery()
+          .select(pageSelector)
+          .boundingClientRect((rect) => {
+            if (rect) {
+              callback(rect);
+            } else {
+              // 处理 rect 获取不到的时候
+              setTimeout(() => getRect(callback), 100);
+            }
+          }).exec();
+      }
 
-        return new Promise((resolve, reject) => {
-          getRect((res) => resolve(res));
-        });
-      },
+      return new Promise((resolve, reject) => {
+        getRect((res) => resolve(res));
+      });
+    },
     /**
      * 获取页面滚动区域的宽高等位置信息
      */

@@ -1,13 +1,16 @@
 Component({
   properties: {
+    /* 延迟关闭时间 */
     delay: {
       type: Number,
       value: 1500
     },
+    /* 是否显示 */
     show: {
       type: Boolean,
       value: false
     },
+    /* 显示标题信息 */
     title: {
       type: String,
       value: '',

@@ -2,18 +2,22 @@ import MonthCalculator from './month-calculator';
 
 Component({
   properties: {
+    /* 是否显示 */
     show: {
       type: Boolean,
       value: false
     },
+    /* 显示第几个月，从开始日期为第一个月 */
     current: {
       type: Number,
       value: 0
     },
+    /* 选择的日期 */
     currentDate: {
       type: String,
       value: ''
     },
+    /* 开始日期 */
     startDate: {
       type: String,
       value: '',
@@ -21,6 +25,7 @@ Component({
         this._getTotalMonth();
       }
     },
+    /* 结束日期 */
     endDate: {
       type: String,
       value: '',
@@ -28,9 +33,6 @@ Component({
         this._getTotalMonth();
       }
     },
-  },
-  data: {
-
   },
   ready() {
     this._getTotalMonth();

@@ -1,17 +1,20 @@
 Component({
   properties: {
-    className: {
-      type: String,
-      value: ''
-    },
+    /* Tab标题的数据 */
     list: {
       type: Array,
       value: []
     },
+    /* 选中的索引 */
     activeIndex: {
       type: Number,
       value: 0
-    }
+    },
+    /* 主题样式 */
+    className: {
+      type: String,
+      value: ''
+    },
   },
   methods: {
     action(event) {

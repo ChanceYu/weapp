@@ -1,9 +1,11 @@
 Component({
   properties: {
+    /* 区域 */
     region: {
       type: Array,
       value: []
     },
+    /* 显示的文字 */
     label: {
       type: String,
       value: ''
