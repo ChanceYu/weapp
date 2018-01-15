@@ -25,5 +25,8 @@ Page({
       event: event,
       show: true
     });
+  },
+  onSelectPopover(event) {
+    console.log(event.detail.item);
   }
 })

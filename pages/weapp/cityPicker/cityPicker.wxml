@@ -6,7 +6,7 @@
     </view>
     <view class="page__bd page__bd_spacing weapp-bg-white">
         <view class="weapp-city-picker-box">
-            <weapp-city-picker show="{{isCityPickerShow}}" />
+            <weapp-city-picker show="{{isCityPickerShow}}" bind:change="onChangeCity" />
         </view>
     </view>
 </view>

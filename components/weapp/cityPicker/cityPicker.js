@@ -18,6 +18,8 @@ Component({
 
       this.setData({ region });
       this._setLabel();
+
+      this.triggerEvent('change', { region });
     },
     _setLabel() {
       let region = this.data.region;

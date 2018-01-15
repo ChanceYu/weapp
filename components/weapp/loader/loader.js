@@ -16,12 +16,9 @@ Component({
       type: String,
       value: '正在加载'
     },
-    noMoreTxt: {
+    nomoreTxt: {
       type: String,
       value: '没有更多数据了'
     }
-  },
-  methods: {
-    
   }
 })

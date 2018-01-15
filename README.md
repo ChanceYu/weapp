@@ -9,11 +9,13 @@
   <h1></h1>
 </div>
 
-**旧版本不再维护，新版本全部基于微信的Component封装！** 组件的使用方式完全改变！查看旧版本[weapp v1](https://github.com/ChanceYu/weapp/tree/v1)。
+**旧版本不再维护，新版本全部基于微信的Component封装！** 组件的使用方式完全改变！
+
+查看旧版本[查看v1](https://github.com/ChanceYu/weapp/tree/v1)，下载旧版本 [下载v1](https://github.com/ChanceYu/weapp/releases)
 
 **新版本基于微信的Component自定义组件封装**，简洁的组件化编程，关于Component自定义组件参考 [Component API](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/custom-component/)。
 
-注意需要开启微信开发者工具中的ES6转ES5功能，请使用大于`1.6.3`版本的小程序基础库，并将微信更新到最新版本。
+注意需要开启微信开发者工具中的ES6转ES5功能，请使用**大于`1.6.3`版本**的小程序基础库，并将微信更新到最新版本。
 
 ## 项目预览
 ![weapp组件](./assets/images/desc/components.gif)
@@ -54,9 +56,7 @@
 * 公共方法的封装，如URL参数转换
 
 ## 组件使用
-需要在每个页面的文件配置参数，如下：
-
-配置页面中的组件引用字段`usingComponents`
+* 需要在使用组件的页面json配置文件中加入以下字段，配置页面中的组件引用声明`usingComponents`
 ```javascript
 // page.json
 {
@@ -66,12 +66,13 @@
   }
 }
 ```
-引入组件模板
+* 使用组件，引入组件模板
 ```html
 <!-- page.wxml-->
 <weapp-toast title="{{ toastTitle }}" bind:hide="onToastHide" />
 <weapp-tab list="{{ list1 }}" activeIndex="{{activeIndex}}" bind:change="onTabChange" />
 ```
+
 下面是展示`Tab`组件的简单使用，具体示例参考项目内部`pages/weapp/tab`中代码。其它类型组件使用基本和这种调用方式类似。
 
 ```javascript
@@ -136,16 +137,20 @@ Page({
 - `delay`自动关闭的延迟时间，单位毫秒，默认: `1500`
 ###### 事件
 - `hide`关闭之后回调
+###### 使用
+```html
+<weapp-toast title="{{ toastTitle }}" bind:hide="onToastHide" />
+```
 
 
 ### weapp-tab
 选项卡
 ###### 属性
 - `list`选项卡标题
-- `activeIndex`选中的索引，默认: `0`
-- `className`主题样式，默认为空，可传入`weapp-tab`或其它自定义样式
+- `active-index`选中的索引，默认: `0`
+- `class-name`主题样式，默认为空，可传入`weapp-tab`或其它自定义样式
 ###### 事件
-- `change`切换的回调，参数index索引
+- `change`切换的回调，参数`event`，其中`event.detail.activeIndex`为选中的当前索引
 
 
 ### weapp-city-picker
@@ -153,17 +158,17 @@ Page({
 ###### 属性
 - `region`提示信息
 ###### 事件
-- `change`切换的回调，参数region选择的区域信息
+- `change`切换的回调，参数`event`，其中`event.detail.region`为选择的区域信息
 
 
 ### weapp-loader
 加载更多、暂无数据提示，通常配合上拉数据列表使用
 ###### 属性
-- `iconType`小程序icon组件的type类型，默认: `search`
+- `icon-type`小程序icon组件的type类型，默认: `search`
 - `status`当前的状态，可选值: `loading`加载中、`nomore`没有更多、`empty`暂无数据，默认: `loading`
-- `emptyTxt`暂无数据提示文字，默认: `暂无数据`
-- `loadingTxt`加载中提示文字，默认: `正在加载`
-- `noMoreTxt`没有更多提示文字，默认: `没有更多数据了`
+- `empty-txt`暂无数据提示文字，默认: `暂无数据`
+- `loading-txt`加载中提示文字，默认: `正在加载`
+- `nomore-txt`没有更多提示文字，默认: `没有更多数据了`
 
 
 ### weapp-popover
@@ -172,7 +177,7 @@ Page({
 ![weapp-popover](./assets/images/preview/popover.gif)
 ###### 属性
 - `list`菜单列表
-- `pageSelector`整个页面最外层容器的CSS的选择器，默认为`.page`
+- `page-selector`整个页面最外层容器的CSS的选择器，默认为`.page`
 - `dir`箭头方位，可选值`tl tc tr rt rc rb bl bc br lt lc lb`，分别代表上右下左中，组合而成的12个方位
   - `tl` 对应 `top-left`
   - `tc` 对应 `top-center`
@@ -187,7 +192,7 @@ Page({
   - `lc` 对应 `left-center`
   - `lb` 对应 `left-bottom`
 ###### 事件
-- `select`选择每项的回调，参数index索引
+- `select`选择每项的回调，参数`event`，其中`event.detail.item`为选中的当前项
 - `show`显示的回调
 - `hide`隐藏的回调
 
@@ -207,13 +212,13 @@ Page({
 <br><br>
 ![weapp-calendar-picker](./assets/images/preview/calendarPicker.gif)
 ###### 属性
-- `startDate`开始日期
-- `endDate`结束日期
-- `currentDate`默认选择的日期
+- `start-date`开始日期
+- `end-date`结束日期
+- `current-date`默认选择的日期
 - `show`是否一开始就显示，默认: `false`
 - `current`默认显示第几个月，从开始日期的月份为第一个月，默认: `0`
 ###### 事件
-- `change`选中日期的回调函数
+- `change`选中日期的回调函数，参数`event`，其中`event.detail.currentDate`为选中的当前日期
 
 
 ---------

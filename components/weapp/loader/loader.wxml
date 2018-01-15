@@ -9,7 +9,7 @@
       <text class="weapp-loader-more-txt loading">{{ loadingTxt }}</text>
     </view>
     <view class="more-none" wx:if="{{status == 'nomore'}}">
-      <text class="weapp-loader-more-txt">{{ noMoreTxt }}</text>
+      <text class="weapp-loader-more-txt">{{ nomoreTxt }}</text>
     </view>
   </view>
 </view>

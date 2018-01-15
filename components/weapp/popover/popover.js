@@ -35,6 +35,10 @@ Component({
   },
   methods: {
     select(event) {
+      let { list } = this.data;
+      let idx = event.currentTarget.dataset.idx;
+
+      this.triggerEvent('select', { item: { value: list[idx], index: idx } });
       this.hide();
     },
     tapMask(event) {
@@ -343,6 +347,8 @@ Component({
             componentData.setStyle = true;
 
             this.setData(componentData);
+
+            this.triggerEvent('show', {});
           });
       },
     /**
@@ -355,6 +361,8 @@ Component({
         componentData.setStyle = false;
 
         this.setData(componentData);
+
+        this.triggerEvent('hide', {});
       }
   }
 })

@@ -75,6 +75,8 @@ Component({
         current: todayMonthIndex,
         currentDate: todayDate
       });
+
+      this.triggerEvent('change', { currentDate: todayDate });
     },
     tapMask() {
       this.setData({
@@ -90,6 +92,8 @@ Component({
       this.setData({
         currentDate: dataset.datestr
       });
+
+      this.triggerEvent('change', { currentDate: dataset.datestr });
     },
     _getTotalMonth() {
       let { startDate, endDate } = this.properties;
