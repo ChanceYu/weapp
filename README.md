@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="360" src="assets/images/logo.png" alt="weapp" />
+  <img width="360" src="assets/images/logo-v2.png" alt="weapp" />
   <br>
 
   <a href="javascript:;"><img src="https://img.shields.io/badge/language-JavaScript-brightgreen.svg" /></a>
@@ -9,9 +9,7 @@
   <h1></h1>
 </div>
 
-**旧版本不再维护，新版本全部基于微信的Component封装！** 组件的使用方式完全改变！
-
-查看旧版本[查看v1](https://github.com/ChanceYu/weapp/tree/v1)，下载旧版本 [下载v1](https://github.com/ChanceYu/weapp/releases)
+**旧版本v1不再维护，新版本全部基于微信的Component封装！** 组件的使用方式完全改变！[查看v1版本](https://github.com/ChanceYu/weapp/tree/v1)，[下载v1版本](https://github.com/ChanceYu/weapp/releases)
 
 **新版本基于微信的Component自定义组件封装**，简洁的组件化编程，关于Component自定义组件参考 [Component API](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/custom-component/)。
 
@@ -86,7 +84,7 @@
 ```
 ```html
 <!-- tab.wxml -->
-<weapp-tab list="{{ list1 }}" activeIndex="{{activeIndex}}" bind:change="onTabChange" />
+<weapp-tab list="{{ list1 }}" active-index="{{activeIndex}}" bind:change="onTabChange" />
 ```
 ```javascript
 // tab.js
@@ -151,6 +149,10 @@ Page({
 - `class-name`主题样式，默认为空，可传入`weapp-tab`或其它自定义样式
 ###### 事件
 - `change`切换的回调，参数`event`，其中`event.detail.activeIndex`为选中的当前索引
+###### 使用
+```html
+<weapp-tab list="{{ list1 }}" active-index="{{activeIndex}}"  bind:change="onTabChange" />
+```
 
 
 ### weapp-city-picker
@@ -159,6 +161,10 @@ Page({
 - `region`提示信息
 ###### 事件
 - `change`切换的回调，参数`event`，其中`event.detail.region`为选择的区域信息
+###### 使用
+```html
+<weapp-city-picker show="{{isCityPickerShow}}" bind:change="onChangeCity" />
+```
 
 
 ### weapp-loader
@@ -169,6 +175,10 @@ Page({
 - `empty-txt`暂无数据提示文字，默认: `暂无数据`
 - `loading-txt`加载中提示文字，默认: `正在加载`
 - `nomore-txt`没有更多提示文字，默认: `没有更多数据了`
+###### 使用
+```html
+<weapp-loader status="{{status}}" />
+```
 
 
 ### weapp-popover
@@ -195,6 +205,10 @@ Page({
 - `select`选择每项的回调，参数`event`，其中`event.detail.item`为选中的当前项
 - `show`显示的回调
 - `hide`隐藏的回调
+###### 使用
+```html
+<weapp-popover list="{{list}}" dir="{{dir}}" event="{{event}}" show="{{show}}" bind:select="onSelectPopover" />
+```
 
 
 ### weapp-toptip
@@ -205,6 +219,10 @@ Page({
 - `delay`自动关闭的延迟时间，单位毫秒，默认: `1500`
 ###### 事件
 - `hide`关闭之后回调
+###### 使用
+```html
+<weapp-toptip type="{{ type }}" title="{{ title }}" />
+```
 
 
 ### weapp-calendar-picker
@@ -219,6 +237,10 @@ Page({
 - `current`默认显示第几个月，从开始日期的月份为第一个月，默认: `0`
 ###### 事件
 - `change`选中日期的回调函数，参数`event`，其中`event.detail.currentDate`为选中的当前日期
+###### 使用
+```html
+<weapp-calendar-picker start-date="2017-07-07" end-date="2018-08-08" show="{{ isCalendarPickerShow }}" bind:change="onChangeDate" />
+```
 
 
 ---------
