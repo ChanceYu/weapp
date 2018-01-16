@@ -14,7 +14,7 @@ Page({
     this.setData({
       list: ['选项1', '选项2', '选项3'],
       dir: dir,
-      event: event,
+      elemId: 'btnPopover',
       show: true
     });
   },
@@ -22,7 +22,7 @@ Page({
     this.setData({
       list: ['操作菜单1', '操作菜单2', '操作菜单3'],
       dir: 'tc',
-      event: event,
+      elemId: 'btnPopover2',
       show: true
     });
   },

@@ -1,4 +1,4 @@
-<weapp-popover list="{{list}}" dir="{{dir}}" event="{{event}}" show="{{show}}" bind:select="onSelectPopover" />
+<weapp-popover list="{{list}}" dir="{{dir}}" elem-id="{{elemId}}" show="{{show}}" bind:select="onSelectPopover" />
 
 <view class="page">
     <view class="page__hd">

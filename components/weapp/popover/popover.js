@@ -18,8 +18,11 @@ Component({
       type: String,
       value: 'auto'
     },
-    /* 根据哪个元素定位 */
-    event: Object,
+    /* 根据哪个元素定位，元素的ID */
+    elemId: {
+      type: String,
+      value: ''
+    },
     /* 页面最外层容器 */
     pageSelector: {
       type: String,
@@ -308,18 +311,11 @@ Component({
      * @param {String} dir 箭头方向，tl tc tr rt rc rb bl bc br lt lc lb
      */
     show() {
-        let { event, dir} = this.data;
-        let id = '';
+        let { elemId, dir} = this.data;
 
-        if (typeof event === 'string') {
-          id = event;
-        } else {
-          id = event.currentTarget.id;
-        }
+        if (!elemId) this._throwError_('event.currentTarget 缺少属性 elemId');
 
-        if (!id) this._throwError_('event.currentTarget 缺少属性 id');
-
-        let selectorId = `#${id}`;
+        let selectorId = `#${elemId}`;
         let componentData = {};
 
         componentData.left = 0;

@@ -54,7 +54,7 @@
 * 公共方法的封装，如URL参数转换
 
 ## 组件使用
-* 需要在使用组件的页面json配置文件中加入以下字段，配置页面中的组件引用声明`usingComponents`
+* 需要在使用组件的页面json配置文件中加入以下字段，配置组件的引用声明`usingComponents`
 ```javascript
 // page.json
 {
@@ -146,7 +146,7 @@ Page({
 ###### 属性
 - `list`选项卡标题
 - `active-index`选中的索引，默认: `0`
-- `class-name`主题样式，默认为空，可传入`weapp-tab`或其它自定义样式
+- `theme`主题样式，默认为空，可传入`weapp-tab`或其它自定义样式
 ###### 事件
 - `change`切换的回调，参数`event`，其中`event.detail.activeIndex`为选中的当前索引
 ###### 使用
@@ -188,6 +188,7 @@ Page({
 ###### 属性
 - `list`菜单列表
 - `page-selector`整个页面最外层容器的CSS的选择器，默认为`.page`
+- `elem-id`根据哪个元素定位，元素的ID
 - `dir`箭头方位，可选值`tl tc tr rt rc rb bl bc br lt lc lb`，分别代表上右下左中，组合而成的12个方位
   - `tl` 对应 `top-left`
   - `tc` 对应 `top-center`
@@ -207,7 +208,7 @@ Page({
 - `hide`隐藏的回调
 ###### 使用
 ```html
-<weapp-popover list="{{list}}" dir="{{dir}}" event="{{event}}" show="{{show}}" bind:select="onSelectPopover" />
+<weapp-popover list="{{list}}" dir="{{dir}}" elem-id="{{elemId}}" show="{{show}}" bind:select="onSelectPopover" />
 ```
 
 

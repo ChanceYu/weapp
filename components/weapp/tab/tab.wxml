@@ -1,4 +1,4 @@
-<view class="weui-navbar {{className || ''}}">
+<view class="weui-navbar {{theme || ''}}">
     <block
       wx:for="{{list}}"
       wx:for-index="idx"

@@ -11,7 +11,7 @@ Component({
       value: 0
     },
     /* 主题样式 */
-    className: {
+    theme: {
       type: String,
       value: ''
     },
