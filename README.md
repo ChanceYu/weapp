@@ -13,7 +13,7 @@
 
 注意需要开启微信开发者工具中的ES6转ES5功能，请使用**大于`1.6.3`版本**的小程序基础库，并将微信更新到最新版本。
 
-> 如果你需要一套代码开发微信小程序和支付宝小程序，那么[mpapi插件](https://github.com/ChanceYu/mpapi)也许能协助你
+> 如果你需要一套代码开发微信小程序和支付宝小程序，那么 [mpapi 插件](https://github.com/ChanceYu/mpapi) 也许能协助你（微信小程序和支付宝小程序 API 兼容插件）
 
 ## 项目预览
 ![weapp组件](./assets/images/desc/components.gif)
