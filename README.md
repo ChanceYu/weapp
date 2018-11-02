@@ -9,13 +9,11 @@
   <h1></h1>
 </div>
 
-**旧版本v1不再维护，新版本全部基于微信的Component封装！** 组件的使用方式完全改变！[查看v1版本](https://github.com/ChanceYu/weapp/tree/v1)，[下载v1版本](https://github.com/ChanceYu/weapp/releases)
-
 **基于微信的Component自定义组件封装**，简洁的组件化编程，关于Component自定义组件参考 [Component API](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/custom-component/)。
 
 注意需要开启微信开发者工具中的ES6转ES5功能，请使用**大于`1.6.3`版本**的小程序基础库，并将微信更新到最新版本。
 
-> 如果你需要一套代码开发微信小程序和支付宝小程序，那么 [mpapi](https://github.com/ChanceYu/mpapi) 插件也许能协助你
+> 如果你需要一套代码开发微信小程序和支付宝小程序，那么[mpapi插件](https://github.com/ChanceYu/mpapi)也许能协助你
 
 ## 项目预览
 ![weapp组件](./assets/images/desc/components.gif)
