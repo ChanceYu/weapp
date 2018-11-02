@@ -5,7 +5,7 @@
   <a href="javascript:;"><img src="https://img.shields.io/badge/language-JavaScript-brightgreen.svg" /></a>
   <a href="https://opensource.org/licenses/mit-license.php"><img src="https://img.shields.io/badge/license-MIT-blue.svg" /></a>
 
-  <p><strong>微信小程序组件和功能封装，简洁的组件化编程（持续更新中...）</strong></p>
+  <p><strong>微信小程序组件和功能封装，简洁的组件化编程</strong></p>
   <h1></h1>
 </div>
 
@@ -14,6 +14,8 @@
 **基于微信的Component自定义组件封装**，简洁的组件化编程，关于Component自定义组件参考 [Component API](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/custom-component/)。
 
 注意需要开启微信开发者工具中的ES6转ES5功能，请使用**大于`1.6.3`版本**的小程序基础库，并将微信更新到最新版本。
+
+> 如果你需要一套代码开发微信小程序和支付宝小程序，那么 [mpapi](https://github.com/ChanceYu/mpapi) 插件也许能协助你
 
 ## 项目预览
 ![weapp组件](./assets/images/desc/components.gif)
