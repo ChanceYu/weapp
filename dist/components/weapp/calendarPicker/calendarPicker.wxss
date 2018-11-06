@@ -41,7 +41,7 @@
 .weapp-calendar-picker.shown .weapp-calendar-picker-mask{
   opacity: 1;
    animation:fadeIn .2s 1;
-  -webkit-animation:fadeIn .2s 1; 
+  -webkit-animation:fadeIn .2s 1;
 }
 
 .weapp-calendar-picker swiper{

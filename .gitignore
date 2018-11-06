@@ -21,7 +21,6 @@ $RECYCLE.BIN/
 .vscode
 
 node_modules
-dist
 build
 
 project.config.json

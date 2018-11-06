@@ -1,4 +1,4 @@
-import common from '../../assets/js/common';
+import common from '../../js/common';
 
 Page({
   data: {

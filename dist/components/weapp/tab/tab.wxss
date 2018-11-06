@@ -1,6 +1,6 @@
 @import "/components/libs/weui/weui.wxss";
 
-.weapp-tab .weui-navbar__item{
+.weui-navbar__item{
   background: #f5f5f5;
   color: #32b16c;
   height: 20px;
@@ -10,8 +10,8 @@
   display: inline-block;
 }
 
-.weapp-tab .weui-bar__item_on{
-  color: #fff;
+.weui-bar__item_on{
+  color: #fff!important;
   background: #32b16c;
 }
 

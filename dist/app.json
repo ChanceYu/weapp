@@ -47,20 +47,20 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "assets/images/wechat.png",
-        "selectedIconPath": "assets/images/wechatHL.png",
+        "iconPath": "images/wechat.png",
+        "selectedIconPath": "images/wechatHL.png",
         "text": "WeApp"
       },
       {
         "pagePath": "pages/libs/weui/index/index",
-        "iconPath": "assets/images/wechat.png",
-        "selectedIconPath": "assets/images/wechatHL.png",
+        "iconPath": "images/wechat.png",
+        "selectedIconPath": "images/wechatHL.png",
         "text": "WeUI"
       },
       {
         "pagePath": "pages/libs/font-awesome/font-awesome",
-        "iconPath": "assets/images/wechat.png",
-        "selectedIconPath": "assets/images/wechatHL.png",
+        "iconPath": "images/wechat.png",
+        "selectedIconPath": "images/wechatHL.png",
         "text": "FontAwesome"
       }
     ]
